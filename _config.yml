@@ -21,6 +21,9 @@ course:
       I’m always signed into Basecamp and closely monitor my notifications. Message or email any
       time—I make students a priority, and I will repond as soon as I am able.
 
+collections:
+  - projects
+
 defaults:
   -
     scope:
