@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% assign course = site.course %}{% assign instructor = site.course.instructor %}
+  <title>{{ course.number }}: {% if page.title %}{{ page.title}}{% else %}{{ course.title }}{% endif %}</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/screen.css" />
+</head>
+<body>
+<header id="header">
+  <h1>
+    <a rel="home" href="{{ site.url }}{{ site.baseurl }}/">{{ course.number }}: {{ course.title}}</a>
+  </h1>
+  <p class="tagline">
+    {% if course.tagline %}{{ course.tagline }}{% endif %}
+    Taught by <a href="#instructor">{{ instructor.title }} {{ instructor.name }}</a>,
+    {{ course.term }}.
+  </p>
+</header>
+<main id="content">
+
+  {{ content }}
+
+</main>
+
+<aside id="instructor">
+  <header>
+    <h3>Instructor</h3>
+  </header>
+  <ul>
+    <li>
+      <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
+      {{ site.course.instructor.full_title }}
+    </li>
+    <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
+    <li id="office-hours">
+      {{ instructor.office_hours }}
+    </li>
+  </ul>
+</aside>
+
+<footer id="footer">
+  <small>Site content &amp; design by Karl Stolley.</small>
+</footer>
+</body>
+</html>
