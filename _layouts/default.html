@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" id="{{page.id}}">
+<html lang="en" id="{{page.id}}" prefix="og: http://ogp.me/ns#">
 <head>{% assign course = site.course %}{% assign instructor = site.course.instructor %}
-  <title>{{ course.number }}: {% if page.title %}{{ page.title}}{% else %}{{ course.title }}{% endif %}</title>
   <meta charset="utf-8" />
+  <title>{{ course.number }}: {% if page.title %}{{ page.title}}{% else %}{{ course.title }}{% endif %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
   <link rel="stylesheet" href="{{ site.baseurl }}assets/css/screen.css" />
   <link rel="stylesheet" href="{{ site.baseurl }}assets/css/print.css" media="print" />
+  <!-- Open Graph -->
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}" />
+  <meta property="og:title" content="{{ course.number }}: {{ course.title }}" />
+  <meta property="og:description" content="{{ course.tagline | strip_newlines }}" />
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.uid }}.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:type" content="website" />
 </head>
 <body>
 <header id="header">
