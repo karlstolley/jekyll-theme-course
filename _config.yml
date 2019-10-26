@@ -1,5 +1,6 @@
 url: https://courses.stolley.co
-baseurl: /te
+uid: te
+baseurl: /te/
 
 course:
   number: COM 425/529
