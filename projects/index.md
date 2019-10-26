@@ -1,5 +1,6 @@
 ---
 title: Course Projects
+id: projects
 ---
 
 {% for project in site.projects %}
