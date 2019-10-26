@@ -16,14 +16,25 @@
 </head>
 <body>
 <header id="header">
-  <h1>
-    <a rel="home" href="{{ site.url }}{{ site.baseurl }}">{{ course.number }}: {{ course.title}}</a>
-  </h1>
+  <a rel="home" href="{{ site.url }}{{ site.baseurl }}">
+    <small>{{ course.number }}</small>
+    <h1>{{ course.title}}</h1>
+  </a>
   <p class="tagline">
     {% if course.tagline %}{{ course.tagline }}{% endif %}
     Taught by <a href="#instructor">{{ instructor.title }} {{ instructor.name }}</a>,
     {{ course.term }}.
   </p>
+  <nav id="navigation">
+    <ul class="nav">
+      <li id="nav-cal"><a href="{{ site.baseurl }}#this-week">Calendar</a></li>
+      <li id="nav-bcp"><a href="https://3.basecamp.com/3058761/projects/8576268">Basecamp</a></li>
+      <li id="nav-dem"><a href="https://github.com/itmd-362-2019">Demos</a></li>
+      <li id="nav-lnk"><a href="{{ site.baseurl }}#links">Links</a></li>
+      <li id="nav-pro"><a href="{{ site.baseurl }}projects/#current">Projects</a></li>
+      <li id="nav-pol"><a href="{{ site.baseurl }}policies/">Policies</a></li>
+    </ul>
+  </nav>
 </header>
 <main id="content">
 
@@ -38,7 +49,7 @@
   <ul>
     <li>
       <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
-      {{ site.course.instructor.full_title }}
+      {{ site.course.instructor.full_title | escape }}
     </li>
     <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
     <li id="office-hours">
@@ -48,7 +59,12 @@
 </aside>
 
 <footer id="footer">
-  <small>Site content &amp; design by Karl Stolley.</small>
+  <p class="fineprint">
+  Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
+  Licensed under
+  <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
+  <a id="github" href="{{ instructor.github }}{{ site.uid }}">Source hosted on GitHub</a>.
+</p>
 </footer>
 </body>
 </html>

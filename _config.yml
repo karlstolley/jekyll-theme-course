@@ -8,12 +8,16 @@ course:
   tagline: >
     Online course covering theory and principles of editing through intensive applied practice.
   term: Spring 2020
+  license:
+    name: Creative Commons
+    url: https://creativecommons.org/licenses/by/4.0/
   instructor:
     name: Karl Stolley
     full_title: Associate Professor of Digital Writing & Rhetoric
     honorific: Dr.
     title: Professsor
     url: https://stolley.co/
+    github: https://github.com/karlstolley/
     email: karl.stolley@gmail.com
     office_hours: >
       Office hours via Basecamp Chat or Pings on Tuesdays, 4pm to 5pm, or by appointment or chance.
