@@ -12,10 +12,10 @@ course:
     name: Creative Commons
     url: https://creativecommons.org/licenses/by/4.0/
   instructor:
-    name: Karl Stolley
-    full_title: Associate Professor of Digital Writing & Rhetoric
     honorific: Dr.
-    title: Professsor
+    name: Karl Stolley
+    title: Professor
+    full_title: Associate Professor of Digital Writing & Rhetoric
     url: https://stolley.co/
     github: https://github.com/karlstolley/
     email: karl.stolley@gmail.com
