@@ -1,17 +1,15 @@
 url: https://courses.stolley.co
-baseurl: /wsi
+baseurl: /te
 
 course:
-  number: ITMD 467/567
-  title: Web Systems Integration
+  number: COM 425/529
+  title: Technical Editing
   tagline: >
-    Enterprise-scale web development and web infrastructure to integrate server-side applications
-    and databases with client-side rich internet applications in response to a defined business
-    problem.
+    Online course covering theory and principles of editing through intensive applied practice.
   term: Spring 2020
   instructor:
     name: Karl Stolley
-    full_title: Associate Professor of Information Technology and Management
+    full_title: Associate Professor of Digital Writing & Rhetoric
     honorific: Dr.
     title: Professsor
     url: https://stolley.co/
