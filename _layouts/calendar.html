@@ -6,20 +6,18 @@ layout: default
   <header>
     <h2>Calendar</h2>
   </header>
-{% assign week_num = "Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen,Seventeen,Eighteen,Nineteen,Twenty,Twenty-One,Twenty-Two" | split: "," %}
-{% for week in site.data.calendar %}
+{% assign spelled_week = "Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen,Seventeen,Eighteen,Nineteen,Twenty,Twenty-One,Twenty-Two" | split: "," %}
+{% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
-  {% if week_int < 10 %}
-    {% assign zeropad = "0" %}
-  {% else %}
-    {% assign zeropad = "" %}
-  {% endif %}
-  <article id="week-{{ zeropad }}{{ forloop.index }}" data-week="{{ week.begins | date: '%U' }}" data-expires="{{ week.expires }}">
+  {% capture weeknum %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
+  {% assign week = site.data.weeks[weeknum] %}
+
+  <article id="week-{{ weeknum }}" data-week="{{ entry.begins | date: '%U' }}" data-expires="{{ entry.expires }}">
     <header>
       <h3>
         {{ week.theme | escape }}
       </h3>
-      <small>Week&nbsp;{{ week_num[forloop.index] }}</small>
+      <small>Week&nbsp;{{ spelled_week[forloop.index] }}</small>
     </header>
   </article>
 {% endfor %}

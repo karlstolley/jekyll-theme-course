@@ -1,48 +1,32 @@
-- theme: Copyeditors and Readers & Writers
-  begins: 2020-01-13
+- begins: 2020-01-13
   expires: &two 2020-01-21
-- theme: Copyediting Basics
-  begins: *two
+- begins: *two
   expires: &three 2020-01-27
-- theme: Punctuation
-  begins: *three
+- begins: *three
   expires: &four 2020-02-03
-- theme: Spelling, Capitalization
-  begins: *four
+- begins: *four
   expires: &five 2020-02-10
-- theme: Numbers, Numerals; Abbreviations
-  begins: *five
+- begins: *five
   expires: &six 2020-02-17
-- theme: "Grammar I: Nouns, Pronouns, Adjectives"
-  begins: *six
+- begins: *six
   expires: &seven 2020-02-24
-- theme: "Grammar II: Verbs, Adverbs, Prepositions; Conjunctions"
-  begins: *seven
+- begins: *seven
   expires: &eight 2020-03-02
-- theme: Errors and Usage
-  begins: *eight
+- begins: *eight
   expires: &nine 2020-03-09
-- theme: Figures and Tables; Mathematical Formulas
-  begins: *nine
+- begins: *nine
   expires: &eleven 2020-03-23
-- theme: Spring Break
-  begins: 2020-03-16
+- begins: 2020-03-16
   expires: *eleven
-- theme: Quotations and Dialogue
-  begins: *eleven
+- begins: *eleven
   expires: &twelve 2020-03-30
-- theme: "Citations and References I: CMS Notes and Bibliography"
-  begins: *twelve
+- begins: *twelve
   expires: &thirteen 2020-04-06
-- theme: "Citations and References II: CMS Author-Date References"
-  begins: *thirteen
+- begins: *thirteen
   expires: &fourteen 2020-04-13
-- theme: Proofreading, Indexes
-  begins: *fourteen
+- begins: *fourteen
   expires: &fifteen 2020-04-20
-- theme: Copyediting Professionally
-  begins: *fifteen
+- begins: *fifteen
   expires: &sixteen 2020-04-27
-- theme: Work Week
-  begins: *sixteen
+- begins: *sixteen
   expires: 2020-05-13
