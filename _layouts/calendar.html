@@ -18,6 +18,33 @@ layout: default
       </h3>
       <small>Week&nbsp;{{ util.spelled_nums[forloop.index] }}</small>
     </header>
+    {% for meeting in week.meetings %}
+    <section class="agenda">
+      <!--
+        Logic for outputting this heading; "Discussion Topics, Week of January 13" for online
+        courses? Or async courses? Otherwise, run the date based on the days listed in `_config.yml`
+        based on the offsets in `_data/utility.yml`
+      -->
+      {% assign day_key = site.course.days[forloop.index0] | downcase %}
+      {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
+      <h4>{{ site.course.days[forloop.index0] }}, {{ entry.begins | date: "%s" | plus: day_offset | date: "%B %e" }}</h4>
+      <ol>
+        <li>Thing</li>
+      </ol>
+    </section>
+    {% endfor %}
+
+    <aside class="assigned">
+      <header>
+        <h3>Assigned Work</h3>
+      </header>
+    {% for reading in week.readings %}
+
+    {% endfor %}
+    {% for task in week.tasks %}
+
+    {% endfor %}
+    </aside>
   </article>
 {% endfor %}
 
