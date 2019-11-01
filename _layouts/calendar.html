@@ -1,12 +1,11 @@
 ---
 layout: default
 ---
-
+{% assign util = site.data.utility %}
 <section class="primary">
   <header>
     <h2>Calendar</h2>
   </header>
-{% assign spelled_week = "Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen,Seventeen,Eighteen,Nineteen,Twenty,Twenty-One,Twenty-Two" | split: "," %}
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture weeknum %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
@@ -17,7 +16,7 @@ layout: default
       <h3>
         {{ week.theme | escape }}
       </h3>
-      <small>Week&nbsp;{{ spelled_week[forloop.index] }}</small>
+      <small>Week&nbsp;{{ util.spelled_nums[forloop.index] }}</small>
     </header>
   </article>
 {% endfor %}
