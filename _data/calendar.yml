@@ -1,6 +1,6 @@
 - begins: 2020-01-13
-  expires: &two 2020-01-21
-- begins: *two
+  expires: 2020-01-21
+- begins: 2020-01-20
   expires: &three 2020-01-27
 - begins: *three
   expires: &four 2020-02-03
