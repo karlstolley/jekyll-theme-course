@@ -1,5 +1,4 @@
 url: https://courses.stolley.co
-uid: te
 baseurl: /te/
 
 timezone: America/Chicago
@@ -7,6 +6,7 @@ timezone: America/Chicago
 course:
   number: COM 425/529
   title: Technical Editing
+  uid: te
   tagline: >
     Online course covering theory and principles of editing through intensive applied practice.
   term: Spring 2020
