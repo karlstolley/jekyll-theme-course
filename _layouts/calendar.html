@@ -23,10 +23,11 @@ layout: default
       {% if site.course.days %}
         {% assign day_key = site.course.days[forloop.index0] | downcase %}
         {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
-        <h4>{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %e" }}</h4>
+        {% capture dateline %}{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %e" }}{% endcapture %}
       {% else %}
-        <h4>Discussion Topics for Week of {{ entry.begins | date: "%B %e" }}</h4>
+        {% capture dateline %}Discussion Topics for Week of {{ entry.begins | date: "%B %e" }}{% endcapture %}
       {% endif %}
+      <h4>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}">Video</a>{% endif %}</h4>
       <ol>
         {% for item in meeting.agenda %}
           <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
