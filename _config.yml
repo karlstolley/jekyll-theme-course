@@ -45,4 +45,5 @@ exclude:
   - backstop_data
   - backstop.json
   - Rakefile
-  - Gemfile*
+  - "Gemfile*"
+  - "*.gemspec"
