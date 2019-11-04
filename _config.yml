@@ -10,6 +10,9 @@ course:
   tagline: >
     Online course covering theory and principles of editing through intensive applied practice.
   term: Spring 2020
+  days:
+    - Monday
+    - Wednesday
   license:
     name: Creative Commons
     url: https://creativecommons.org/licenses/by/4.0/
