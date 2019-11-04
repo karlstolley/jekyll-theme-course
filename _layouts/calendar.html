@@ -20,14 +20,13 @@ layout: default
     </header>
     {% for meeting in week.meetings %}
     <section class="agenda">
-      <!--
-        Logic for outputting this heading; "Discussion Topics, Week of January 13" for online
-        courses? Or async courses? Otherwise, run the date based on the days listed in `_config.yml`
-        based on the offsets in `_data/utility.yml`
-      -->
-      {% assign day_key = site.course.days[forloop.index0] | downcase %}
-      {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
-      <h4>{{ site.course.days[forloop.index0] }}, {{ entry.begins | date: "%s" | plus: day_offset | date: "%B %e" }}</h4>
+      {% if site.course.days %}
+        {% assign day_key = site.course.days[forloop.index0] | downcase %}
+        {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
+        <h4>{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %e" }}</h4>
+      {% else %}
+        <h4>Discussion Topics for Week of {{ entry.begins | date: "%B %e" }}</h4>
+      {% endif %}
       <ol>
         <li>Thing</li>
       </ol>
