@@ -28,7 +28,9 @@ layout: default
         <h4>Discussion Topics for Week of {{ entry.begins | date: "%B %e" }}</h4>
       {% endif %}
       <ol>
-        <li>Thing</li>
+        {% for item in meeting.agenda %}
+          <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+        {% endfor %}
       </ol>
     </section>
     {% endfor %}
