@@ -1,32 +1,32 @@
-- begins: 2020-01-13
-  expires: 2020-01-21
-- begins: 2020-01-20
-  expires: &three 2020-01-27
+- begins: 2020-01-13T00:00
+  expires: 2020-01-21T00:00
+- begins: 2020-01-20T00:00
+  expires: &three 2020-01-27T00:00
 - begins: *three
-  expires: &four 2020-02-03
+  expires: &four 2020-02-03T00:00
 - begins: *four
-  expires: &five 2020-02-10
+  expires: &five 2020-02-10T00:00
 - begins: *five
-  expires: &six 2020-02-17
+  expires: &six 2020-02-17T00:00
 - begins: *six
-  expires: &seven 2020-02-24
+  expires: &seven 2020-02-24T00:00
 - begins: *seven
-  expires: &eight 2020-03-02
+  expires: &eight 2020-03-02T00:00
 - begins: *eight
-  expires: &nine 2020-03-09
+  expires: &nine 2020-03-09T00:00
 - begins: *nine
-  expires: &eleven 2020-03-23
-- begins: 2020-03-16
+  expires: &eleven 2020-03-23T00:00
+- begins: 2020-03-16T00:00
   expires: *eleven
 - begins: *eleven
-  expires: &twelve 2020-03-30
+  expires: &twelve 2020-03-30T00:00
 - begins: *twelve
-  expires: &thirteen 2020-04-06
+  expires: &thirteen 2020-04-06T00:00
 - begins: *thirteen
-  expires: &fourteen 2020-04-13
+  expires: &fourteen 2020-04-13T00:00
 - begins: *fourteen
-  expires: &fifteen 2020-04-20
+  expires: &fifteen 2020-04-20T00:00
 - begins: *fifteen
-  expires: &sixteen 2020-04-27
+  expires: &sixteen 2020-04-27T00:00
 - begins: *sixteen
-  expires: 2020-05-13
+  expires: 2020-05-13T00:00
