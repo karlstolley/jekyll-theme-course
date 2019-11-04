@@ -39,12 +39,26 @@ layout: default
       <header>
         <h3>Assigned Work</h3>
       </header>
-    {% for reading in week.readings %}
-
-    {% endfor %}
-    {% for task in week.tasks %}
-
-    {% endfor %}
+      {% if week.readings %}
+      <section class="readings">
+        <h4>To Read</h4>
+        <ol>
+          {% for reading in week.readings %}
+            <li>{{ reading | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+      {% if week.tasks %}
+      <section class="tasks">
+        <h4>To Do</h4>
+        <ol>
+          {% for task in week.tasks %}
+            <li>{{ task | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
     </aside>
   </article>
 {% endfor %}
