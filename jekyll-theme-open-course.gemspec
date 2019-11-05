@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-open-course"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Karl Stolley"]
   spec.email         = ["karl.stolley@gmail.com"]
   spec.homepage      = "https://stolley.dev/"
