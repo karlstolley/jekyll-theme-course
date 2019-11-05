@@ -12,12 +12,12 @@ Gem::Specification.new do |spec|
   spec.description   = "A data-driven Jekyll theme for accessible, mobile-first course sites."
 
   spec.metadata      = {
-    "bug_tracker_uri" => "https://github.com/karlstolley/jekyl-theme-open-course/issues",
-    "changelog_uri"   => "https://github.com/karlstolley/jekyl-theme-open-course/releases",
-    "documentation_uri" => "https://github.com/karlstolley/jekyl-theme-open-course/README.md",
-    "wiki_uri" => "https://github.com/karlstolley/jekyl-theme-open-course/wiki",
+    "bug_tracker_uri" => "https://github.com/karlstolley/jekyll-theme-open-course/issues",
+    "changelog_uri"   => "https://github.com/karlstolley/jekyll-theme-open-course/releases",
+    "documentation_uri" => "https://github.com/karlstolley/jekyll-theme-open-course/README.md",
+    "wiki_uri" => "https://github.com/karlstolley/jekyll-theme-open-course/wiki",
     "homepage_uri"    => "https://stolley.dev/",
-    "source_code_uri" => "https://github.com/karlstolley/jekyl-theme-open-course"
+    "source_code_uri" => "https://github.com/karlstolley/jekyll-theme-open-course"
   }
 
   spec.required_ruby_version = "~> 2.6"
