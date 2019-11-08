@@ -10,6 +10,7 @@ course:
   tagline: >
     Online course covering theory and principles of editing through intensive applied practice.
   term: Spring 2020
+  # Set `days: ""` (empty string) for weekly/asynchronous classes
   days:
     - Monday
     - Wednesday
