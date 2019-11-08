@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% for project in site.projects %}
-<article>
+<article id="project-{{ project.number | downcase }}">
   <header>
     <h2>Project {{ project.number }}: {{ project.title }}</h2>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
