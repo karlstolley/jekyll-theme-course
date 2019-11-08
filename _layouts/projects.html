@@ -3,9 +3,9 @@ layout: default
 ---
 
 {% for project in site.projects %}
-<article id="project-{{ project.number | downcase }}">
+<article id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
   <header>
-    <h2>Project {{ project.number }}: {{ project.title }}</h2>
+    <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
   </header>
   {{ project.content }}

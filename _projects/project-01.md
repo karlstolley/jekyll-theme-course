@@ -1,5 +1,4 @@
 ---
-number: One
 title: A Very Big Project
 due_date: &deadline 2020-05-25
 goals:
