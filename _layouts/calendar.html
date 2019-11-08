@@ -20,7 +20,7 @@ layout: default
     </header>
     {% for meeting in week.meetings %}
     <section class="agenda">
-      {% if site.course.days %}
+      {% if site.course.days.size > 0 %}
         {% assign day_key = site.course.days[forloop.index0] | downcase %}
         {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
         {% capture dateline %}{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %e" }}{% endcapture %}
