@@ -16,7 +16,7 @@ layout: default
       <h3>
         {{ week.theme | escape }}
       </h3>
-      <small>Week&nbsp;{{ util.spelled_nums[forloop.index] }}</small>
+      <small>Week&nbsp;{{ util.spelled_nums[week_int] }}</small>
     </header>
     {% for meeting in week.meetings %}
     <section class="agenda">
