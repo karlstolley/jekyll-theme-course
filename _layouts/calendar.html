@@ -9,7 +9,7 @@ layout: default
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture weeknum %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
-  {% assign week = site.data.weeks[weeknum] %}
+  {% assign week = site.weeks[forloop.index0] %}
 
   <article id="week-{{ weeknum }}" data-week="{{ entry.begins | date: '%U' }}" data-expires="{{ entry.expires }}">
     <header>
