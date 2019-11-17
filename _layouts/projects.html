@@ -19,7 +19,7 @@ layout: default
   <ol>
   {% for deliverable in project.deliverables %}
     <li>
-      {{ deliverable.description }} {% if deliverable.deadline %}{{ deliverable.deadline }}{% endif %}
+      {{ deliverable.description }} {% if deliverable.deadline %}<b>Due by {{ deliverable.deadline | date: "%A, %B %-d"}}</b>{% endif %}
     </li>
   {% endfor %}
   </ol>
