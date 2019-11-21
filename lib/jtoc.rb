@@ -5,7 +5,7 @@ module JTOpenCourse
   class SiteBuilder
     class << self
       def doit
-        puts "Okay, let's do it!"
+        puts "Okay, let's do it! Simply!"
       end
     end
   end
