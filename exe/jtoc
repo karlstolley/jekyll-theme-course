@@ -29,7 +29,7 @@ Mercenary.program(:jtoc) do |p|
     c.description "Do something. It. Do it."
     c.syntax "doit"
     c.action do |_,_|
-      JTOpenCourse::Builder.doit
+      JTOpenCourse::Creator.doit
     end
   end
 
