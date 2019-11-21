@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'mercenary'
+
+Mercenary.program(:jtoc) do |p|
+  p.version "0.0.1-alpha"
+  p.description "A generator for the Open Course Jekyll theme"
+  p.syntax "jt-gen <subcommand> [options]"
+  p.command(:hello) do |c|
+    c.description "Send a highly personal greeting to NAME"
+    c.syntax "hello NAME"
+    c.action do |args,options|
+      puts "Hello, #{args.first}"
+    end
+  end
+
+  p.action do |args, _|
+    if args.empty?
+      puts p
+    else
+      subcommand = args.first
+      unless p.has_command? subcommand
+        puts "Sorry, I don't know how to '#{args.first}'."
+        puts "Try running `jtgen --help` for help."
+      end
+    end
+  end
+end

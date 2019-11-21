@@ -67,3 +67,4 @@ exclude:
   - Rakefile
   - "Gemfile*"
   - "*.gemspec"
+  - exe
