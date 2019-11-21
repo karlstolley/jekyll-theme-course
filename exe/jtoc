@@ -3,7 +3,7 @@
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 
 require 'mercenary'
-require 'version'
+require 'jtoc'
 
 Mercenary.program(:jtoc) do |p|
   p.version JTOpenCourse::VERSION
