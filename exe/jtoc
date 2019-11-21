@@ -30,6 +30,10 @@ Mercenary.program(:jtoc) do |p|
     c.syntax "new COURSENAME"
     c.action do |args,_|
       course = JTOpenCourse::SiteBuilder.new(args.first)
+      if course.path.exist?
+        puts "A directory named '#{course.name}' already exists. Aborting"
+        abort
+      end
       course.create!
     end
   end
