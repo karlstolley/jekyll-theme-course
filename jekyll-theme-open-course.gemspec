@@ -21,9 +21,8 @@ Gem::Specification.new do |spec|
   }
 
   spec.required_ruby_version = "~> 2.6"
-  spec.files         = `git ls-files -z`.split("\x0").select { |f|
-    f.match(%r{^(Gemfile|_config|_data|_layouts|_projects|assets|index|projects)}i)
-  }
+  all_files = `git ls-files -z`.split("\x0")
+  spec.files         = all_files.grep(%r{^(Gemfile|_config|_data|_layouts|_projects|assets|index|projects)}i)
 
   spec.add_runtime_dependency "jekyll", "~> 4.0"
 
