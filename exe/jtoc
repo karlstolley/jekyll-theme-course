@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
 require 'mercenary'
+require 'jekyll-theme-open-course'
 
 Mercenary.program(:jtoc) do |p|
-  p.version "0.0.1-alpha"
+  p.version JTOpenCourse::VERSION
   p.description "A generator for the Open Course Jekyll theme"
   p.syntax "jt-gen <subcommand> [options]"
   p.command(:hello) do |c|
