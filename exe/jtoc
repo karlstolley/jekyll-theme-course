@@ -25,6 +25,14 @@ Mercenary.program(:jtoc) do |p|
     end
   end
 
+  p.command(:doit) do |c|
+    c.description "Do something. It. Do it."
+    c.syntax "doit"
+    c.action do |_,_|
+      JTOpenCourse::Builder.doit
+    end
+  end
+
   p.action do |args, _|
     if args.empty?
       puts p
