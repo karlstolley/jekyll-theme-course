@@ -25,11 +25,12 @@ Mercenary.program(:jtoc) do |p|
     end
   end
 
-  p.command(:doit) do |c|
-    c.description "Do something. It. Do it."
-    c.syntax "doit"
-    c.action do |_,_|
-      JTOpenCourse::SiteBuilder.doit
+  p.command(:new) do |c|
+    c.description "Create a new Open-Course themed site"
+    c.syntax "new COURSENAME"
+    c.action do |args,_|
+      course = JTOpenCourse::SiteBuilder.new(args.first)
+      course.create!
     end
   end
 
