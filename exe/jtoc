@@ -17,6 +17,14 @@ Mercenary.program(:jtoc) do |p|
     end
   end
 
+  p.command(:version) do |c|
+    c.description "Ouput the version number"
+    c.syntax "version"
+    c.action do |_,_|
+      puts JTOpenCourse::VERSION
+    end
+  end
+
   p.action do |args, _|
     if args.empty?
       puts p
