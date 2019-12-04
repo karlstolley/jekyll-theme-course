@@ -1,9 +1,5 @@
-<% anchor_date = Date.parse(start_date) %>
 - begins: <%= anchor_date %>T00:00
   expires: &two <%= anchor_date + 7 %>T00:00
-<% week_num = 2 %>
-<% while week_num < week_count %>
-- begins: *<%= spelled_nums[week_num] %>
-  expires: &<%= spelled_nums[week_num + 1] %> <%= anchor_date + (week_num * 7) %>T00:00
-  <% week_num += 1 %>
+<% week_num = 2; while week_num < week_count %>- begins: *<%= SPELLED_NUMS[week_num].downcase %>
+  expires: &<%= SPELLED_NUMS[week_num + 1].downcase %> <%= anchor_date + (week_num * 7) %>T00:00<% week_num += 1 %>
 <% end %>
