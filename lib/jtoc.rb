@@ -1,5 +1,8 @@
 module JTOpenCourse
 
+  require 'erb'
+  require 'date'
+
   VERSION = "0.0.4-alpha"
 
   SPELLED_NUMS = %w(
@@ -16,15 +19,22 @@ module JTOpenCourse
       _data policies projects syllabus/_policies syllabus/_projects syllabus/_weeks
     ).freeze
 
-    attr_reader :name, :path
+    attr_reader :name, :path, :anchor_date, :week_count, :project_count
 
     def initialize(course_name)
       @name = course_name.chomp
+      @anchor_date = Date.parse("2020-01-13")
+      @week_count = 5
+      @project_count = 3
       @path = Pathname.new(File.expand_path(name, Dir.pwd))
     end
 
     def create!
       create_directories
+      create_config_yml
+      create_calendar_data
+      create_projects
+      create_weeks
     end
 
     def starter_path
@@ -36,6 +46,33 @@ module JTOpenCourse
     end
 
     def create_template_data
+    end
+
+    def create_projects
+      pc = @project_count
+      while @project_count > 0
+        write_file("syllabus/_projects/project-#{@project_count.to_s.rjust(2,"0")}.md",process_template("syllabus/_projects/project-00.md"))
+        @project_count -= 1
+      end
+      @project_count = pc
+    end
+
+    def create_weeks
+      wc = @week_count
+      while @week_count > 0
+        write_file("syllabus/_weeks/week-#{@week_count.to_s.rjust(2,"0")}.md",process_template("syllabus/_weeks/week-00.md"))
+        @week_count -= 1
+      end
+      @week_count = wc
+    end
+
+    def create_config_yml
+      write_file("_config.yml",process_template("_config.yml"))
+    end
+
+    def create_calendar_data
+      write_file("_data/calendar.yml",process_template("_data/calendar.yml"))
+    end
 
     def mkdir_p(directories)
       Array(directories).each do |d|
@@ -48,7 +85,7 @@ module JTOpenCourse
     end
 
     def process_template(filename)
-      render_erb(template_file(filename).read)
+      render_erb(find_template_file(filename).read)
     end
 
     def find_template_file(filename)
