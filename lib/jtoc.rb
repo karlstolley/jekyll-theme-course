@@ -20,8 +20,10 @@ module JTOpenCourse
     ).freeze
 
     attr_reader :name, :path, :anchor_date, :week_count, :project_count
+    attr_accessor :counter
 
     def initialize(course_name)
+      @counter = 0
       @name = course_name.chomp
       @anchor_date = Date.parse("2020-01-13")
       @week_count = 5
@@ -49,21 +51,15 @@ module JTOpenCourse
     end
 
     def create_projects
-      pc = @project_count
-      while @project_count > 0
-        write_file("syllabus/_projects/project-#{@project_count.to_s.rjust(2,"0")}.md",process_template("syllabus/_projects/project-00.md"))
-        @project_count -= 1
+      for @counter in 1..@project_count do
+        write_file("syllabus/_projects/project-#{@counter.to_s.rjust(2,"0")}.md",process_template("syllabus/_projects/project-00.md"))
       end
-      @project_count = pc
     end
 
     def create_weeks
-      wc = @week_count
-      while @week_count > 0
-        write_file("syllabus/_weeks/week-#{@week_count.to_s.rjust(2,"0")}.md",process_template("syllabus/_weeks/week-00.md"))
-        @week_count -= 1
+      for @counter in 1..@week_count do
+        write_file("syllabus/_weeks/week-#{@counter.to_s.rjust(2,"0")}.md",process_template("syllabus/_weeks/week-00.md"))
       end
-      @week_count = wc
     end
 
     def create_config_yml
