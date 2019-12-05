@@ -20,7 +20,7 @@ module JTOpenCourse
     ).freeze
 
     SCAFFOLD_PAGE_STUBS = %w(
-      index.md projects/index.md policies/policies.md
+      index.md projects/index.md policies/index.md
     ).freeze
 
     attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter
