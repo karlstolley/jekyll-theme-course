@@ -23,9 +23,10 @@ module JTOpenCourse
       index.md projects/index.md policies/index.md
     ).freeze
 
-    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter, :url
+    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter, :url, :cc
 
     def initialize(args, options)
+      @cc = options['cc']
       @counter = 0
       @url = options['url'] ? options['url'].chomp('/') : 'http://example.com'
       @name = args.first.chomp

@@ -26,6 +26,7 @@ Mercenary.program(:jtoc) do |p|
       course site (e.g., https://example.com/PATH/)
     DESC
     c.option 'url', '-u URL', '--url URL', 'Sets the course URL (e.g., https://example.com).'
+    c.option 'cc', '-c', '--creative-commons', 'Add a Creative Commons license'
     c.action do |args, options|
       course = JTOpenCourse::SiteBuilder.new(args, options)
       if course.path.exist?
