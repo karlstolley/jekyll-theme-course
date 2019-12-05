@@ -26,7 +26,7 @@ module JTOpenCourse
       @counter = 0
       @name = course_name.chomp
       @anchor_date = Date.parse("2020-01-13")
-      @week_count = 5
+      @week_count = 20
       @project_count = 3
       @path = Pathname.new(File.expand_path(name, Dir.pwd))
     end
@@ -52,22 +52,22 @@ module JTOpenCourse
 
     def create_projects
       for @counter in 1..@project_count do
-        write_file("syllabus/_projects/project-#{@counter.to_s.rjust(2,"0")}.md",process_template("syllabus/_projects/project-00.md"))
+        process_file("syllabus/_projects/project-#{@counter.to_s.rjust(2,"0")}.md", "syllabus/_projects/project-00.md")
       end
     end
 
     def create_weeks
       for @counter in 1..@week_count do
-        write_file("syllabus/_weeks/week-#{@counter.to_s.rjust(2,"0")}.md",process_template("syllabus/_weeks/week-00.md"))
+        process_file("syllabus/_weeks/week-#{@counter.to_s.rjust(2,"0")}.md", "syllabus/_weeks/week-00.md")
       end
     end
 
     def create_config_yml
-      write_file("_config.yml",process_template("_config.yml"))
+      process_file("_config.yml")
     end
 
     def create_calendar_data
-      write_file("_data/calendar.yml",process_template("_data/calendar.yml"))
+      process_file("_data/calendar.yml")
     end
 
     def mkdir_p(directories)
@@ -78,6 +78,10 @@ module JTOpenCourse
 
     def render_erb(contents)
       ERB.new(contents).result binding
+    end
+
+    def process_file(output,input=output)
+      write_file(output,process_template(input))
     end
 
     def process_template(filename)
