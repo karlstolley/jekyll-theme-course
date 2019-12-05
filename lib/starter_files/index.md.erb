@@ -1,5 +1,5 @@
----
-title: Course <%= page.capitalize %>
-id: <%= page %>
-layout: <%= page %>
+---<% page_fragment = SCAFFOLD_PAGE_STUBS[counter].split('/').first; page_title = page_fragment == 'index.md' ? "Calendar" : page_fragment %>
+title: Course <%= page_title.capitalize %>
+id: <%= page_title.downcase %>
+layout: <%= page_title.downcase %>
 ---

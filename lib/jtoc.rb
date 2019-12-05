@@ -19,6 +19,10 @@ module JTOpenCourse
       _data policies projects syllabus/_policies syllabus/_projects syllabus/_weeks
     ).freeze
 
+    SCAFFOLD_PAGE_STUBS = %w(
+      index.md projects/index.md policies/policies.md
+    ).freeze
+
     attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter
 
     def initialize(course_name)
@@ -36,6 +40,7 @@ module JTOpenCourse
       create_calendar_data
       create_projects
       create_weeks
+      create_page_stubs
     end
 
     def starter_path
@@ -64,6 +69,13 @@ module JTOpenCourse
 
     def create_calendar_data
       process_file("_data/calendar.yml")
+    end
+
+    def create_page_stubs
+      SCAFFOLD_PAGE_STUBS.each_with_index do |stub,c|
+        @counter = c
+        process_file(stub,"index.md")
+      end
     end
 
     def mkdir_p(directories)
