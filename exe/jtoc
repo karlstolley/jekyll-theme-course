@@ -8,14 +8,7 @@ require 'jtoc'
 Mercenary.program(:jtoc) do |p|
   p.version JTOpenCourse::VERSION
   p.description "A generator for the Open Course Jekyll theme"
-  p.syntax "jt-gen <subcommand> [options]"
-  p.command(:hello) do |c|
-    c.description "Send a highly personal greeting to NAME"
-    c.syntax "hello NAME"
-    c.action do |args,options|
-      puts "Hello, #{args.first}"
-    end
-  end
+  p.syntax "jtoc <subcommand> [options]"
 
   p.command(:version) do |c|
     c.description "Ouput the version number"
