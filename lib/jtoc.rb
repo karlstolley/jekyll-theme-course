@@ -19,8 +19,7 @@ module JTOpenCourse
       _data policies projects syllabus/_policies syllabus/_projects syllabus/_weeks
     ).freeze
 
-    attr_reader :name, :path, :anchor_date, :week_count, :project_count
-    attr_accessor :counter
+    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter
 
     def initialize(course_name)
       @counter = 0
@@ -45,9 +44,6 @@ module JTOpenCourse
 
     def create_directories
       mkdir_p(SCAFFOLD_DIRECTORIES)
-    end
-
-    def create_template_data
     end
 
     def create_projects
