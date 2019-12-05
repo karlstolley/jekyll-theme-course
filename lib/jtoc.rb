@@ -40,6 +40,7 @@ module JTOpenCourse
       create_calendar_data
       create_projects
       create_weeks
+      create_policies
       create_page_stubs
     end
 
@@ -60,6 +61,14 @@ module JTOpenCourse
     def create_weeks
       for @counter in 1..@week_count do
         process_file("syllabus/_weeks/week-#{@counter.to_s.rjust(2,"0")}.md", "syllabus/_weeks/week-00.md")
+      end
+    end
+
+    def create_policies
+      Dir.chdir(starter_path) do
+        Dir.glob("syllabus/_policies/*.md").each do |f|
+          process_file(f)
+        end
       end
     end
 
