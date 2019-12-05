@@ -23,11 +23,12 @@ module JTOpenCourse
       index.md projects/index.md policies/index.md
     ).freeze
 
-    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter
+    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter, :url
 
-    def initialize(course_name)
+    def initialize(args, options)
       @counter = 0
-      @name = course_name.chomp
+      @url = options['url'] ? options['url'].chomp('/') : 'http://example.com'
+      @name = args.first.chomp
       @anchor_date = Date.parse("2020-01-13")
       @week_count = 20
       @project_count = 3

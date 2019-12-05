@@ -19,10 +19,15 @@ Mercenary.program(:jtoc) do |p|
   end
 
   p.command(:new) do |c|
-    c.description "Create a new Open-Course themed site"
-    c.syntax "new COURSENAME"
-    c.action do |args,_|
-      course = JTOpenCourse::SiteBuilder.new(args.first)
+    c.syntax "new PATH [options]"
+    c.description <<~DESC
+      Create a new course site at PATH. By design, the PATH value is used for the
+      directory value as well as the GitHub repo name, and the base URL for the
+      course site (e.g., https://example.com/PATH/)
+    DESC
+    c.option 'url', '-u URL', '--url URL', 'Sets the course URL (e.g., https://example.com).'
+    c.action do |args, options|
+      course = JTOpenCourse::SiteBuilder.new(args, options)
       if course.path.exist?
         puts "A directory named '#{course.name}' already exists. Aborting."
         abort
