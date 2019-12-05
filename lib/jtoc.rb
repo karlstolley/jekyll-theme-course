@@ -37,6 +37,7 @@ module JTOpenCourse
     def create!
       create_directories
       create_config_yml
+      create_utility_data
       create_calendar_data
       create_projects
       create_weeks
@@ -78,6 +79,10 @@ module JTOpenCourse
 
     def create_calendar_data
       process_file("_data/calendar.yml")
+    end
+
+    def create_utility_data
+      process_file("_data/utility.yml")
     end
 
     def create_page_stubs
