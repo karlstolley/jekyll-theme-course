@@ -50,7 +50,7 @@ module JTOpenCourse
       @url = set_value(options['url'],DEFAULT_VALUES[:url]).chomp('/')
       @number = set_value(options['number'],DEFAULT_VALUES[:number])
       @title = set_value(options['title'],DEFAULT_VALUES[:title])
-      @instructor = set_value(query_git_config('user.name'),DEFAULT_VALUES[:instructor])
+      @instructor = set_value(options['instructor'], set_value(query_git_config('user.name'),DEFAULT_VALUES[:instructor]))
       @cc = set_value(options['cc'], DEFAULT_VALUES[:cc])
 
       @email = set_value(query_git_config('user.email'),DEFAULT_VALUES[:email])
