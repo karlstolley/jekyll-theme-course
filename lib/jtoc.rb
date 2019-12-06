@@ -23,21 +23,65 @@ module JTOpenCourse
       index.md projects/index.md policies/index.md
     ).freeze
 
-    attr_reader :name, :path, :anchor_date, :week_count, :project_count, :counter, :url, :cc
+    DEFAULT_VALUES = {
+      weeks: 16,
+      projects: 3,
+      days: "Monday, Wednesday",
+      url: "http://example.com/",
+      number: "COM 101",
+      title: "Introduction to Communication",
+      instructor: "Horatio Q. Birdbath",
+      email: "instructor@example.com",
+      cc: false
+    }
+
+    attr_reader :counter, :name, :path, :anchor_date, :week_count, :project_count, :days, :url, :number, :title, :instructor, :cc, :email
 
     def initialize(args, options)
-      @cc = options['cc']
       @counter = 0
-      @url = options['url'] ? options['url'].chomp('/') : 'http://example.com'
       @name = args.first.chomp
-      @anchor_date = Date.parse("2020-01-13")
-      @week_count = 20
-      @project_count = 3
       @path = Pathname.new(File.expand_path(name, Dir.pwd))
+
+      @anchor_date = set_value(find_next_monday(options['monday']),find_next_monday)
+      @week_count = set_value(options['weeks'], DEFAULT_VALUES[:weeks]).to_i
+      @project_count = set_value(options['projects'], DEFAULT_VALUES[:projects]).to_i
+      @days = set_value(options['days'], DEFAULT_VALUES[:days]).split(/\W+/)
+
+      @url = set_value(options['url'],DEFAULT_VALUES[:url]).chomp('/')
+      @number = set_value(options['number'],DEFAULT_VALUES[:number])
+      @title = set_value(options['title'],DEFAULT_VALUES[:title])
+      @instructor = set_value(query_git_config('user.name'),DEFAULT_VALUES[:instructor])
+      @cc = set_value(options['cc'], DEFAULT_VALUES[:cc])
+
+      @email = set_value(query_git_config('user.email'),DEFAULT_VALUES[:email])
     end
 
     def self.path_check(name)
       Pathname.new(File.expand_path(name, Dir.pwd)).exist?
+    end
+
+    def set_value(custom,default)
+      if custom.to_s.empty?
+        custom = default
+      end
+      custom
+    end
+
+    def query_git_config(val)
+      begin
+        val = `git config --global #{val}`.chomp
+        val.empty? ? false : val
+      rescue
+        false
+      end
+    end
+
+    def find_next_monday(date=Date.today.to_s)
+      date = Date.parse(date)
+      while date.cwday > 1
+        date += 1
+      end
+      date
     end
 
     def create!

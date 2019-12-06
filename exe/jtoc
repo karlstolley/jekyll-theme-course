@@ -43,7 +43,14 @@ Mercenary.program(:jtoc) do |p|
       directory value as well as the GitHub repo name, and the base URL for the
       course site (e.g., https://example.com/PATH/)
     DESC
-    c.option 'url', '-u URL', '--url URL', 'Sets the course URL (e.g., https://example.com).'
+    c.option 'monday', '-m DATE', '--monday DATE', 'Set the first Monday of the term (e.g., 2020-01-13)'
+    c.option 'weeks', '-w NUM', '--weeks NUM', 'Set the number of weeks in the term'
+    c.option 'projects', '-p NUM', '--projects NUM', 'Set the number of major projects in the course'
+    c.option 'days', '-d DAYS', '--days DAYS', 'Set the course meeting days (e.g., "Monday, Wednesday")'
+    c.option 'url', '-u URL', '--url URL', 'Set the course URL (e.g., https://example.com).'
+    c.option 'number', '-n COURSE', '--number COURSE', 'Set the course number (e.g., "COM 101")'
+    c.option 'title', '-t TITLE', '--title TITLE', 'Set the course title (e.g., "Intro to Communication")'
+    c.option 'instructor', '-i NAME', '--instructor NAME', 'Set the instructor name (e.g., "Marcus Cicero")'
     c.option 'cc', '-c', '--creative-commons', 'Add a Creative Commons license'
     c.action do |args, options|
       course = JTOpenCourse::SiteBuilder.new(args, options)
