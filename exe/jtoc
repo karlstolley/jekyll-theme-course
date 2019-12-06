@@ -25,7 +25,8 @@ Mercenary.program(:jtoc) do |p|
     DESC
     c.action do |_,_|
       puts "Enter the short identifier for this course:"
-      while path = gets.chomp
+      while true
+        path = gets.chomp
         if JTOpenCourse::SiteBuilder.path_check(path)
           puts "A course with that identifier already exists. Try another:"
         else
