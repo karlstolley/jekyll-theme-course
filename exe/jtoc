@@ -18,6 +18,23 @@ Mercenary.program(:jtoc) do |p|
     end
   end
 
+  p.command(:setup) do |c|
+    c.syntax "setup"
+    c.description <<~DESC
+      Interactively set up a new course site.
+    DESC
+    c.action do |_,_|
+      puts "Enter the short identifier for this course:"
+      while path = gets.chomp
+        if JTOpenCourse::SiteBuilder.path_check(path)
+          puts "A course with that identifier already exists. Try another:"
+        else
+          break
+        end
+      end
+    end
+  end
+
   p.command(:new) do |c|
     c.syntax "new PATH [options]"
     c.description <<~DESC

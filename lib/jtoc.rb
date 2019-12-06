@@ -36,6 +36,10 @@ module JTOpenCourse
       @path = Pathname.new(File.expand_path(name, Dir.pwd))
     end
 
+    def self.path_check(name)
+      Pathname.new(File.expand_path(name, Dir.pwd)).exist?
+    end
+
     def create!
       create_directories
       create_config_yml
