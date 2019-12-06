@@ -4,31 +4,31 @@ baseurl: /<%= name %>/
 timezone: America/Chicago
 
 course:
-  number: COM 425/529
-  title: Technical Editing
-  uid: te
+  number: <%= number %>
+  title: <%= title %>
+  uid: <%= name %>
   tagline: >
-    Online course covering theory and principles of editing through intensive applied practice.
-  term: Spring 2020
+    Write a course tagline in `_config.yml`
+  term: <%= anchor_date.year %>
   # Set `days: ""` (empty string) for weekly/asynchronous classes
-  days:
-    - Monday
-    - Wednesday
-<% if cc %>  license:
+  days: <%= '""' unless days.length > 0 %>
+    <% days.each do |d| %>- <%= d %>
+    <% end %>
+<% if cc %>
+  license:
     name: Creative Commons
-    url: https://creativecommons.org/licenses/by/4.0/<% end%>
+    url: https://creativecommons.org/licenses/by/4.0/
+<% end %>
   instructor:
     honorific: Dr.
-    name: Karl Stolley
+    name: <%= instructor %>
     title: Professor
-    full_title: Associate Professor of Digital Writing & Rhetoric
-    url: https://stolley.co/
-    github: https://github.com/karlstolley/
-    email: karl.stolley@gmail.com
+    full_title: Enter a full professional title in `_config.yml`
+    url: https://example.com/instructor/
+    github: https://github.com/example/
+    email: <%= email %>
     office_hours: >
-      Office hours via Basecamp Chat or Pings on Tuesdays, 4pm to 5pm, or by appointment or chance.
-      I’m always signed into Basecamp and closely monitor my notifications. Message or email any
-      time—I make students a priority, and I will repond as soon as I am able.
+      Detail your office hours in `_config.yml`
 
 collections_dir: syllabus
 
@@ -36,6 +36,9 @@ collections:
   weeks:
   projects:
   policies:
+    # Rearrange the files listed here to change their order on the policies page.
+    # To remove a section from the policies page, you *must* delete the file in the
+    # /syllabus/_policies/ directory
     order:
       - description.md
       - goals.md
@@ -59,7 +62,7 @@ defaults:
     values:
       layout: "default"
 
-highlighter: using_prism_thanks
+theme: jekyll-theme-open-course
 
 exclude:
   - backstop_data
