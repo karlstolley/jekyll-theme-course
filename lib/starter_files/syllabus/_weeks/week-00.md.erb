@@ -1,9 +1,9 @@
 ---
 theme: Theme for Week <%= SPELLED_NUMS[counter] %>
-meetings:
+meetings: <% days.length.times do %>
   - agenda:
       -
-    video:
+    video:<% end %>
 readings:
   -
 tasks:

@@ -105,7 +105,7 @@ module JTOpenCourse
     end
 
     def render_erb(contents)
-      ERB.new(contents).result binding
+      ERB.new(contents, trim_mode: "<>").result binding
     end
 
     def process_file(output,input=output)
