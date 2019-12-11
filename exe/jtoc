@@ -49,7 +49,7 @@ Mercenary.program(:jtoc) do |p|
     c.option 'days', '-d DAYS', '--days DAYS', 'Set the course meeting days (e.g., "Monday, Wednesday")'
     c.option 'url', '-u URL', '--url URL', 'Set the course URL (e.g., https://example.com).'
     c.option 'number', '-n COURSE', '--number COURSE', 'Set the course number (e.g., "COM 101")'
-    c.option 'title', '-t TITLE', '--title TITLE', 'Set the course title (e.g., "Intro to Communication")'
+    c.option 'title', '-l TITLE', '--title TITLE', 'Set the course title (e.g., "Intro to Communication")'
     c.option 'instructor', '-i NAME', '--instructor NAME', 'Set the instructor name (e.g., "Marcus Cicero")'
     c.option 'cc', '-c', '--creative-commons', 'Add a Creative Commons license'
     c.action do |args, options|
