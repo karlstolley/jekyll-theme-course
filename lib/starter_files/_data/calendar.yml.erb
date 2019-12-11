@@ -1,6 +1,6 @@
 - begins: <%= anchor_date %>T00:00
   expires: &two <%= anchor_date + 7 %>T00:00
-<% week_num = 2; while week_num < week_count %>
+<% week_num = 2; while week_num <= week_count %>
 - begins: *<%= SPELLED_NUMS[week_num].downcase %>
   expires: &<%= SPELLED_NUMS[week_num + 1].downcase %> <%= anchor_date + (week_num * 7) %>T00:00<% week_num += 1 %>
 <% end %>
