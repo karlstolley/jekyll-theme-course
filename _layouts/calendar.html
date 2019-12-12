@@ -35,7 +35,7 @@ layout: default
       </ol>
     </section>
     {% endfor %}
-
+    {% if week.readings or week.tasks %}
     <aside class="assigned">
       <header>
         <h3>Assigned Work</h3>
@@ -61,6 +61,7 @@ layout: default
       </section>
       {% endif %}
     </aside>
+    {% endif %}
   </article>
 {% endfor %}
 
