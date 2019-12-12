@@ -74,7 +74,7 @@ layout: default
               {% assign ex = entry.expires | date: "%s" %}
               <!-- {{ dl }}, {{ be }}, {{ ex }} -->
               {% if dl > be and dl < ex %}
-                <li class="milestone"><b>{{ project.title | split: ":" | first }}</b>: {{ milestone.description }} (Milestone due by {{ milestone.deadline | date: "%A, %B %e" }})</li>
+                <li class="milestone">{{ project.title | split: ":" | first }}: {{ milestone.description }} (Milestone due by {{ milestone.deadline | date: "%A, %B %e" }})</li>
               {% endif %}
             {% endfor %}
           {% endfor %}
