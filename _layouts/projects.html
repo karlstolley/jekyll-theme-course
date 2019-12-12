@@ -8,26 +8,38 @@ layout: default
     <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
   </header>
+  <h3>Project Description</h3>
   {{ project.content }}
-  <h3>Goals</h3>
+  <h3>Project Goals</h3>
   <ul>
   {% for goal in project.goals %}
-    <li>{{ goal }}</li>
+    <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
   {% endfor %}
   </ul>
-  <h3>Deliverables</h3>
+  <h3>Project Deliverables</h3>
   <ol>
   {% for deliverable in project.deliverables %}
     <li>
-      {{ deliverable.description }} {% if deliverable.deadline %}<b>Due by {{ deliverable.deadline | date: "%A, %B %-d"}}</b>{% endif %}
+      {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
+      {{ deliverable.description }}
+      {{ deliverable.explanation }}
+      {% if deliverable.details %}
+        <ul>
+          {% for detail in deliverable.details %}
+          <li> {{ detail }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </li>
   {% endfor %}
   </ol>
-  <h3>Milestones</h3>
+  {% if project.milestones %}
+  <h3>Project Milestones</h3>
   <ol>
   {% for milestone in project.milestones %}
     <li>{{ milestone.description }} <b>Due by {{ milestone.deadline | date: "%A, %B %-d"}}</b></li>
   {% endfor %}
   </ol>
+  {% endif %}
 </article>
 {% endfor %}
