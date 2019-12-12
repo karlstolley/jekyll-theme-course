@@ -59,20 +59,16 @@ layout: default
             <li>{{ task | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
           {% endfor %}
           {% for project in projects %}
+            {% assign be = entry.begins | date: "%s" %}
+            {% assign ex = entry.expires | date: "%s" %}
             {% for deliverable in project.deliverables %}
               {% assign dl = deliverable.deadline | date: "%s" %}
-              {% assign be = entry.begins | date: "%s" %}
-              {% assign ex = entry.expires | date: "%s" %}
-              <!-- {{ dl }}, {{ be }}, {{ ex }} -->
               {% if dl > be and dl < ex %}
                 <li class="deadline"><b>{{ project.title | split: ":" | first }}</b>: {{ deliverable.description }} (Due by {{ deliverable.deadline | date: "%A, %B %e" }})</li>
               {% endif %}
             {% endfor %}
             {% for milestone in project.milestones %}
               {% assign dl = milestone.deadline | date: "%s" %}
-              {% assign be = entry.begins | date: "%s" %}
-              {% assign ex = entry.expires | date: "%s" %}
-              <!-- {{ dl }}, {{ be }}, {{ ex }} -->
               {% if dl > be and dl < ex %}
                 <li class="milestone">{{ project.title | split: ":" | first }}: {{ milestone.description }} (Milestone due by {{ milestone.deadline | date: "%A, %B %e" }})</li>
               {% endif %}
