@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign util = site.data.utility %}
+{% assign projects = site.projects %}
 <section class="primary">
   <header>
     <h2>Calendar</h2>
@@ -56,6 +57,26 @@ layout: default
         <ol>
           {% for task in week.tasks %}
             <li>{{ task | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+          {% endfor %}
+          {% for project in projects %}
+            {% for deliverable in project.deliverables %}
+              {% assign dl = deliverable.deadline | date: "%s" %}
+              {% assign be = entry.begins | date: "%s" %}
+              {% assign ex = entry.expires | date: "%s" %}
+              <!-- {{ dl }}, {{ be }}, {{ ex }} -->
+              {% if dl > be and dl < ex %}
+                <li><b>{{ project.title | split: ":" | first }}</b>: {{ deliverable.description | slice: -1 }} (Due by {{ deliverable.deadline | date: "%A, %B %e" }})</li>
+              {% endif %}
+            {% endfor %}
+            {% for milestone in project.milestones %}
+              {% assign dl = milestone.deadline | date: "%s" %}
+              {% assign be = entry.begins | date: "%s" %}
+              {% assign ex = entry.expires | date: "%s" %}
+              <!-- {{ dl }}, {{ be }}, {{ ex }} -->
+              {% if dl > be and dl < ex %}
+                <li><b>{{ project.title | split: ":" | first }}</b>: {{ milestone.description | slice: -1 }} (Milestone due by {{ milestone.deadline | date: "%A, %B %e" }})</li>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </ol>
       </section>
