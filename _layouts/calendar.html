@@ -25,7 +25,7 @@ layout: default
         {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
         {% capture dateline %}{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %e" }}{% endcapture %}
       {% else %}
-        {% capture dateline %}Discussion Topics for Week of {{ entry.begins | date: "%B %e" }}{% endcapture %}
+        {% capture dateline %}Discussion Topics for the Week of {{ entry.begins | date: "%B %e" }}{% endcapture %}
       {% endif %}
       <h4>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}">Video</a>{% endif %}</h4>
       <ol>
