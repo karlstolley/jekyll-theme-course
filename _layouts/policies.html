@@ -2,6 +2,16 @@
 layout: default
 ---
 
+<section class="primary">
+  <header>
+    <h2>{{ page.title }}</h2>
+  </header>
 {% for policy in site.policies %}
-<!-- {{ policy.title }} -->
+{% if policy.content.size > 1 %}
+  <article class="{{ policy.title | downcase | replace: " ", "-" }}">
+    <h3>{{ policy.title }}</h3>
+    {{ policy.content }}
+  </article>
+{% endif %}
 {% endfor %}
+</section>
