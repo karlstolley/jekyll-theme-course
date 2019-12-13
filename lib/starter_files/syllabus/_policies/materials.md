@@ -2,10 +2,12 @@
 title: Materials
 ---
 
-<h3>Required</h3>
-* Required material one
-* Required material two
+<h4>Required</h4>
 
-<h3>Recommended</h3>
-* Recommended material one
-* Recommended material two
+- Required material one
+- Required material two
+
+<h4>Recommended</h4>
+
+- Recommended material one
+- Recommended material two

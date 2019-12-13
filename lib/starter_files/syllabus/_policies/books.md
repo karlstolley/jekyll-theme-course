@@ -2,10 +2,12 @@
 title: Books
 ---
 
-<h3>Required</h3>
-  - Required book one
-  - Required book two
+<h4>Required</h4>
 
-<h3>Recommended</h3>
-  - Recommended book one
-  - Recommended book two
+- Required book one
+- Required book two
+
+<h4>Recommended</h4>
+
+- Recommended book one
+- Recommended book two

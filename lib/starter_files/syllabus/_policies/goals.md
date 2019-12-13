@@ -1,3 +1,3 @@
 ---
-title: Goals and Outcomes
+title: Course Goals
 ---
