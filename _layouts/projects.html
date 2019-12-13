@@ -21,8 +21,8 @@ layout: default
   {% for deliverable in project.deliverables %}
     <li>
       {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
+      {{ deliverable.action }}
       {{ deliverable.description }}
-      {{ deliverable.explanation }}
       {% if deliverable.details %}
         <ul>
           {% for detail in deliverable.details %}
@@ -36,9 +36,20 @@ layout: default
   {% if project.milestones %}
   <h3>Project Milestones</h3>
   <ol>
-  {% for milestone in project.milestones %}
-    <li>{{ milestone.description }} <b>Due by {{ milestone.deadline | date: "%A, %B %-d"}}</b></li>
-  {% endfor %}
+    {% for milestone in project.milestones %}
+      <li>
+        {% if milestone.deadline %}Due by <b>{{ milestone.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
+        {{ milestone.action }}
+        {{ milestone.description }}
+        {% if milestone.details %}
+          <ul>
+            {% for detail in milestone.details %}
+            <li> {{ detail }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
   </ol>
   {% endif %}
   {% if project.requirements %}
