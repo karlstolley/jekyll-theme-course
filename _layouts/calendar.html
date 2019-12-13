@@ -5,7 +5,7 @@ layout: default
 {% assign projects = site.projects %}
 <section class="primary">
   <header>
-    <h2>Calendar</h2>
+    <h2>{{ page.title }}</h2>
   </header>
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}

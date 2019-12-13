@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<section class="primary">
+  <header>
+    <h2>{{ page.title }}</h2>
+  </header>
 {% for project in site.projects %}
 <article id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
   <header>
@@ -62,3 +66,4 @@ layout: default
   {% endif %}
 </article>
 {% endfor %}
+</section>
