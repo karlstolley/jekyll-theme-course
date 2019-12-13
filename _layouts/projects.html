@@ -41,5 +41,13 @@ layout: default
   {% endfor %}
   </ol>
   {% endif %}
+  {% if project.requirements %}
+  <h3>Project Requirements</h3>
+  <ol>
+    {% for requirement in project.requirements %}
+    <li>{{ requirement }}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
 </article>
 {% endfor %}
