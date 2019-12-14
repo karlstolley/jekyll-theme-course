@@ -8,7 +8,7 @@ layout: default
   </header>
 {% for policy in site.policies %}
 {% if policy.content.size > 1 %}
-  <article class="{{ policy.title | downcase | replace: " ", "-" }}">
+  <article id="{{ policy.title | downcase | remove: "& " | replace: " ", "-" }}">
     <h3>{{ policy.title }}</h3>
     {{ policy.content }}
   </article>
