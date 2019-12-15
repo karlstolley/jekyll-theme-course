@@ -25,12 +25,12 @@ layout: default
   {% for deliverable in project.deliverables %}
     <li>
       {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
-      {{ deliverable.action }}
-      {{ deliverable.description }}
+      {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
+      {{ deliverable.description | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
       {% if deliverable.details %}
         <ul>
           {% for detail in deliverable.details %}
-          <li> {{ detail }}</li>
+          <li> {{ detail | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
           {% endfor %}
         </ul>
       {% endif %}
@@ -60,7 +60,7 @@ layout: default
   <h3>Project Requirements</h3>
   <ol>
     {% for requirement in project.requirements %}
-    <li>{{ requirement }}</li>
+    <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
     {% endfor %}
   </ol>
   {% endif %}
