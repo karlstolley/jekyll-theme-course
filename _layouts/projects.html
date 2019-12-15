@@ -20,7 +20,7 @@ layout: default
     <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
   {% endfor %}
   </ul>
-  <h3>Project Deliverables</h3>
+  <h3>Deliverables and Deadlines</h3>
   <ol>
   {% for deliverable in project.deliverables %}
     <li>
@@ -37,25 +37,6 @@ layout: default
     </li>
   {% endfor %}
   </ol>
-  {% if project.milestones %}
-  <h3>Project Milestones</h3>
-  <ol>
-    {% for milestone in project.milestones %}
-      <li>
-        {% if milestone.deadline %}Due by <b>{{ milestone.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
-        {{ milestone.action }}
-        {{ milestone.description }}
-        {% if milestone.details %}
-          <ul>
-            {% for detail in milestone.details %}
-            <li> {{ detail }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ol>
-  {% endif %}
   {% if project.requirements %}
   <h3>Project Requirements</h3>
   <ol>
