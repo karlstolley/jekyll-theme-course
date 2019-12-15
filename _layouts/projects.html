@@ -9,18 +9,18 @@ layout: default
 {% for project in site.projects %}
 <article id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
   <header>
-    <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
+    <h3>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h3>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
   </header>
-  <h3>Project Description</h3>
+  <h4>Project Description</h4>
   {{ project.content }}
-  <h3>Project Goals</h3>
+  <h4>Project Goals</h4>
   <ul>
   {% for goal in project.goals %}
     <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
   {% endfor %}
   </ul>
-  <h3>Deliverables and Deadlines</h3>
+  <h4>Deliverables and Deadlines</h4>
   <ol>
   {% for deliverable in project.deliverables %}
     <li>
@@ -38,7 +38,7 @@ layout: default
   {% endfor %}
   </ol>
   {% if project.requirements %}
-  <h3>Project Requirements</h3>
+  <h4>Project Requirements</h4>
   <ol>
     {% for requirement in project.requirements %}
     <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
