@@ -14,12 +14,15 @@ layout: default
   </header>
   <h4>Project Description</h4>
   {{ project.content }}
+  {% if project.goals %}
   <h4>Project Goals</h4>
   <ul>
   {% for goal in project.goals %}
     <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
   {% endfor %}
   </ul>
+  {% endif %}
+  {% if project.deliverables %}
   <h4>Deliverables and Deadlines</h4>
   <ol>
   {% for deliverable in project.deliverables %}
@@ -37,6 +40,7 @@ layout: default
     </li>
   {% endfor %}
   </ol>
+  {% endif %}
   {% if project.requirements %}
   <h4>Project Requirements</h4>
   <ol>
