@@ -59,9 +59,6 @@ defaults:
     values:
       layout: "default"
 
-sass:
-  sass_dir: assets/css/_sass
-
 highlighter: using_prism_thanks
 
 exclude:
