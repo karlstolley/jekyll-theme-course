@@ -46,6 +46,7 @@ layout: default
     <aside class="assigned">
       <header>
         <h3>Assigned Work</h3>
+        <p>Due {{ entry.expires | date: "%A, %B %e" }}</p>
       </header>
       {% if week.readings %}
       <section class="readings">
