@@ -2,9 +2,12 @@
 layout: default
 ---
 
+
 {% for policy in site.policies %}
 {% if policy.content.size > 1 %}
-  <article id="{{ policy.title | downcase | remove: "& " | replace: " ", "-" }}">
+  {% assign filename = policy.path | split: "/" %}
+  {% assign slug = filename[1] | remove: ".md" %}
+  <article id="{{ slug }}">
     <h3>{{ policy.title }}</h3>
     {{ policy.content }}
   </article>
