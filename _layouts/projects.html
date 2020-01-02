@@ -3,8 +3,17 @@ layout: default
 ---
 
 {% for project in site.projects %}
+{% assign current = true %}
+{% assign today = "today" | date: "%s" %}
+{% assign dd = project.due_date | date: "%s" %}
+
 <article id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
-  <header>
+  {% if today < dd and current == true %}
+    <header id="current">
+    {% assign current = false %}
+  {% else %}
+    <header>
+  {% endif %}
     <h3>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h3>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
   </header>
