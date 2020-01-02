@@ -12,42 +12,50 @@ layout: default
     <h3>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h3>
     <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
   </header>
-  <h4>Project Description</h4>
-  {{ project.content }}
+  <section class="description">
+    <h4>Project Description</h4>
+    {{ project.content }}
+  </section>
   {% if project.goals %}
+  <section class="goals">
   <h4>Project Goals</h4>
-  <ul>
-  {% for goal in project.goals %}
-    <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
-  {% endfor %}
-  </ul>
+    <ul>
+    {% for goal in project.goals %}
+      <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+    {% endfor %}
+    </ul>
+  </section>
   {% endif %}
   {% if project.deliverables %}
-  <h4>Deliverables and Deadlines</h4>
-  <ol>
-  {% for deliverable in project.deliverables %}
-    <li>
-      {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
-      {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
-      {{ deliverable.description | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
-      {% if deliverable.details %}
-        <ul>
-          {% for detail in deliverable.details %}
-          <li> {{ detail | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endfor %}
-  </ol>
+  <section class="deliverables">
+    <h4>Deliverables and Deadlines</h4>
+    <ol>
+    {% for deliverable in project.deliverables %}
+      <li>
+        {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
+        {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
+        {{ deliverable.description | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
+        {% if deliverable.details %}
+          <ul>
+            {% for detail in deliverable.details %}
+            <li> {{ detail | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </section>
   {% endif %}
   {% if project.requirements %}
-  <h4>Project Requirements</h4>
-  <ol>
-    {% for requirement in project.requirements %}
-    <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
-    {% endfor %}
-  </ol>
+  <section class="requirements">
+    <h4>Project Requirements</h4>
+    <ol>
+      {% for requirement in project.requirements %}
+      <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+      {% endfor %}
+    </ol>
+  </section>
   {% endif %}
 </article>
 {% endfor %}
