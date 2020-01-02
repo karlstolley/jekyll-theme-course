@@ -2,10 +2,6 @@
 layout: default
 ---
 
-<section class="primary">
-  <header>
-    <h2>{{ page.title }}</h2>
-  </header>
 {% for policy in site.policies %}
 {% if policy.content.size > 1 %}
   <article id="{{ policy.title | downcase | remove: "& " | replace: " ", "-" }}">
@@ -14,4 +10,3 @@ layout: default
   </article>
 {% endif %}
 {% endfor %}
-</section>

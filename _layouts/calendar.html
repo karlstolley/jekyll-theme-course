@@ -3,10 +3,7 @@ layout: default
 ---
 {% assign util = site.data.utility %}
 {% assign projects = site.projects %}
-<section class="primary">
-  <header>
-    <h2>{{ page.title }}</h2>
-  </header>
+
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture week_num %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
@@ -83,5 +80,3 @@ layout: default
     {% endif %}
   </article>
 {% endfor %}
-
-</section>
