@@ -1,5 +1,24 @@
+@import url("https://use.typekit.net/pig5ein.css");
+
+$base-size-px: 22;
+$base-line-px: 26;
+$base-size: ($base-size-px / 16) * 1em;
+$base-line: ($base-line-px / $base-size-px) * 1em;
+$mod-scale: 1.25;
+
 html {
-  color: orange;
+  font-family: Parka, serif;
+  font-size: $base-size;
+  line-height: $base-line;
+  padding: $base-line / 2;
+}
+@media (min-resolution: 192dpi) {
+  html {
+    font-weight: 300;
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
 }
 b, strong {
   font-weight: bold;
@@ -11,3 +30,5 @@ code {
   font-family: Menlo, Monaco, "Droid Sans Mono", Courier, "Courier New", monospace;
   font-size: 0.85em;
 }
+
+p { padding-bottom: $base-line * 2; }
