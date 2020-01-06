@@ -14,6 +14,8 @@ layout: default
   </header>
   <h4>Project Description</h4>
   {{ project.content }}
+
+  {% unless project.preview %}
   {% if project.goals %}
   <h4>Project Goals</h4>
   <ul>
@@ -49,6 +51,7 @@ layout: default
     {% endfor %}
   </ol>
   {% endif %}
+  {% endunless %}
 </article>
 {% endfor %}
 </section>
