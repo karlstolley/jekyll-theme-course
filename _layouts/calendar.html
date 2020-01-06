@@ -3,17 +3,23 @@ layout: default
 ---
 {% assign util = site.data.utility %}
 {% assign projects = site.projects %}
-<section class="primary">
-  <header>
-    <h2>{{ page.title }}</h2>
-  </header>
+
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture week_num %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
   {% assign week = site.weeks[forloop.index0] %}
+  {% assign current = true %}
+  {% assign today = "today" | date: "%s" %}
+  {% assign expiry = entry.expires | date: "%s" %}
+
 
   <article id="week-{{ week_num }}" data-week="{{ entry.begins | date: '%U' }}" data-expires="{{ entry.expires }}">
-    <header>
+    {% if today < expiry and current == true %}
+      <header id="this-week">
+      {% assign current = false %}
+    {% else %}
+      <header>
+    {% endif %}
       <h3>
         {{ week.theme | escape }}
       </h3>
@@ -83,5 +89,3 @@ layout: default
     {% endif %}
   </article>
 {% endfor %}
-
-</section>

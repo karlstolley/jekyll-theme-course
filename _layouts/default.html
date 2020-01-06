@@ -27,19 +27,26 @@
   </p>
   <nav id="navigation">
     <ul class="nav">
-      <li id="nav-cal"><a href="{{ site.baseurl }}#this-week">Calendar</a></li>
-      <li id="nav-bcp"><a href="https://3.basecamp.com/3058761/projects/8576268">Basecamp</a></li>
-      <li id="nav-dem"><a href="https://github.com/itmd-362-2019">Demos</a></li>
-      <li id="nav-lnk"><a href="{{ site.baseurl }}#links">Links</a></li>
-      <li id="nav-pro"><a href="{{ site.baseurl }}projects/#current">Projects</a></li>
-      <li id="nav-pol"><a href="{{ site.baseurl }}policies/">Policies</a></li>
+      {% for nav in course.navigation %}
+      {% assign protocol = nav.href | slice: 0, 4 %}
+      {% if protocol == 'http' %}
+        {% assign fullhref = nav.href %}
+      {% else %}
+        {% capture fullhref %}{{ site.baseurl }}{{ nav.href }}{% endcapture %}
+      {% endif %}
+      <li id="nav-{{ nav.id }}"><a href="{{ fullhref }}">{{ nav.label }}</a></li>
+      {% endfor %}
     </ul>
   </nav>
 </header>
 <main id="content">
+  <section class="primary">
+    <header>
+      <h2>{{ page.title }}</h2>
+    </header>
 
-  {{ content }}
-
+    {{ content }}
+  </section>
 </main>
 
 <aside id="instructor">
