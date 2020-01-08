@@ -14,19 +14,19 @@ layout: default
   {% else %}
     <header>
   {% endif %}
-    <h3>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h3>
-    <p>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</p>
+    <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
+    <small>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</small>
   </header>
-  
+
   <section class="description">
-    <h4>Project Description</h4>
+    <h3>Project Description</h3>
     {{ project.content }}
   </section>
 
   {% unless project.preview %}
   {% if project.goals %}
   <section class="goals">
-  <h4>Project Goals</h4>
+    <h3>Project Goals</h3>
     <ul>
     {% for goal in project.goals %}
       <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
@@ -36,7 +36,7 @@ layout: default
   {% endif %}
   {% if project.deliverables %}
   <section class="deliverables">
-    <h4>Deliverables and Deadlines</h4>
+    <h3>Deliverables and Deadlines</h3>
     <ol>
     {% for deliverable in project.deliverables %}
       <li>
@@ -57,7 +57,7 @@ layout: default
   {% endif %}
   {% if project.requirements %}
   <section class="requirements">
-    <h4>Project Requirements</h4>
+    <h3>Project Requirements</h3>
     <ol>
       {% for requirement in project.requirements %}
       <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>

@@ -20,9 +20,9 @@ layout: default
     {% else %}
       <header>
     {% endif %}
-      <h3>
+      <h2>
         {{ week.theme | escape }}
-      </h3>
+      </h2>
       <small>Week&nbsp;{{ util.spelled_nums[week_int] }}</small>
     </header>
     {% for meeting in week.meetings %}
@@ -34,7 +34,7 @@ layout: default
       {% else %}
         {% capture dateline %}Discussion Topics for the Week of {{ entry.begins | date: "%B %e" }}{% endcapture %}
       {% endif %}
-      <h4>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}">Video</a>{% endif %}</h4>
+      <h3>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}">Video</a>{% endif %}</h3>
       <ol>
         {% for item in meeting.agenda %}
           <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>

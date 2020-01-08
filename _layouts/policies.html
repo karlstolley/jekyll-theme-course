@@ -8,7 +8,9 @@ layout: default
   {% assign filename = policy.path | split: "/" %}
   {% assign slug = filename[1] | remove: ".md" %}
   <article id="{{ slug }}">
-    <h3>{{ policy.title }}</h3>
+    <header>
+      <h2>{{ policy.title }}</h2>
+    </header>
     {{ policy.content }}
   </article>
 {% endif %}

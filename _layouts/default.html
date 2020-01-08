@@ -16,10 +16,10 @@
 </head>
 <body>
 <header id="header">
-  <a rel="home" href="{{ site.url }}{{ site.baseurl }}">
-    <small>{{ course.number }}</small>
-    <h1>{{ course.title}}</h1>
-  </a>
+  <h1>
+    <a rel="home" href="{{ site.url }}{{ site.baseurl }}">{{ course.title}}</a>
+    <small>{{ page.title }}</small>
+  </h1>
   <p class="tagline">
     {% if course.tagline %}{{ course.tagline }}{% endif %}
     Taught by <a href="#instructor">{{ instructor.title }} {{ instructor.name }}</a>,
@@ -40,13 +40,7 @@
   </nav>
 </header>
 <main id="content">
-  <section class="primary">
-    <header>
-      <h2>{{ page.title }}</h2>
-    </header>
-
-    {{ content }}
-  </section>
+  {{ content }}
 </main>
 
 <aside id="instructor">
