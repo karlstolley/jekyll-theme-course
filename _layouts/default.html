@@ -18,14 +18,56 @@
 <header id="header">
   <h1>
     <a rel="home" href="{{ site.url }}{{ site.baseurl }}">{{ course.title}}</a>
-    <small>{{ page.title }}</small>
   </h1>
   <p class="tagline">
     {% if course.tagline %}{{ course.tagline }}{% endif %}
     Taught by <a href="#instructor">{{ instructor.title }} {{ instructor.name }}</a>,
     {{ course.term }}.
   </p>
-  <nav id="navigation">
+  <nav id="quick-nav">
+    <ul class="nav">
+      <li id="nav-con"><a href="#content"><span class="access">Jump to</span> {{ page.title }}</a></li>
+      <li id="nav-nav"><a href="#full-nav"><span class="access">Jump to</span> Menu</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="content">
+  {{ content }}
+</main>
+
+
+
+<footer id="footer">
+  <section id="instructor">
+    <header>
+      <h3>Instructor</h3>
+    </header>
+    <ul>
+      <li>
+        <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
+        {{ site.course.instructor.full_title | escape }}
+      </li>
+      <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
+      <li id="office-hours">
+        {{ instructor.office_hours }}
+      </li>
+    </ul>
+  </section>
+  <section id="colophon">
+    <header>
+      <h3>Colophon</h3>
+    </header>
+    <p class="fineprint">
+      Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
+      Licensed under
+      <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
+      <a id="github" href="{{ instructor.github }}{{ course.uid }}">Source hosted on GitHub</a>.
+    </p>
+  </section>
+  <nav id="full-nav">
+    <header>
+      <h3>Navigation</h3>
+    </header>
     <ul class="nav">
       {% for nav in course.navigation %}
       {% assign protocol = nav.href | slice: 0, 4 %}
@@ -38,34 +80,6 @@
       {% endfor %}
     </ul>
   </nav>
-</header>
-<main id="content">
-  {{ content }}
-</main>
-
-<aside id="instructor">
-  <header>
-    <h3>Instructor</h3>
-  </header>
-  <ul>
-    <li>
-      <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
-      {{ site.course.instructor.full_title | escape }}
-    </li>
-    <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
-    <li id="office-hours">
-      {{ instructor.office_hours }}
-    </li>
-  </ul>
-</aside>
-
-<footer id="footer">
-  <p class="fineprint">
-    Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
-    Licensed under
-    <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
-    <a id="github" href="{{ instructor.github }}{{ course.uid }}">Source hosted on GitHub</a>.
-  </p>
 </footer>
 <script src="{{ site.baseurl }}assets/js/site.js"></script>
 </body>
