@@ -7,7 +7,7 @@ layout: default
 {% if policy.content.size > 1 %}
   {% assign filename = policy.path | split: "/" %}
   {% assign slug = filename[1] | remove: ".md" %}
-  <article id="{{ slug }}">
+  <article class="policy" id="{{ slug }}">
     <header>
       <h2>{{ policy.title }}</h2>
     </header>

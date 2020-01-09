@@ -13,7 +13,7 @@ layout: default
   {% assign expiry = entry.expires | date: "%s" %}
 
 
-  <article id="week-{{ week_num }}" data-week="{{ entry.begins | date: '%U' }}" data-expires="{{ entry.expires }}">
+  <article class="week" id="week-{{ week_num }}" data-week="{{ entry.begins | date: '%U' }}" data-expires="{{ entry.expires }}">
     {% if today < expiry and current == true %}
       <header id="this-week">
       {% assign current = false %}
