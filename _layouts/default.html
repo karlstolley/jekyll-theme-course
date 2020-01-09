@@ -53,17 +53,6 @@
       </li>
     </ul>
   </section>
-  <section id="colophon">
-    <header>
-      <h3>Colophon</h3>
-    </header>
-    <p class="fineprint">
-      Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
-      Licensed under
-      <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
-      <a id="github" href="{{ instructor.github }}{{ course.uid }}">Source hosted on GitHub</a>.
-    </p>
-  </section>
   <nav id="full-nav">
     <header>
       <h3>Navigation</h3>
@@ -80,6 +69,17 @@
       {% endfor %}
     </ul>
   </nav>
+  <section id="colophon">
+    <header>
+      <h3>Colophon</h3>
+    </header>
+    <p class="fineprint">
+      Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
+      Licensed under
+      <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
+      <a id="github" href="{{ instructor.github }}{{ course.uid }}">Source hosted on GitHub</a>.
+    </p>
+  </section>
 </footer>
 <script src="{{ site.baseurl }}assets/js/site.js"></script>
 </body>
