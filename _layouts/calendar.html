@@ -4,11 +4,12 @@ layout: default
 {% assign util = site.data.utility %}
 {% assign projects = site.projects %}
 
+{% assign current = true %}
+
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture week_num %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
   {% assign week = site.weeks[forloop.index0] %}
-  {% assign current = true %}
   {% assign today = "today" | date: "%s" %}
   {% assign expiry = entry.expires | date: "%s" %}
 
