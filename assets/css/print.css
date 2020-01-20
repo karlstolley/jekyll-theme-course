@@ -15,7 +15,10 @@ a,
   color: #CCC;
   text-decoration: none;
 }
-
+p,li {
+  -webkit-hyphens: none;
+  hyphens: none;
+}
 h2 {
   font-family: "moderno-fb-condensed";
   font-weight: 700;
