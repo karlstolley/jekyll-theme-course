@@ -5,7 +5,9 @@ if (document.querySelector('#calendar')) {
   this_week.querySelector('#this-week').id = ''; // remove the original #this-week id
   current_week.classList.add('current'); // add a class of current to this week's article copy
   document.querySelector('#content').prepend(current_week); // insert the copy at the top of the calendar
-  location.hash = '#this-week'; // point at the new hash position; viewport should show this one
+  if (location.hash) {
+    location.hash = '#this-week'; // point at the new hash position; viewport should show this one
+  }
 }
 
 window.addEventListener('keyup', function(e) {
