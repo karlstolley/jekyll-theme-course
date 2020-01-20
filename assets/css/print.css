@@ -1,0 +1,23 @@
+#header,
+#footer {
+  color: inherit;
+}
+a,
+#header a {
+  text-decoration: none;
+  color: inherit;
+}
+#content a[href^="http"]::after {
+  display: inline;
+  content: "(" attr(href) ")";
+  font-family: Menlo, Monaco, "Droid Sans Mono", Courier, "Courier New", monospace;
+  font-size: 0.85em;
+  color: #CCC;
+  text-decoration: none;
+}
+/* Hide Navigation Stuff */
+
+#nav-nav,
+#full-nav {
+  display: none;
+}
