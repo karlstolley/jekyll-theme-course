@@ -15,7 +15,7 @@ layout: default
     <header>
   {% endif %}
     <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
-    <small>Due by {{ project.due_date | date: "%A, %B %-d, %Y"}}</small>
+    <small>Due by {{ project.due_date | date: "%A, %B %-e, %Y"}}</small>
   </header>
 
   <section class="description">
@@ -40,7 +40,7 @@ layout: default
     <ol>
     {% for deliverable in project.deliverables %}
       <li>
-        {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-d"}}</b>: {% endif %}
+        {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-e"}}</b>: {% endif %}
         {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
         {{ deliverable.description | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
         {% if deliverable.details %}
