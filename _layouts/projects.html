@@ -2,9 +2,10 @@
 layout: default
 ---
 
-{% for project in site.projects %}
 {% assign current = true %}
 {% assign today = "today" | date: "%s" %}
+
+{% for project in site.projects %}
 {% assign dd = project.due_date | date: "%s" %}
 
 <article class="project" id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
