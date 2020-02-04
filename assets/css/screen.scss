@@ -10,12 +10,3 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 @import "typography";
-
-.current {
-  background: #DDD;
-  padding: $base-line * 1.5;
-  margin: ($base-line * 1.5) (-($base-line * 1.5));
-}
-/* Custom Site Styles */
-
-/* ========== Base Styles ========== */

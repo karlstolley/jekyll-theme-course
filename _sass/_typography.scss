@@ -5,22 +5,19 @@ $base-line-px: 24;
 $base-size: ($base-size-px / 16) * 100%;
 $base-line: ($base-line-px / $base-size-px) * 1rem;
 $mod-scale: 1.25;
+$text-color: #222;
+$back-color: #F2F2F2;
+$spot-color: #900;
 
 html {
   -webkit-text-size-adjust: none;
   font-family: Parka, serif;
   font-size: 19px;
+  color: $text-color;
+  background: $back-color;
 }
-
 body {
-  padding: $base-line * 1.5;
   line-height: $base-line;
-}
-
-@media screen and (min-width: 700px) {
-  body {
-    padding: 10%;
-  }
 }
 @media (min-resolution: 192dpi) {
   html {
@@ -30,18 +27,169 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-weight: bold;
 }
+h1 small,
+h1 b {
+  display: block;
+  font-weight: normal;
+}
 h2 {
-  font-size: $base-size * $mod-scale;
+  font-family: "moderno-fb-compressed";
+  font-weight: 600;
+  font-size: $base-size * $mod-scale * $mod-scale * $mod-scale;
   line-height: $base-line * 2;
 }
-h4 {
-  font-variant-caps: small-caps;
-  font-feature-settings: "smcp", "c2sc", "pnum";
-  text-transform: lowercase;
+/* ~ 620px */
+@media screen and (min-width: 38.75em) {
+  h2 {
+    font-family: "moderno-fb-condensed";
+    font-weight: 700;
+  }
+}
+h3 {
+  text-transform: uppercase;
+}
+.agenda h3,
+#footer h3 {
+  text-transform: none;
+  font-weight: 500;
+}
+.agenda h3 a {
+  color: $back-color;
+  background: $spot-color;
+  border-radius: $base-line * 0.25;
+  display: inline-block;
+  height: $base-line;
+  padding-left: $base-line * 0.25;
+  padding-right: $base-line * 0.25;
+}
+.agenda h3 a::before {
+  content: "‣ ";
+}
+#content header {
+  padding-bottom: $base-line;
+}
+#content header small {
+  color: $spot-color;
+  display: block;
+  font-weight: 500;
+  padding-top: $base-line * 0.25;
+}
+#content article {
+  padding-bottom: $base-line * 3;
+}
+
+.current {
+  background: #DDD;
+  padding: $base-line * 1.5;
+  margin: ($base-line * 1.5) (-($base-line * 1.5));
+}
+
+#header,
+#footer {
+  color: #777;
+}
+#header {
+  padding: $base-line * 0.5;
+}
+#header .nav {
+  color: $text-color;
+}
+#header p {
+  min-height: $base-line * 4;
+  padding-top: $base-line * 0.5;
+}
+#header,
+#content,
+#footer {
+  padding-left: $base-line * 1.5;
+  padding-right: $base-line * 1.5;
+}
+
+/* ~ 855px */
+@media screen and (min-width: 53.4375em) {
+  #header,
+  #content,
+  #footer {
+    padding: ($base-line * 1.5) 10%;
+  }
+  h2 {
+    font-size: $base-size * $mod-scale * $mod-scale * $mod-scale * $mod-scale;
+    line-height: $base-line * 2.5;
+  }
+}
+
+/* ~ 1100px */
+@media screen and (min-width: 68.75em) {
+  #header,
+  #content,
+  #footer {
+    padding: ($base-line * 3) 20% ($base-line * 1.5) 20%;
+  }
+  h2 {
+    font-size: $base-size * $mod-scale * $mod-scale * $mod-scale * $mod-scale * $mod-scale;
+    line-height: $base-line * 3;
+  }
+}
+
+/* ~ 690px */
+@media screen and (min-width: 43.125em) {
+  .policy,
+  .project,
+  .week {
+    display: grid;
+    grid-template-columns: .5fr 1fr 2fr;
+    grid-column-gap: $base-line * 1.5;
+  }
+  .week {
+    grid-template-rows: auto minmax(($base-line * 3.25), max-content);
+  }
+  .policy header,
+  .project header,
+  .week header {
+    grid-column: 1 / 4;
+  }
+  .week .agenda {
+    grid-column: 2 / 3;
+    grid-row-start: 3;
+  }
+  .week .agenda + .agenda {
+    grid-row-start: 4;
+  }
+  .policy > * {
+    grid-column: 2 / 4;
+  }
+  .project > * {
+    grid-column: 3 / 4;
+  }
+  .project .deliverables,
+  .project .requirements {
+    grid-column: 1 / 3;
+  }
+  .project .deliverables {
+    grid-row-start: 3;
+  }
+  .project .requirements {
+    grid-row-start: 4;
+  }
+  .project .goals {
+    grid-column: 3 / 4;
+  }
+  .project .description {
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+  }
+  .week .assigned {
+    grid-column: 3 / 4;
+    grid-row: 2 / 7;
+  }
 }
 
 b, strong {
   font-weight: bold;
+}
+#content b,
+#content strong {
+  font-weight: 500;
 }
 cite, em, i {
   font-style: italic;
@@ -49,10 +197,12 @@ cite, em, i {
 code {
   font-family: Menlo, Monaco, "Droid Sans Mono", Courier, "Courier New", monospace;
   font-size: 0.85em;
+  hyphens: none;
 }
 
 p,li {
   padding-bottom: $base-line;
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 
@@ -92,11 +242,33 @@ ul li, .with::before {
   margin-left: -($base-line);
 }
 ul li::before {
-  color: #0CD;
+  color: $spot-color;
   content: "■";
   position: absolute;
   left: $base-line * 0.3;
   top: -($base-line * 0.065);
+}
+#quick-nav .nav {
+  display: flex;
+  justify-content: space-between;
+}
+#nav-con::before {
+  content: ""
+}
+#nav-con a {
+  text-decoration: none;
+}
+.nav a {
+  display: block;
+}
+.nav li::before {
+  content: "□";
+}
+.nav li:hover::before,
+#calendar #nav-cal::before,
+#policies #nav-pol::before,
+#projects #nav-pro::before {
+  content: "■";
 }
 ol, .with::before {
   list-style-type: none;
@@ -109,7 +281,7 @@ ol > li, .with::before {
   counter-increment: enumerated;
 }
 ol > li::before {
-  color: #0CD;
+  color: $spot-color;
   font-weight: bold;
   content: counter(enumerated) "";
   position: absolute;
@@ -118,11 +290,22 @@ ol > li::before {
   width: 1em;
 }
 
+.access {
+  position: absolute;
+  left: -10000px;
+}
 
+a {
+  color: $spot-color;
+}
+#header h1 a {
+  color: $spot-color;
+  text-decoration: none;
+}
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
-    text-decoration-color: #0CD;
+    text-decoration-color: $spot-color;
   }
 }
 
