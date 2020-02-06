@@ -1,3 +1,6 @@
+// Add a .js utility class to <html>
+document.querySelector('html').classList.add('js');
+
 // Capture and replicate the current week at the top of the calendar
 if (document.querySelector('#calendar')) {
   var this_week = document.querySelector('#this-week').closest('article'); // grab this week's <article>
