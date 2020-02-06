@@ -53,6 +53,7 @@ h3 {
   text-transform: none;
   font-weight: 500;
 }
+#btn-show-calendar,
 .agenda h3 a {
   color: $back-color;
   background: $spot-color;
@@ -61,6 +62,11 @@ h3 {
   height: $base-line;
   padding-left: $base-line * 0.25;
   padding-right: $base-line * 0.25;
+}
+#btn-show-calendar {
+  background-color: #888;
+  margin-bottom: $base-line * 2;
+  text-decoration: none;
 }
 .agenda h3 a::before {
   content: "‣ ";
@@ -307,6 +313,11 @@ a {
     color: inherit;
     text-decoration-color: $spot-color;
   }
+}
+
+/* States */
+.js .past {
+  display: none;
 }
 
 /**

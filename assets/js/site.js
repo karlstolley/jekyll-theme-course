@@ -7,11 +7,26 @@ if (document.querySelector('#calendar')) {
   var current_week = this_week.cloneNode(true); // make a copy of it,
   this_week.querySelector('#this-week').id = ''; // remove the original #this-week id
   current_week.classList.add('current'); // add a class of current to this week's article copy
+  current_week.classList.remove('past'); // remove the past class
   current_week.querySelector('#this-week small').innerText = "This Week";
   document.querySelector('#content').prepend(current_week); // insert the copy at the top of the calendar
   if (location.hash) {
     location.hash = '#this-week'; // point at the new hash position; viewport should show this one
   }
+  var btn_show_calendar = document.createElement('a');
+  btn_show_calendar.id = "btn-show-calendar";
+  btn_show_calendar.href = "#null";
+  btn_show_calendar.text = "Show Previous Weeks"
+  btn_show_calendar.addEventListener('click', function(e) {
+      var past_weeks = document.querySelectorAll('article.past');
+      for (var week of past_weeks) {
+        week.classList.remove('past');
+      }
+      btn_show_calendar.remove();
+      e.preventDefault();
+    }
+  );
+  current_week.insertAdjacentElement('afterend', btn_show_calendar);
 }
 
 window.addEventListener('keyup', function(e) {
