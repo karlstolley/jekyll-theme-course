@@ -10,7 +10,7 @@ if (document.querySelector('#calendar')) {
   current_week.classList.remove('past'); // remove the past class
   current_week.querySelector('#this-week small').innerText = "This Week";
   document.querySelector('#content').prepend(current_week); // insert the copy at the top of the calendar
-  if (location.hash) {
+  if (location.hash === '') {
     location.hash = '#this-week'; // point at the new hash position; viewport should show this one
   }
   var btn_show_calendar = document.createElement('a');
