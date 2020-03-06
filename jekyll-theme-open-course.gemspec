@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     "changelog_uri"   => "https://github.com/karlstolley/jekyll-theme-open-course/releases",
     "documentation_uri" => "https://github.com/karlstolley/jekyll-theme-open-course/README.md",
     "wiki_uri" => "https://github.com/karlstolley/jekyll-theme-open-course/wiki",
-    "homepage_uri"    => "https://stolley.dev/",
+    "homepage_uri"    => spec.homepage,
     "source_code_uri" => "https://github.com/karlstolley/jekyll-theme-open-course"
   }
 
