@@ -3,7 +3,7 @@ module JTOpenCourse
   require 'erb'
   require 'date'
 
-  VERSION = "0.0.4-alpha"
+  VERSION = "1.0.1"
 
   SPELLED_NUMS = %w(
     Zero One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fifteen
