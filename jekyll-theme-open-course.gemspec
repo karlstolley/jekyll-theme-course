@@ -22,11 +22,12 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "https://github.com/karlstolley/jekyll-theme-open-course"
   }
 
-  spec.required_ruby_version = "~> 2.6"
   all_files = Dir.glob("**/*")
   spec.files = all_files.grep(%r{^(Gemfile|_config|_data|_layouts|_projects|assets|exe|index|lib|projects)}i)
   spec.bindir = "exe"
   spec.executables = ["jtoc"]
+
+  spec.required_ruby_version = "~> 2.6"
 
   spec.add_runtime_dependency "jekyll", "~> 4.0"
 
