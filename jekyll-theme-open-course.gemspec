@@ -1,8 +1,10 @@
 # coding: utf-8
 
+require_relative "lib/jtoc"
+
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-open-course"
-  spec.version       = "1.0.0"
+  spec.version       = JTOpenCourse::VERSION
   spec.authors       = ["Karl Stolley"]
   spec.email         = ["karl.stolley@gmail.com"]
   spec.homepage      = "https://stolley.dev/"
