@@ -1,18 +1,23 @@
-// sed -i '' "s/var VERSION/const VERSION = '`git rev-parse HEAD`'/" sw.js
 var VERSION;
 const version = VERSION ? VERSION : mockTenMinuteVersion();
 
 // Update with all essential and supporting assets
 // (supporting assets might be things URLs to externally hosted web fonts)
 // There can be NO errors here, or nothing will be cached
-const site_offline_path = '/offline/';
+const site_scope = detectSiteScope(location.href);
+const site_offline_path = 'offline/';
 const site_preloaded_assets = {
   essential: [
-    '/css/screen.css',
-    '/js/site.js',
+    'assets/css/screen.css',
+    'assets/css/print.css',
+    'js/site.js',
     site_offline_path
-  ],
-  supporting: []
+  ].map(function(asset){
+    return site_scope.path + asset;
+  }),
+  supporting: [].map(function(asset){
+    return site_scope.path + asset;
+  })
 };
 
 const site_cache_of = {
@@ -20,6 +25,13 @@ const site_cache_of = {
   pages: `pages`,
   requests: `requests`
 };
+
+// prefix scoped values
+if (site_scope.id.length > 0) {
+  for (c in site_cache_of) {
+    site_cache_of[c] = site_scope.id + '.' + site_cache_of[c];
+  }
+}
 
 
 // For convenience in the activation event, programmatically build a simple array
@@ -187,6 +199,16 @@ function mockTenMinuteVersion() {
     }
     return num;
   }
+}
+
+function detectSiteScope(url) {
+  var scope = {};
+  scope.id = url.split('/')[3];
+  scope.path = '/';
+  if (scope.id.length > 0) {
+    scope.path = '/' + scope.id + '/';
+  }
+  return scope;
 }
 
 console.log(version);
