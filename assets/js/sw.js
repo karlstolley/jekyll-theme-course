@@ -123,7 +123,7 @@ addEventListener('fetch', function(fe) {
           if (cached_response) {
             return cached_response;
           }
-          return caches.match(site_offline_path);
+          return caches.match(site_scope.path + site_offline_path);
         });
 
       })
@@ -176,7 +176,7 @@ addEventListener('fetch', function(fe) {
         }
         return fetch(request)
         .catch(function(error) {
-          return caches.match(site_offline_path);
+          return caches.match(site_scope.path + site_offline_path);
         })
       }
     )
