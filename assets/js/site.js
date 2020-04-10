@@ -1,6 +1,30 @@
 // Add a .js utility class to <html>
 document.querySelector('html').classList.add('js');
 
+// Register service worker, if browser supports them
+if ('serviceWorker' in navigator) {
+  var scope = detectSiteScope(location.href);
+  console.log(scope.path);
+  navigator.serviceWorker.register(scope.path + 'assets/js/sw.js', { scope: scope.path })
+  .then(function(registration) {
+    console.log('Registered service worker scoped to', registration.scope);
+  })
+  .catch(function(error) {
+    console.error('Failed to register service worker', error)
+  });
+
+  function detectSiteScope(url) {
+    var scope = {};
+    scope.id = url.split('/')[3];
+    scope.path = '/';
+    if (scope.id.length > 0) {
+      scope.path = '/' + scope.id + '/';
+    }
+    return scope;
+  }
+}
+
+
 // Capture and replicate the current week at the top of the calendar
 if (document.querySelector('#calendar')) {
   var this_week = document.querySelector('#this-week').closest('article'); // grab this week's <article>
