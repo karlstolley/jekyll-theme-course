@@ -59,4 +59,4 @@ window.addEventListener('keyup', function(e) {
   if (e.keyCode === 71) {
     document.querySelector('html').classList.toggle('g');
   }
-})
+});
