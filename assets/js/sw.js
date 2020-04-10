@@ -19,6 +19,8 @@ const site_preloaded_assets = {
     return site_scope.path + asset;
   })
 };
+// Also preload the home page into the cache
+site_preloaded_assets.essential.push(site_scope.path);
 
 const site_cache_of = {
   assets: `assets.${version}`,
