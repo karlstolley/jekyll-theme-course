@@ -75,10 +75,14 @@ addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys()
     .then(function(existing_caches) {
+      // Only work with relevant caches, e.g., those in the same site_scope
+      let relevant_caches = existing_caches.filter(function(c) {
+        return c.includes(site_scope.id);
+      }
       return Promise.all(
-        existing_caches.map(function(existing_cache) {
-          if (!site_cache_list.includes(existing_cache)) {
-            return caches.delete(existing_cache);
+        relevant_caches.map(function(relevant_cache) {
+          if (!site_cache_list.includes(relevant_cache)) {
+            return caches.delete(relevant_cache);
           }
         })
       );
