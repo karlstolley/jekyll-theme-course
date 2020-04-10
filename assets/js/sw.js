@@ -211,4 +211,4 @@ function detectSiteScope(url) {
   return scope;
 }
 
-console.log(version);
+// console.log(version);

@@ -4,7 +4,7 @@ document.querySelector('html').classList.add('js');
 // Register service worker, if browser supports them
 if ('serviceWorker' in navigator) {
   var scope = detectSiteScope(location.href);
-  console.log(scope.path);
+  // console.log(scope.path);
   navigator.serviceWorker.register(scope.path + 'assets/js/sw.js', { scope: scope.path })
   .then(function(registration) {
     console.log('Registered service worker scoped to', registration.scope);
