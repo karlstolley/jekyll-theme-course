@@ -10,7 +10,7 @@ const site_preloaded_assets = {
   essential: [
     'assets/css/screen.css',
     'assets/css/print.css',
-    'js/site.js',
+    'assets/js/site.js',
     site_offline_path
   ].map(function(asset){
     return site_scope.path + asset;
