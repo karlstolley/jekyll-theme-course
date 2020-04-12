@@ -49,7 +49,8 @@ h3 {
   text-transform: uppercase;
 }
 .agenda h3,
-#footer h3 {
+#footer h3,
+#instructor h3 {
   text-transform: none;
   font-weight: 500;
 }
@@ -91,7 +92,8 @@ h3 {
 }
 
 #header,
-#footer {
+#footer,
+#instructor {
   color: #777;
 }
 #header {
@@ -106,7 +108,8 @@ h3 {
 }
 #header,
 #content,
-#footer {
+#footer,
+#instructor {
   padding-left: $base-line * 1.5;
   padding-right: $base-line * 1.5;
 }
@@ -115,8 +118,15 @@ h3 {
 @media screen and (min-width: 53.4375em) {
   #header,
   #content,
-  #footer {
+  #footer,
+  #instructor {
     padding: ($base-line * 1.5) 10%;
+  }
+  #footer {
+    padding-top: 0;
+  }
+  #instructor {
+    padding-bottom: 0;
   }
   h2 {
     font-size: $base-size * $mod-scale * $mod-scale * $mod-scale * $mod-scale;
@@ -128,8 +138,15 @@ h3 {
 @media screen and (min-width: 68.75em) {
   #header,
   #content,
-  #footer {
+  #footer,
+  #instructor {
     padding: ($base-line * 3) 20% ($base-line * 1.5) 20%;
+  }
+  #footer {
+    padding-top: 0;
+  }
+  #instructor {
+    padding-bottom: 0;
   }
   h2 {
     font-size: $base-size * $mod-scale * $mod-scale * $mod-scale * $mod-scale * $mod-scale;

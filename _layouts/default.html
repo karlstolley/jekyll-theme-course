@@ -35,28 +35,26 @@
   {{ content }}
 </main>
 
+<aside id="instructor">
+  <header>
+    <h3>Instructor</h3>
+  </header>
+  <ul>
+    <li>
+      <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
+      {{ site.course.instructor.full_title | escape }}
+    </li>
+    <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
+    <li id="office-hours">
+      {{ instructor.office_hours }}
+    </li>
+  </ul>
+</aside>
 
 
 <footer id="footer">
-  <section id="instructor">
-    <header>
-      <h3>Instructor</h3>
-    </header>
-    <ul>
-      <li>
-        <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
-        {{ site.course.instructor.full_title | escape }}
-      </li>
-      <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
-      <li id="office-hours">
-        {{ instructor.office_hours }}
-      </li>
-    </ul>
-  </section>
   <nav id="full-nav">
-    <header>
-      <h3>Navigation</h3>
-    </header>
+    <h3>Navigation</h3>
     <ul class="nav">
       {% for nav in course.navigation %}
       {% assign protocol = nav.href | slice: 0, 4 %}
@@ -70,9 +68,7 @@
     </ul>
   </nav>
   <section id="colophon">
-    <header>
-      <h3>Colophon</h3>
-    </header>
+    <h3>Colophon</h3>
     <p class="fineprint">
       Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
       Licensed under
