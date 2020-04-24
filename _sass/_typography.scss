@@ -215,21 +215,28 @@ h3 {
 }
 #btn-show-calendar,
 .agenda h3 a {
+  border-radius: $base-line / 4;
+  display: block;
+  padding: $base-line / 4;
+  text-decoration: none;
   color: $back-color;
   background: $spot-color;
-  border-radius: $base-line * 0.25;
   display: inline-block;
-  height: $base-line;
-  padding-left: $base-line * 0.25;
-  padding-right: $base-line * 0.25;
 }
 #btn-show-calendar {
   background-color: #888;
   margin-bottom: $base-line * 2;
   text-decoration: none;
 }
+.agenda h3 a {
+  background: $back-color;
+  border: 1px solid $spot-color;
+  color: $spot-color;
+  padding: $base-line / 8 $base-line / 4;
+}
 .agenda h3 a::before {
-  content: "‣ ";
+  content: "▸ ";
+  color: #888;
 }
 #content header {
   padding-bottom: $base-line;
