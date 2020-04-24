@@ -26,6 +26,7 @@ layout: default
       </h2>
       <small>Week&nbsp;{{ util.spelled_nums[week_int] }}</small>
     </header>
+    <div class="agendas">
     {% for meeting in week.meetings %}
     <section class="agenda">
       {% if site.course.days.size > 0 %}
@@ -43,7 +44,7 @@ layout: default
       </ol>
     </section>
     {% endfor %}
-
+    </div>
     {% assign be = entry.begins | date: "%s" %}
     {% assign ex = entry.expires | date: "%s" %}
     {% assign deliverables_li = "" %}

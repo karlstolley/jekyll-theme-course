@@ -164,6 +164,15 @@ a {
   }
 }
 
+.project .description,
+.project .goals,
+.week .agenda {
+  color: #777;
+}
+.week.current .agenda {
+  color: #555;
+}
+
 /* ~ 620px */
 @media screen and (min-width: 38.75em) {
   h2 {
@@ -250,26 +259,25 @@ h3 {
     grid-column-gap: $base-line;
   }
   .week {
-    grid-template-rows: auto minmax(($base-line * 3.25), max-content);
+    grid-template-rows: auto ($base-line * 3.25);
+    align-content: stretch;
   }
   .policy header,
   .project header,
   .week header {
     grid-column: 1 / 6;
   }
-  .week .agenda {
-    grid-column: 2 / 3;
+  .week .agendas {
+    grid-column: 1 / 3;
     grid-row-start: 3;
   }
-  .week .agenda + .agenda {
-    grid-row-start: 4;
+  .week .assigned {
+    grid-column: 3 / 6;
+    grid-row: 2 / 4;
   }
+
   .policy > * {
     grid-column: 2 / 4;
-  }
-  .project .description,
-  .project .goals {
-    color: #777;
   }
   .project .description {
     grid-column: 1 / 3;
