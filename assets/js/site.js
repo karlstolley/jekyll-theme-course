@@ -127,28 +127,28 @@ if ('fetch' in window) {
   }
 
   if(typeof(github_url) !== "undefined") {
-  fetch(github_url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    var commit = {};
-    data = data[0]; // only need most recent commit
-    // Lowercase commit message's first word to run in `...to XYZ` copy:
-    commit.message = data.commit.message.charAt(0).toLowerCase() + data.commit.message.slice(1);
-    commit.url = data.html_url;
-    commit.stamp = data.commit.author.date;
-    commit.date = new Date(commit.stamp);
-    // Put the date in Day, Month 31 at <Local Time String> format
-    commit.time_string = namedDays[commit.date.getDay()] + ', ' +
-      namedMonths[commit.date.getMonth()] + ' ' +
-      commit.date.getDate() + ' at ' + commit.date.toLocaleTimeString();
-    // Append to footer on calendar
-    document.querySelector('#footer p').innerHTML +=
-      ' Course last updated on <time datetime="' + commit.stamp + '">' + commit.time_string +
-      '</time> to <a id="commit-message" href="' + commit.url + '">' + escapeHTML(commit.message) + '</a>.';
-  });
-}
+    fetch(github_url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var commit = {};
+      data = data[0]; // only need most recent commit
+      // Lowercase commit message's first word to run in `...to XYZ` copy:
+      commit.message = data.commit.message.charAt(0).toLowerCase() + data.commit.message.slice(1);
+      commit.url = data.html_url;
+      commit.stamp = data.commit.author.date;
+      commit.date = new Date(commit.stamp);
+      // Put the date in Day, Month 31 at <Local Time String> format
+      commit.time_string = namedDays[commit.date.getDay()] + ', ' +
+        namedMonths[commit.date.getMonth()] + ' ' +
+        commit.date.getDate() + ' at ' + commit.date.toLocaleTimeString();
+      // Append to footer on calendar
+      document.querySelector('#footer p').innerHTML +=
+        ' Course last updated on <time datetime="' + commit.stamp + '">' + commit.time_string +
+        '</time> to <a id="commit-message" href="' + commit.url + '">' + escapeHTML(commit.message) + '</a>.';
+    });
+  }
 }
 
 window.addEventListener('keyup', function(e) {
