@@ -25,16 +25,6 @@ layout: default
   </section>
 
   {% unless project.preview %}
-  {% if project.goals %}
-  <section class="goals">
-    <h3>Project Goals</h3>
-    <ul>
-    {% for goal in project.goals %}
-      <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
-    {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
   {% if project.deliverables %}
   <section class="deliverables">
     <h3>Deliverables and Deadlines</h3>
@@ -64,6 +54,16 @@ layout: default
       <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
       {% endfor %}
     </ol>
+  </section>
+  {% endif %}
+  {% if project.goals %}
+  <section class="goals">
+    <h3>Project Goals</h3>
+    <ul>
+    {% for goal in project.goals %}
+      <li>{{ goal | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+    {% endfor %}
+    </ul>
   </section>
   {% endif %}
   {% endunless %}
