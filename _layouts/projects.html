@@ -19,7 +19,7 @@ layout: default
     <small>Due by {{ project.due_date | date: "%A, %B %-e, %Y"}}</small>
   </header>
 
-  <section class="description">
+  <section class="description {% if project.preview %}preview{% endif %}">
     <h3>Project Description</h3>
     {{ project.content }}
   </section>
