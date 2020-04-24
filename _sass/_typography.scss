@@ -103,27 +103,48 @@ ul li::before {
   left: $base-line * 0.3;
   top: -($base-line * 0.065);
 }
-#quick-nav .nav {
+#full-nav.hidden {
+  display: none;
+}
+#quick-nav {
+  align-items: baseline;
   display: flex;
   justify-content: space-between;
 }
-#nav-con::before {
-  content: ""
+#quick-nav .nav {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.navbar #quick-nav li {
+  padding: 0;
+  margin-left: $base-line / 2;
+}
+.navbar #quick-nav li::before {
+  content: "";
 }
 #nav-con a {
   text-decoration: none;
 }
 .nav a {
+  border: 1px solid $spot-color;
+  border-radius: $base-line / 4;
   display: block;
+  padding: $base-line / 4;
+  text-decoration: none;
+}
+.nav a:hover,
+.nav a:focus,
+.nav a:active,
+#calendar #nav-cal a,
+#policies #nav-pol a,
+#projects #nav-pro a {
+  color: $back-color;
+  background-color: $spot-color;
 }
 .nav li::before {
-  content: "□";
-}
-.nav li:hover::before,
-#calendar #nav-cal::before,
-#policies #nav-pol::before,
-#projects #nav-pro::before {
-  content: "■";
+  content: "";
 }
 ol, .with::before {
   list-style-type: none;
@@ -185,6 +206,7 @@ a {
 h3 {
   text-transform: uppercase;
 }
+#quick-nav h3,
 .agenda h3,
 #footer h3,
 #instructor h3 {
@@ -253,6 +275,7 @@ h3 {
 
 /* ~ 690px */
 @media screen and (min-width: 43.125em) {
+  #header,
   .policy,
   .project,
   .week,
@@ -310,10 +333,17 @@ h3 {
   .project .preview {
     grid-column: 1 / 6;
   }
-  #instructor header {
-    grid-column: 2 / 6;
+  #header h1 {
+    grid-column: 1 / 6;
   }
-  #instructor ul {
+  #header p {
+    grid-column: 1 / 4;
+  }
+  #header #quick-nav {
+    grid-column: 1 / 6;
+  }
+
+  #instructor > * {
     grid-column: 2 / 6;
   }
   #footer #full-nav {
@@ -322,7 +352,18 @@ h3 {
   #footer #colophon {
     grid-column: 2 / 6;
   }
+  .navbar #instructor > *,
+  .navbar #footer #colophon {
+    grid-column: 1 / 4;
+  }
+}
 
+/* ~ 770px */
+@media screen and (min-width: 48.125em) {
+  body::after {
+    content: 'navbar';
+    display: none;
+  }
 }
 
 /* ~ 855px */

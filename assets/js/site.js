@@ -1,5 +1,6 @@
 // Add a .js utility class to <html>
-document.querySelector('html').classList.add('js');
+var html = document.querySelector('html');
+html.classList.add('js');
 
 // Register service worker, if browser supports them
 if ('serviceWorker' in navigator) {
@@ -23,6 +24,60 @@ if ('serviceWorker' in navigator) {
     return scope;
   }
 }
+
+// Move the nav to the header when there is room
+// Responsive detection
+function responsiveFeature(feature) {
+  var size = window
+    .getComputedStyle(document.body, ':after')
+    .getPropertyValue('content');
+  var has_feature = true;
+  if(size.indexOf(feature) === -1) {
+    has_feature = false;
+  }
+  return has_feature;
+}
+
+function ToggledNav() {
+  this.nav = document.querySelector('#full-nav .nav');
+  this.quick_nav = document.querySelector('#quick-nav .nav');
+  this.full_nav = document.querySelector('#full-nav');
+  this.nav_nav;
+  this.nav_items = [];
+  this.toggle = function() {
+    if (responsiveFeature('navbar') && !html.classList.contains('navbar')) {
+      while (this.nav.firstChild) {
+        if (this.nav.firstChild.tagName) {
+          this.nav_items.push(this.nav.removeChild(this.nav.firstChild));
+        } else {
+          this.nav.removeChild(this.nav.firstChild); // remove text nodes
+        }
+      }
+      for (var i = 0; i < this.nav_items.length; i++) {
+        this.quick_nav.appendChild(this.nav_items[i]);
+      }
+      this.nav_nav = this.quick_nav.removeChild(document.getElementById('nav-nav'));
+      html.classList.add('navbar');
+      this.full_nav.classList.add('hidden');
+    }
+    if (!responsiveFeature('navbar') && html.classList.contains('navbar')) {
+      console.log('nav-nav node name:', this.nav_nav.nodeName);
+      this.quick_nav.appendChild(this.nav_nav);
+      for (var i = 0; i < this.nav_items.length; i++) {
+        this.nav.appendChild(this.nav_items[i]);
+      }
+      this.full_nav.classList.remove('hidden');
+      html.classList.remove('navbar');
+    }
+  }
+}
+
+var tn = new ToggledNav();
+tn.toggle();
+
+window.addEventListener('resize', function() {
+  tn.toggle();
+});
 
 
 // Capture and replicate the current week at the top of the calendar
