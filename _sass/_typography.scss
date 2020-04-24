@@ -164,9 +164,11 @@ a {
   }
 }
 
+#materials.policy .recommended,
 .project .description,
 .project .goals,
-.week .agenda {
+.week .agenda,
+.fine-print {
   color: #777;
 }
 .week.current .agenda {
@@ -277,7 +279,19 @@ h3 {
   }
 
   .policy > * {
-    grid-column: 2 / 4;
+    grid-column: 1 / 5;
+  }
+  #books.policy ul,
+  #materials.policy .required {
+    grid-column: 1 / 4;
+  }
+  #books.policy .fine-print,
+  #materials.policy .recommended {
+    grid-column: 4 / 6;
+    grid-row: 3 / 5;
+  }
+  #materials.policy .recommended {
+    grid-row: 2 / 5;
   }
   .project .description {
     grid-column: 1 / 3;
