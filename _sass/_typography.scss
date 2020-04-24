@@ -234,6 +234,12 @@ h3 {
   color: $spot-color;
   padding: $base-line / 8 $base-line / 4;
 }
+.agenda h3 a:active,
+.agenda h3 a:focus,
+.agenda h3 a:hover {
+  background: $spot-color;
+  color: $back-color;
+}
 .agenda h3 a::before {
   content: "▸ ";
   color: #888;
