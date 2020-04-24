@@ -255,7 +255,9 @@ h3 {
 @media screen and (min-width: 43.125em) {
   .policy,
   .project,
-  .week {
+  .week,
+  #instructor,
+  #footer {
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-column-gap: $base-line;
@@ -308,6 +310,19 @@ h3 {
   .project .preview {
     grid-column: 1 / 6;
   }
+  #instructor header {
+    grid-column: 2 / 6;
+  }
+  #instructor ul {
+    grid-column: 2 / 6;
+  }
+  #footer #full-nav {
+    grid-column: 1 / 2;
+  }
+  #footer #colophon {
+    grid-column: 2 / 6;
+  }
+
 }
 
 /* ~ 855px */
