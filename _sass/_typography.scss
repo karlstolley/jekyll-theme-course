@@ -1,17 +1,13 @@
-@import url("https://use.typekit.net/pig5ein.css");
-
 $base-size-px: 19;
 $base-line-px: 24;
 $base-size: ($base-size-px / 16) * 100%;
 $base-line: ($base-line-px / $base-size-px) * 1rem;
 $mod-scale: 1.25;
-$text-color: #222;
-$back-color: #F2F2F2;
-$spot-color: #900;
+
 
 html {
   -webkit-text-size-adjust: none;
-  font-family: Parka, serif;
+  font-family: $primary-font-family;
   font-size: 19px;
   color: $text-color;
   background: $back-color;
@@ -33,7 +29,7 @@ h1 b {
   font-weight: normal;
 }
 h2 {
-  font-family: "moderno-fb-compressed";
+  font-family: $secondary-font-family;
   font-weight: 600;
   font-size: $base-size * $mod-scale * $mod-scale * $mod-scale;
   line-height: $base-line * 2;
@@ -199,7 +195,7 @@ a {
 /* ~ 620px */
 @media screen and (min-width: 38.75em) {
   h2 {
-    font-family: "moderno-fb-condensed";
+    font-family: $tertiary-font-family;
     font-weight: 700;
   }
 }
