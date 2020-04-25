@@ -39,6 +39,8 @@ course:
     - label: Policies
       href: "policies/"
       id: pol
+  css:
+    font-url: "https://use.typekit.net/pig5ein.css"
 
 collections_dir: syllabus
 
