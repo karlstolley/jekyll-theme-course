@@ -10,9 +10,13 @@ h1 b {
   display: block;
   font-weight: normal;
 }
-h3 {
+h3,
+h4 {
   text-transform: uppercase;
   padding-bottom: $base-line / 4;
+}
+h4 {
+  text-transform: none;
 }
 
 p,li {

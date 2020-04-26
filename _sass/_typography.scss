@@ -103,20 +103,22 @@ h2 {
   }
 }
 
-#quick-nav h3,
-.agenda h3,
+#header h3,
 #footer h3,
-#instructor h3 {
+#instructor h3,
+.agenda h3 {
   text-transform: none;
   font-weight: 500;
   padding-bottom: $base-line / 2;
 }
-.agenda h3,
-.assigned h4,
-.policy h3,
-.project h3 {
+.agenda h3 {
   padding-bottom: $base-line / 4;
 }
+.assigned h3,
+.project h3 {
+  font-weight: bold;
+}
+
 #btn-show-calendar,
 .agenda h3 a {
   border-radius: $base-line / 4;
