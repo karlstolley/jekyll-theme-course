@@ -89,10 +89,10 @@ h2 {
 .project .goals,
 .week .agenda,
 .fine-print {
-  color: #777;
+  color: $gray-color;
 }
 .week.current .agenda {
-  color: #555;
+  color: darken($gray-color, 10%);
 }
 
 /* ~ 620px */
@@ -130,9 +130,18 @@ h2 {
   display: inline-block;
 }
 #btn-show-calendar {
-  background-color: #888;
+  background: $back-color;
+  color: $gray-color;
+  border: 1px solid $gray-color;
+  color: 555;
   margin-bottom: $base-line * 2;
   text-decoration: none;
+}
+#btn-show-calendar:active,
+#btn-show-calendar:focus,
+#btn-show-calendar:hover {
+  background: $gray-color;
+  color: $back-color;
 }
 .agenda h3 a {
   background: $back-color;
@@ -149,7 +158,7 @@ h2 {
 }
 .agenda h3 a::before {
   content: "▸ ";
-  color: #888;
+  color: $gray-color;
 }
 #content header {
   padding-bottom: $base-line;
@@ -161,7 +170,7 @@ header small {
   // padding-top: $base-line * 0.25;
 }
 .week > header small {
-  color: #888;
+  color: $gray-color;
   font-weight: normal;
 }
 
@@ -170,7 +179,7 @@ header small {
 }
 
 .current {
-  background: #DDD;
+  background: lighten($gray-color, 40%);
   padding: $base-line * 1.5;
   margin: ($base-line * 1.5) (-($base-line * 1.5));
 }
@@ -182,7 +191,7 @@ header small {
 #header,
 #footer,
 #instructor {
-  color: #777;
+  color: $gray-color;
 }
 #header {
   padding: $base-line * 0.5;
