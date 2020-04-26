@@ -109,6 +109,13 @@ h2 {
 #instructor h3 {
   text-transform: none;
   font-weight: 500;
+  padding-bottom: $base-line / 2;
+}
+.agenda h3,
+.assigned h4,
+.policy h3,
+.project h3 {
+  padding-bottom: $base-line / 4;
 }
 #btn-show-calendar,
 .agenda h3 a {
@@ -144,12 +151,17 @@ h2 {
 #content header {
   padding-bottom: $base-line;
 }
-#content header small {
+header small {
   color: $spot-color;
   display: block;
   font-weight: 500;
-  padding-top: $base-line * 0.25;
+  // padding-top: $base-line * 0.25;
 }
+.week > header small {
+  color: #888;
+  font-weight: normal;
+}
+
 #content article {
   padding-bottom: $base-line * 3;
 }
@@ -158,6 +170,10 @@ h2 {
   background: #DDD;
   padding: $base-line * 1.5;
   margin: ($base-line * 1.5) (-($base-line * 1.5));
+}
+
+.assigned {
+  padding-top: $base-line;
 }
 
 #header,
@@ -196,7 +212,7 @@ h2 {
     grid-column-gap: $base-line;
   }
   .week {
-    grid-template-rows: auto ($base-line * 3.25);
+    grid-template-rows: auto ($base-line * 3);
     align-content: stretch;
   }
   .policy header,
@@ -209,6 +225,7 @@ h2 {
     grid-row-start: 3;
   }
   .week .assigned {
+    padding-top: 0;
     grid-column: 3 / 6;
     grid-row: 2 / 4;
   }
