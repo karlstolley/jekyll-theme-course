@@ -139,6 +139,7 @@ h2 {
   border: 1px solid $spot-color;
   color: $spot-color;
   padding: $base-line / 8 $base-line / 4;
+  margin-top: -($base-line / 8);
 }
 .agenda h3 a:active,
 .agenda h3 a:focus,
