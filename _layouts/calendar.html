@@ -56,7 +56,7 @@ layout: default
       {%- for deliverable in project.deliverables -%}
         {%- assign dl = deliverable.deadline | date: "%s" -%}
         {%- if dl >= be and dl <= ex -%}
-          <li class="deadline">Project {{ util.spelled_nums[proj_int] }}: {{ deliverable.action }} (Due by {{ deliverable.deadline | date: "%A, %B %-e" }})</li>
+          <li class="deadline">Project {{ util.spelled_nums[proj_int] }}: {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }} (Due by {{ deliverable.deadline | date: "%A, %B %-e" }})</li>
         {%- endif -%}
       {%- endfor -%}
     {%- endfor -%}
