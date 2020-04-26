@@ -212,7 +212,7 @@ header small {
     grid-column-gap: $base-line;
   }
   .week {
-    grid-template-rows: auto ($base-line * 3);
+    grid-template-rows: auto ($base-line * 3.25);
     align-content: stretch;
   }
   .policy header,
