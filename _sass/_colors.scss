@@ -2,29 +2,114 @@ $text-color: #222;
 $back-color: #F2F2F2;
 $spot-color: #900;
 $gray-color: #7F7F7F;
+
+// Dark mode
+$dk-text-color: #AFAFAF;
+$dk-back-color: #111;
+$dk-spot-color: #9C0000;
+$dk-gray-color: #777;
+
+// CSS Variables
+html,
+html.light {
+  --color-text: #{$text-color};
+  --color-back: #{$back-color};
+  --color-spot: #{$spot-color};
+  --color-gray: #{$gray-color};
+  .nav a,
+  .nav a:hover,
+  .nav a:focus,
+  .nav a:active,
+  #calendar #nav-cal a,
+  #policies #nav-pol a,
+  #projects #nav-pro a {
+    color: $back-color;
+    color: var(--color-back);
+  }
+}
+html.dark {
+  --color-text: #{$dk-text-color};
+  --color-back: #{$dk-back-color};
+  --color-spot: #{$dk-spot-color};
+  --color-gray: #{$dk-gray-color};
+  a {
+    text-decoration-color: transparentize($dk-spot-color, 0.25); // DARK
+  }
+  .nav a,
+  .nav a:hover,
+  .nav a:focus,
+  .nav a:active,
+  #calendar #nav-cal a,
+  #policies #nav-pol a,
+  #projects #nav-pro a {
+    color: $dk-text-color; // DARK
+    color: var(--color-text); // DARK
+  }
+  .week.current .agenda {
+    color: $dk-gray-color; // DARK
+    color: var(--color-gray); // DARK
+  }
+  .current {
+    background: darken($dk-gray-color, 45%); // DARK
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    --color-text: #{$dk-text-color};
+    --color-back: #{$dk-back-color};
+    --color-spot: #{$dk-spot-color};
+    --color-gray: #{$dk-gray-color};
+  }
+  a {
+    text-decoration-color: transparentize($dk-spot-color, 0.25); // DARK
+  }
+  .nav a,
+  .nav a:hover,
+  .nav a:focus,
+  .nav a:active,
+  #calendar #nav-cal a,
+  #policies #nav-pol a,
+  #projects #nav-pro a {
+    color: $dk-text-color; // DARK
+    color: var(--color-text); // DARK
+  }
+  .week.current .agenda {
+    color: $dk-gray-color; // DARK
+    color: var(--color-gray); // DARK
+  }
+  .current {
+    background: darken($dk-gray-color, 45%); // DARK
+  }
+}
+
 html {
   color: $text-color;
+  color: var(--color-text);
   background: $back-color;
+  background: var(--color-back);
 }
 ol > li::before,
 ul li::before {
   color: $spot-color;
+  color: var(--color-spot);
 }
 a {
   color: $spot-color;
+  color: var(--color-spot);
 }
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
     text-decoration-color: transparentize($spot-color, 0.65);
-    text-decoration-color: transparentize($spot-color, 0.25); // DARK
   }
 }
 #header h1 a {
   color: $spot-color;
+  color: var(--color-spot);
 }
 .nav a {
   border: 1px solid $spot-color;
+  border: 1px solid var(--color-spot);
 }
 .nav a:hover,
 .nav a:focus,
@@ -32,9 +117,8 @@ a {
 #calendar #nav-cal a,
 #policies #nav-pol a,
 #projects #nav-pro a {
-  color: $back-color;
-  color: $text-color; // DARK
   background-color: $spot-color;
+  background: var(--color-spot);
 }
 #materials.policy .recommended,
 .project .description,
@@ -42,56 +126,72 @@ a {
 .week .agenda,
 .fine-print {
   color: $gray-color;
+  color: var(--color-gray);
 }
 .week.current .agenda {
   color: darken($gray-color, 10%);
-  color: $gray-color; // DARK
 }
 #btn-show-calendar,
 .agenda h3 a {
   color: $back-color;
+  color: var(--color-back);
   background: $spot-color;
+  background: var(--color-spot);
 }
 #btn-show-calendar {
   background: $back-color;
+  background: var(--color-back);
   color: $gray-color;
+  color: var(--color-gray);
   border: 1px solid $gray-color;
+  border: 1px solid var(--color-gray);
 }
 #btn-show-calendar:active,
 #btn-show-calendar:focus,
 #btn-show-calendar:hover {
   background: $gray-color;
+  background: var(--color-gray);
   color: $back-color;
+  color: var(--color-back);
 }
 .agenda h3 a {
   background: $back-color;
+  background: var(--color-back);
   border: 1px solid $spot-color;
+  border: 1px solid var(--color-spot);
   color: $spot-color;
+  color: var(--color-spot);
 }
 .agenda h3 a:active,
 .agenda h3 a:focus,
 .agenda h3 a:hover {
   background: $spot-color;
+  background: var(--color-spot);
   color: $back-color;
+  color: var(--color-back);
 }
 .agenda h3 a::before {
   color: $gray-color;
+  color: var(--color-gray);
 }
 header small {
   color: $spot-color;
+  color: var(--color-spot);
 }
 .week > header small {
   color: $gray-color;
+  color: var(--color-gray);
 }
 .current {
   background: lighten($gray-color, 40%);
-  background: darken($gray-color, 40%); // DARK
 }
 #header,
 #footer,
 #instructor {
   color: $gray-color;
+  color: var(--color-gray);
 }
 #header .nav {
   color: $text-color;
+  color: var(--color-text);
 }
