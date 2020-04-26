@@ -94,7 +94,7 @@ a {
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
-    text-decoration-color: $spot-color;
+    text-decoration-color: transparentize($spot-color, 0.65);
   }
 }
 
