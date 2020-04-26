@@ -2,3 +2,96 @@ $text-color: #222;
 $back-color: #F2F2F2;
 $spot-color: #900;
 $gray-color: #7F7F7F;
+html {
+  color: $text-color;
+  background: $back-color;
+}
+ol > li::before,
+ul li::before {
+  color: $spot-color;
+}
+a {
+  color: $spot-color;
+}
+@supports (text-decoration-color: red) {
+  a {
+    color: inherit;
+    text-decoration-color: transparentize($spot-color, 0.65);
+    text-decoration-color: transparentize($spot-color, 0.25); // DARK
+  }
+}
+#header h1 a {
+  color: $spot-color;
+}
+.nav a {
+  border: 1px solid $spot-color;
+}
+.nav a:hover,
+.nav a:focus,
+.nav a:active,
+#calendar #nav-cal a,
+#policies #nav-pol a,
+#projects #nav-pro a {
+  color: $back-color;
+  color: $text-color; // DARK
+  background-color: $spot-color;
+}
+#materials.policy .recommended,
+.project .description,
+.project .goals,
+.week .agenda,
+.fine-print {
+  color: $gray-color;
+}
+.week.current .agenda {
+  color: darken($gray-color, 10%);
+  color: $gray-color; // DARK
+}
+#btn-show-calendar,
+.agenda h3 a {
+  color: $back-color;
+  background: $spot-color;
+}
+#btn-show-calendar {
+  background: $back-color;
+  color: $gray-color;
+  border: 1px solid $gray-color;
+}
+#btn-show-calendar:active,
+#btn-show-calendar:focus,
+#btn-show-calendar:hover {
+  background: $gray-color;
+  color: $back-color;
+}
+.agenda h3 a {
+  background: $back-color;
+  border: 1px solid $spot-color;
+  color: $spot-color;
+}
+.agenda h3 a:active,
+.agenda h3 a:focus,
+.agenda h3 a:hover {
+  background: $spot-color;
+  color: $back-color;
+}
+.agenda h3 a::before {
+  color: $gray-color;
+}
+header small {
+  color: $spot-color;
+}
+.week > header small {
+  color: $gray-color;
+}
+.current {
+  background: lighten($gray-color, 40%);
+  background: darken($gray-color, 40%); // DARK
+}
+#header,
+#footer,
+#instructor {
+  color: $gray-color;
+}
+#header .nav {
+  color: $text-color;
+}

@@ -9,8 +9,6 @@ html {
   -webkit-text-size-adjust: none;
   font-family: $primary-font-family;
   font-size: 19px;
-  color: $text-color;
-  background: $back-color;
 }
 
 @media (min-resolution: 192dpi) {
@@ -56,43 +54,18 @@ h2 {
   text-decoration: none;
 }
 .nav a {
-  border: 1px solid $spot-color;
   border-radius: $base-line / 4;
   display: block;
   padding: $base-line / 4;
   text-decoration: none;
 }
-.nav a:hover,
-.nav a:focus,
-.nav a:active,
-#calendar #nav-cal a,
-#policies #nav-pol a,
-#projects #nav-pro a {
-  color: $back-color;
-  background-color: $spot-color;
-}
+
 .nav li::before {
   content: "";
 }
 
-
-
-
 #header h1 a {
-  color: $spot-color;
   text-decoration: none;
-}
-
-
-#materials.policy .recommended,
-.project .description,
-.project .goals,
-.week .agenda,
-.fine-print {
-  color: $gray-color;
-}
-.week.current .agenda {
-  color: darken($gray-color, 10%);
 }
 
 /* ~ 620px */
@@ -125,52 +98,29 @@ h2 {
   display: block;
   padding: $base-line / 4;
   text-decoration: none;
-  color: $back-color;
-  background: $spot-color;
   display: inline-block;
 }
 #btn-show-calendar {
-  background: $back-color;
-  color: $gray-color;
-  border: 1px solid $gray-color;
-  color: 555;
   margin-bottom: $base-line * 2;
   text-decoration: none;
 }
-#btn-show-calendar:active,
-#btn-show-calendar:focus,
-#btn-show-calendar:hover {
-  background: $gray-color;
-  color: $back-color;
-}
+
 .agenda h3 a {
-  background: $back-color;
-  border: 1px solid $spot-color;
-  color: $spot-color;
   padding: $base-line / 8 $base-line / 4;
   margin-top: -($base-line / 8);
 }
-.agenda h3 a:active,
-.agenda h3 a:focus,
-.agenda h3 a:hover {
-  background: $spot-color;
-  color: $back-color;
-}
 .agenda h3 a::before {
   content: "▸ ";
-  color: $gray-color;
 }
 #content header {
   padding-bottom: $base-line;
 }
 header small {
-  color: $spot-color;
   display: block;
   font-weight: 500;
   // padding-top: $base-line * 0.25;
 }
 .week > header small {
-  color: $gray-color;
   font-weight: normal;
 }
 
@@ -179,7 +129,6 @@ header small {
 }
 
 .current {
-  background: lighten($gray-color, 40%);
   padding: $base-line * 1.5;
   margin: ($base-line * 1.5) (-($base-line * 1.5));
 }
@@ -188,16 +137,8 @@ header small {
   padding-top: $base-line;
 }
 
-#header,
-#footer,
-#instructor {
-  color: $gray-color;
-}
 #header {
   padding: $base-line * 0.5;
-}
-#header .nav {
-  color: $text-color;
 }
 #header p {
   min-height: $base-line * 4;
