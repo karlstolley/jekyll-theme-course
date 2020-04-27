@@ -212,7 +212,7 @@ header small {
   .policy > * {
     grid-column: 1 / 5;
   }
-  #books.policy ul,
+  #books.policy section,
   #materials.policy .required {
     grid-column: 1 / 4;
   }
@@ -221,6 +221,7 @@ header small {
     grid-column: 4 / 6;
     grid-row: 3 / 5;
   }
+  #books.policy .fine-print,
   #materials.policy .recommended {
     grid-row: 2 / 5;
   }
