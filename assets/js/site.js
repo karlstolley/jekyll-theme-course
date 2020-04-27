@@ -25,6 +25,68 @@ if ('serviceWorker' in navigator) {
   }
 }
 
+function themeSwitcher() {
+  // Exit fast if no CSS properties support
+  if (!('supports' in CSS && CSS.supports("(--foo: bar)"))) {
+    return;
+  }
+
+  var header = document.querySelector('#header h1');
+  var toggle = document.createElement('a');
+  var html = document.querySelector('html');
+
+  var dark_mode = false;
+  var modes = ['light','dark'];
+
+  if ('matchMedia' in window) {
+    dark_mode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark_mode) {
+      modes.reverse(); // ['dark','light']
+    }
+  }
+
+  if (storageAvailable('localStorage')) {
+    if (!localStorage.getItem('modes')) {
+      localStorage.setItem('modes',modes.join(','));
+    } else {
+      modes = localStorage.getItem('modes').split(',');
+    }
+  }
+
+  html.classList.add(modes[0]);
+
+  toggle.id = 'theme-toggle';
+  toggle.href = '#null';
+  toggle.title = 'Switch to ' + modes[1] + ' theme';
+  toggle.innerText = '☯︎';
+  header.appendChild(toggle);
+
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    html.classList.replace(modes[0],modes[1]);
+    modes.reverse();
+    if (storageAvailable('localStorage')) {
+      localStorage.setItem('modes',modes.join(','));
+    }
+    toggle.title = 'Switch to ' + modes[1] + ' theme';
+  });
+
+  function storageAvailable(type) {
+    try {
+      var storage = window[type];
+      var x = '__storage_test__';
+      storage.setItem(x, x);
+      storage.removeItem(x);
+      return true;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+}
+
+themeSwitcher();
+
 // Move the nav to the header when there is room
 // Responsive detection
 function responsiveFeature(feature) {

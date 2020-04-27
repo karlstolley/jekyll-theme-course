@@ -174,3 +174,9 @@ header small {
   color: $text-color;
   color: var(--color-text);
 }
+#header #theme-toggle {
+  background: $text-color;
+  background: var(--color-text);
+  color: $back-color;
+  color: var(--color-back);
+}
