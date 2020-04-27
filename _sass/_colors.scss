@@ -180,3 +180,7 @@ header small {
   color: $back-color;
   color: var(--color-back);
 }
+#header #theme-toggle svg {
+  fill: $back-color;
+  fill: var(--color-back);
+}

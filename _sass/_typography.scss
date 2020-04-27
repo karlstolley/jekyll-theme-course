@@ -70,11 +70,14 @@ h2 {
 
 #header #theme-toggle {
   border-radius: $base-line / 4;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: $base-size * $mod-scale * $mod-scale;
   line-height: 1;
-  opacity: 0.9;
-  padding: $base-line / 12 $base-line / 6;
+  height: $base-line * 1.5;
+  width: $base-line * 1.5;
+  opacity: 0.75;
   position: absolute;
   right: $base-line / 4;
   top: $base-line / 4;
