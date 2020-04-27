@@ -2,12 +2,18 @@ $text-color: #222;
 $back-color: #F2F2F2;
 $spot-color: #900;
 $gray-color: #7F7F7F;
+$gray-alter: darken($gray-color, 10%);
+$link-under: transparentize($spot-color, 0.65);
+$curr-color: lighten($gray-color, 40%);
 
 // Dark mode
 $dk-text-color: #AFAFAF;
 $dk-back-color: #111;
 $dk-spot-color: #9C0000;
 $dk-gray-color: #777;
+$dk-link-under: transparentize($dk-spot-color, 0.25);
+$dk-curr-color: darken($dk-gray-color, 45%);
+
 
 // CSS Variables
 html,
@@ -16,42 +22,22 @@ html.light {
   --color-back: #{$back-color};
   --color-spot: #{$spot-color};
   --color-gray: #{$gray-color};
-  .nav a,
-  .nav a:hover,
-  .nav a:focus,
-  .nav a:active,
-  #calendar #nav-cal a,
-  #policies #nav-pol a,
-  #projects #nav-pro a {
-    color: $back-color;
-    color: var(--color-back);
-  }
+  --color-curr: #{$curr-color};
+  --color-altg: #{$gray-alter};
+  --color-link: #{$link-under};
+  --color-navi: #{$gray-color};
+  --color-nava: #{$back-color};
 }
 html.dark {
   --color-text: #{$dk-text-color};
   --color-back: #{$dk-back-color};
   --color-spot: #{$dk-spot-color};
   --color-gray: #{$dk-gray-color};
-  a {
-    text-decoration-color: transparentize($dk-spot-color, 0.25); // DARK
-  }
-  .nav a,
-  .nav a:hover,
-  .nav a:focus,
-  .nav a:active,
-  #calendar #nav-cal a,
-  #policies #nav-pol a,
-  #projects #nav-pro a {
-    color: $dk-text-color; // DARK
-    color: var(--color-text); // DARK
-  }
-  .week.current .agenda {
-    color: $dk-gray-color; // DARK
-    color: var(--color-gray); // DARK
-  }
-  .current {
-    background: darken($dk-gray-color, 45%); // DARK
-  }
+  --color-curr: #{$dk-curr-color};
+  --color-altg: #{$dk-gray-color};
+  --color-link: #{$dk-link-under};
+  --color-navi: #{$dk-gray-color};
+  --color-nava: #{$dk-text-color};
 }
 @media screen and (prefers-color-scheme: dark) {
   html {
@@ -59,26 +45,11 @@ html.dark {
     --color-back: #{$dk-back-color};
     --color-spot: #{$dk-spot-color};
     --color-gray: #{$dk-gray-color};
-  }
-  a {
-    text-decoration-color: transparentize($dk-spot-color, 0.25); // DARK
-  }
-  .nav a,
-  .nav a:hover,
-  .nav a:focus,
-  .nav a:active,
-  #calendar #nav-cal a,
-  #policies #nav-pol a,
-  #projects #nav-pro a {
-    color: $dk-text-color; // DARK
-    color: var(--color-text); // DARK
-  }
-  .week.current .agenda {
-    color: $dk-gray-color; // DARK
-    color: var(--color-gray); // DARK
-  }
-  .current {
-    background: darken($dk-gray-color, 45%); // DARK
+    --color-curr: #{$dk-curr-color};
+    --color-altg: #{$dk-gray-color};
+    --color-link: #{$dk-link-under};
+    --color-navi: #{$dk-gray-color};
+    --color-nava: #{$dk-text-color};
   }
 }
 
@@ -100,7 +71,8 @@ a {
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
-    text-decoration-color: transparentize($spot-color, 0.65);
+    text-decoration-color: $link-under;
+    text-decoration-color: var(--color-link);
   }
 }
 #header h1 a {
@@ -110,6 +82,8 @@ a {
 .nav a {
   border: 1px solid $spot-color;
   border: 1px solid var(--color-spot);
+  color: $gray-color;
+  color: var(--color-navi);
 }
 .nav a:hover,
 .nav a:focus,
@@ -119,7 +93,10 @@ a {
 #projects #nav-pro a {
   background-color: $spot-color;
   background: var(--color-spot);
+  color: $back-color;
+  color: var(--color-nava);
 }
+
 #materials.policy .recommended,
 .project .description,
 .project .goals,
@@ -128,8 +105,13 @@ a {
   color: $gray-color;
   color: var(--color-gray);
 }
+.current {
+  background: $curr-color;
+  background: var(--color-curr);
+}
 .week.current .agenda {
-  color: darken($gray-color, 10%);
+  color: $gray-alter;
+  color: var(--color-altg);
 }
 #btn-show-calendar,
 .agenda h3 a {
@@ -181,9 +163,6 @@ header small {
 .week > header small {
   color: $gray-color;
   color: var(--color-gray);
-}
-.current {
-  background: lighten($gray-color, 40%);
 }
 #header,
 #footer,
