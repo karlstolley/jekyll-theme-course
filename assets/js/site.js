@@ -226,3 +226,5 @@ window.addEventListener('keyup', function(e) {
     document.querySelector('html').classList.toggle('g');
   }
 });
+
+html.classList.remove('loading');

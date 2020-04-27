@@ -54,10 +54,11 @@ html.dark {
 }
 
 html {
+  transition: color 0.5s, background-color 0.5s;
   color: $text-color;
   color: var(--color-text);
-  background: $back-color;
-  background: var(--color-back);
+  background-color: $back-color;
+  background-color: var(--color-back);
 }
 ol > li::before,
 ul li::before {
@@ -92,7 +93,7 @@ a {
 #policies #nav-pol a,
 #projects #nav-pro a {
   background-color: $spot-color;
-  background: var(--color-spot);
+  background-color: var(--color-spot);
   color: $back-color;
   color: var(--color-nava);
 }
@@ -106,8 +107,9 @@ a {
   color: var(--color-gray);
 }
 .current {
-  background: $curr-color;
-  background: var(--color-curr);
+  transition: background-color 0.5s;
+  background-color: $curr-color;
+  background-color: var(--color-curr);
 }
 .week.current .agenda {
   color: $gray-alter;
@@ -117,12 +119,12 @@ a {
 .agenda h3 a {
   color: $back-color;
   color: var(--color-back);
-  background: $spot-color;
-  background: var(--color-spot);
+  background-color: $spot-color;
+  background-color: var(--color-spot);
 }
 #btn-show-calendar {
-  background: $back-color;
-  background: var(--color-back);
+  background-color: $back-color;
+  background-color: var(--color-back);
   color: $gray-color;
   color: var(--color-gray);
   border: 1px solid $gray-color;
@@ -131,14 +133,14 @@ a {
 #btn-show-calendar:active,
 #btn-show-calendar:focus,
 #btn-show-calendar:hover {
-  background: $gray-color;
-  background: var(--color-gray);
+  background-color: $gray-color;
+  background-color: var(--color-gray);
   color: $back-color;
   color: var(--color-back);
 }
 .agenda h3 a {
-  background: $back-color;
-  background: var(--color-back);
+  background-color: $back-color;
+  background-color: var(--color-back);
   border: 1px solid $spot-color;
   border: 1px solid var(--color-spot);
   color: $spot-color;
@@ -147,8 +149,8 @@ a {
 .agenda h3 a:active,
 .agenda h3 a:focus,
 .agenda h3 a:hover {
-  background: $spot-color;
-  background: var(--color-spot);
+  background-color: $spot-color;
+  background-color: var(--color-spot);
   color: $back-color;
   color: var(--color-back);
 }
@@ -175,8 +177,8 @@ header small {
   color: var(--color-text);
 }
 #header #theme-toggle {
-  background: $text-color;
-  background: var(--color-text);
+  background-color: $text-color;
+  background-color: var(--color-text);
   color: $back-color;
   color: var(--color-back);
 }
