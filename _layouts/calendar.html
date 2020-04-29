@@ -66,7 +66,12 @@ layout: default
     <aside class="assigned">
       <header>
         <h3>Assigned Work</h3>
-        <small>Due {{ entry.expires | date: "%A, %B %-e" }}</small>
+        {% if entry.due_date %}
+          {% assign due_date = entry.due_date %}
+        {% else %}
+          {% assign due_date = entry.expires %}
+        {% endif %}
+        <small>Due {{ due_date | date: "%A, %B %-e" }}</small>
       </header>
       {% if week.readings %}
       <section class="readings">
