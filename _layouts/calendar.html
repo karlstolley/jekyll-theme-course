@@ -4,13 +4,21 @@ layout: default
 {% assign util = site.data.utility %}
 {% assign projects = site.projects %}
 
+{% assign week_count = site.data.calendar | size %}
+{% assign final_week = week_count | minus: 1 %}
+
+{% assign today = "today" | date: "%s" %}
+{% assign last_expiry = site.data.calendar[final_week].expires | date: "%s" %}
+
 {% assign current = true %}
+{% if today > last_expiry %}
+  {% assign current = false %}
+{% endif %}
 
 {% for entry in site.data.calendar %}
   {% assign week_int = forloop.index | times: 1 %}
   {% capture week_num %}{% if week_int < 10 %}0{% endif %}{{ week_int }}{% endcapture %}
   {% assign week = site.weeks[forloop.index0] %}
-  {% assign today = "today" | date: "%s" %}
   {% assign expiry = entry.expires | date: "%s" %}
 
   <!-- past dates? -->
