@@ -149,7 +149,7 @@ window.addEventListener('resize', function() {
 
 
 // Capture and replicate the current week at the top of the calendar
-if (document.querySelector('#calendar')) {
+if ((document.querySelector('#calendar')) && (document.querySelector('#this-week'))) {
   var this_week = document.querySelector('#this-week').closest('article'); // grab this week's <article>
   var current_week = this_week.cloneNode(true); // make a copy of it,
   this_week.querySelector('#this-week').id = ''; // remove the original #this-week id
