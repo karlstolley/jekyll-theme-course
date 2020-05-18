@@ -43,7 +43,7 @@ h2 {
   flex-flow: row wrap;
   justify-content: flex-end;
 }
-.navbar #quick-nav li {
+#quick-nav li {
   padding: 0;
   margin-left: $base-line / 2;
 }
@@ -69,28 +69,14 @@ h2 {
 }
 
 #header #theme-button {
-  border-radius: $base-line / 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: $base-size * $mod-scale * $mod-scale;
-  line-height: 1;
-  height: $base-line * 1.5;
-  width: $base-line * 1.5;
-  opacity: 0.75;
-  position: absolute;
-  right: $base-line / 4;
-  top: $base-line / 4;
+  opacity: 0.65;
+  line-height: 0;
 }
 
 /* ~ 370px */
 @media screen and (min-width: 23.125em) {
   #header h1 {
     position: relative;
-  }
-  #header #theme-button {
-    right: 0;
-    top: $base-line / 4;
   }
 }
 

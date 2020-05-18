@@ -179,6 +179,8 @@ header small {
 #header #theme-button {
   background-color: $text-color;
   background-color: var(--color-text);
+  border-color: $text-color;
+  border-color: var(--color-text);
   color: $back-color;
   color: var(--color-back);
 }

@@ -111,8 +111,10 @@ if ('supports' in CSS && CSS.supports("(--foo: bar)")) {
   }
 
   var ts = new ThemeSwitch();
-  document.querySelector('#header h1').appendChild(ts.switcherButton());
-
+  var ts_li = document.createElement('li');
+  ts_li.id = 'nav-thm';
+  ts_li.appendChild(ts.switcherButton());
+  document.querySelector('#quick-nav .nav').appendChild(ts_li);
 }
 
 
@@ -143,34 +145,38 @@ function responsiveFeature(feature) {
 }
 
 function ToggledNav() {
-  this.nav = document.querySelector('#full-nav .nav');
-  this.quick_nav = document.querySelector('#quick-nav .nav');
-  this.full_nav = document.querySelector('#full-nav');
-  this.nav_nav;
-  this.nav_items = [];
+  var nav = document.querySelector('#full-nav .nav');
+  var quick_nav = document.querySelector('#quick-nav .nav');
+  var full_nav = document.querySelector('#full-nav');
+  var thm_btn;
+  var nav_nav;
+  var nav_items = [];
   this.toggle = function() {
     if (responsiveFeature('navbar') && !html.classList.contains('navbar')) {
-      while (this.nav.firstChild) {
-        if (this.nav.firstChild.tagName) {
-          this.nav_items.push(this.nav.removeChild(this.nav.firstChild));
+      thm_btn = quick_nav.removeChild(document.getElementById('nav-thm'));
+      while (nav.firstChild) {
+        if (nav.firstChild.tagName) {
+          nav_items.push(nav.removeChild(nav.firstChild));
         } else {
-          this.nav.removeChild(this.nav.firstChild); // remove text nodes
+          nav.removeChild(nav.firstChild); // remove text nodes
         }
       }
-      for (var i = 0; i < this.nav_items.length; i++) {
-        this.quick_nav.appendChild(this.nav_items[i]);
+      for (var i = 0; i < nav_items.length; i++) {
+        quick_nav.appendChild(nav_items[i]);
       }
-      this.nav_nav = this.quick_nav.removeChild(document.getElementById('nav-nav'));
+      quick_nav.appendChild(thm_btn);
+      nav_nav = quick_nav.removeChild(document.getElementById('nav-nav'));
       html.classList.add('navbar');
-      this.full_nav.classList.add('hidden');
+      full_nav.classList.add('hidden');
     }
     if (!responsiveFeature('navbar') && html.classList.contains('navbar')) {
-      console.log('nav-nav node name:', this.nav_nav.nodeName);
-      this.quick_nav.appendChild(this.nav_nav);
-      for (var i = 0; i < this.nav_items.length; i++) {
-        this.nav.appendChild(this.nav_items[i]);
+      thm_btn = quick_nav.removeChild(document.getElementById('nav-thm'));
+      quick_nav.appendChild(nav_nav);
+      for (var i = 0; i < nav_items.length; i++) {
+        nav.appendChild(nav_items[i]);
       }
-      this.full_nav.classList.remove('hidden');
+      quick_nav.appendChild(thm_btn);
+      full_nav.classList.remove('hidden');
       html.classList.remove('navbar');
     }
   }
