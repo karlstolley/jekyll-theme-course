@@ -25,74 +25,109 @@ if ('serviceWorker' in navigator) {
   }
 }
 
-function themeSwitcher() {
-  // Exit fast if no CSS properties support
-  if (!('supports' in CSS && CSS.supports("(--foo: bar)"))) {
-    return;
+// Load up the theme switcher if @supports & custom properties available
+if ('supports' in CSS && CSS.supports("(--foo: bar)")) {
+
+  function ThemeSwitch() {
+    var html = document.querySelector('html');
+    var icons = {
+      light: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>',
+      dark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"/></svg>',
+      system: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></svg>'
+      // system: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1zm0 2.311L4.5 7.653v8.694l7.5 4.342 7.5-4.342V7.653L12 3.311zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>'
+    }
+    var mode = 'system';
+    var modes = ['dark','light'];
+    var button = document.createElement('a');
+
+    var cleanupOldPreferences = function() {
+      // Clean up earlier `modes` item
+      if (storageAvailable('localStorage')) {
+        localStorage.removeItem('modes');
+      }
+    }
+
+    var loadPreference = function() {
+      // read from local storage
+      if (storageAvailable('localStorage')) {
+        if (localStorage.getItem('mode')) {
+          mode = localStorage.getItem('mode');
+        } else {
+          mode = 'system';
+        }
+      }
+    }
+
+    var setModeOrder = function() {
+      // reverse the modes if dark mode is preferred,
+      // or if dark is set in preferences
+      if ('matchMedia' in window) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches && (mode !== 'light')) {
+          modes.reverse(); // ['light','dark']
+        }
+      }
+      // system gets tacked onto the end as the last option, always
+      modes.push('system');
+    }
+
+    var storePreference = function() {
+      // store current mode (default or selected) in local storage
+      if (storageAvailable('localStorage')) {
+        localStorage.setItem('mode', mode);
+      }
+    }
+
+    var setHTMLClass = function() {
+      html.classList.replace(mode,modes[0]);
+    }
+
+    var cycleModes = function() {
+      mode = modes.shift(); // grab the current mode from the front of the array...
+      modes.push(mode); // ...and push it to the end of the array
+    }
+
+    this.switcherButton = function() {
+      button.id = 'theme-button';
+      button.href = '#null';
+      button.title = 'Switch to ' + modes[0] + ' theme';
+      button.innerHTML = icons[modes[0]];
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        // fix the class list on <html>
+        setHTMLClass();
+        cycleModes();
+        storePreference();
+        button.title = 'Switch to ' + modes[0] + ' theme';
+        button.innerHTML = icons[modes[0]];
+      });
+      return button;
+    }
+
+    // Do things on construction
+    cleanupOldPreferences();
+    loadPreference();
+    setModeOrder();
+    html.classList.add(mode);
   }
 
-  var header = document.querySelector('#header h1');
-  var toggle = document.createElement('a');
-  var html = document.querySelector('html');
-  // Icons from https://remixicon.com/
-  var icons = {
-    light: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>',
-    dark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z"/></svg>',
-    system: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></svg>'
-  }
+  var ts = new ThemeSwitch();
+  document.querySelector('#header h1').appendChild(ts.switcherButton());
 
-  var dark_mode = false;
-  var modes = ['light','dark'];
-
-  if ('matchMedia' in window) {
-    dark_mode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark_mode) {
-      modes.reverse(); // ['dark','light']
-    }
-  }
-
-  if (storageAvailable('localStorage')) {
-    if (!localStorage.getItem('modes')) {
-      localStorage.setItem('modes',modes.join(','));
-    } else {
-      modes = localStorage.getItem('modes').split(',');
-    }
-  }
-
-  html.classList.add(modes[0]);
-
-  toggle.id = 'theme-toggle';
-  toggle.href = '#null';
-  toggle.title = 'Switch to ' + modes[1] + ' theme';
-  toggle.innerHTML = icons[modes[1]];
-  header.appendChild(toggle);
-
-  toggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    html.classList.replace(modes[0],modes[1]);
-    modes.reverse();
-    if (storageAvailable('localStorage')) {
-      localStorage.setItem('modes',modes.join(','));
-    }
-    toggle.title = 'Switch to ' + modes[1] + ' theme';
-    toggle.innerHTML = icons[modes[1]];
-  });
-
-  function storageAvailable(type) {
-    try {
-      var storage = window[type];
-      var x = '__storage_test__';
-      storage.setItem(x, x);
-      storage.removeItem(x);
-      return true;
-    }
-    catch(e) {
-      return false;
-    }
-  }
 }
 
-themeSwitcher();
+
+function storageAvailable(type) {
+  try {
+    var storage = window[type];
+    var x = '__storage_test__';
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  }
+  catch(e) {
+    return false;
+  }
+}
 
 // Move the nav to the header when there is room
 // Responsive detection

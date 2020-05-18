@@ -176,13 +176,13 @@ header small {
   color: $text-color;
   color: var(--color-text);
 }
-#header #theme-toggle {
+#header #theme-button {
   background-color: $text-color;
   background-color: var(--color-text);
   color: $back-color;
   color: var(--color-back);
 }
-#header #theme-toggle svg {
+#header #theme-button svg {
   fill: $back-color;
   fill: var(--color-back);
 }

@@ -68,7 +68,7 @@ h2 {
   text-decoration: none;
 }
 
-#header #theme-toggle {
+#header #theme-button {
   border-radius: $base-line / 4;
   display: flex;
   align-items: center;
@@ -88,7 +88,7 @@ h2 {
   #header h1 {
     position: relative;
   }
-  #header #theme-toggle {
+  #header #theme-button {
     right: 0;
     top: $base-line / 4;
   }
