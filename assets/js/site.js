@@ -148,12 +148,15 @@ function ToggledNav() {
   var nav = document.querySelector('#full-nav .nav');
   var quick_nav = document.querySelector('#quick-nav .nav');
   var full_nav = document.querySelector('#full-nav');
-  var thm_btn;
+  var thm_btn = document.querySelector('#theme-button')
+  var nav_thm;
   var nav_nav;
   var nav_items = [];
   this.toggle = function() {
     if (responsiveFeature('navbar') && !html.classList.contains('navbar')) {
-      thm_btn = quick_nav.removeChild(document.getElementById('nav-thm'));
+      if (thm_btn) {
+        nav_thm = quick_nav.removeChild(document.getElementById('nav-thm'));
+      }
       while (nav.firstChild) {
         if (nav.firstChild.tagName) {
           nav_items.push(nav.removeChild(nav.firstChild));
@@ -164,18 +167,24 @@ function ToggledNav() {
       for (var i = 0; i < nav_items.length; i++) {
         quick_nav.appendChild(nav_items[i]);
       }
-      quick_nav.appendChild(thm_btn);
+      if (thm_btn) {
+        quick_nav.appendChild(nav_thm);
+      }
       nav_nav = quick_nav.removeChild(document.getElementById('nav-nav'));
       html.classList.add('navbar');
       full_nav.classList.add('hidden');
     }
     if (!responsiveFeature('navbar') && html.classList.contains('navbar')) {
-      thm_btn = quick_nav.removeChild(document.getElementById('nav-thm'));
+      if (thm_btn) {
+        nav_thm = quick_nav.removeChild(document.getElementById('nav-thm'));
+      }
       quick_nav.appendChild(nav_nav);
       for (var i = 0; i < nav_items.length; i++) {
         nav.appendChild(nav_items[i]);
       }
-      quick_nav.appendChild(thm_btn);
+      if (thm_btn) {
+        quick_nav.appendChild(nav_thm);
+      }
       full_nav.classList.remove('hidden');
       html.classList.remove('navbar');
     }
