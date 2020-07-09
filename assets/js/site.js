@@ -255,6 +255,8 @@ if ('fetch' in window) {
       data = data[0]; // only need most recent commit
       // Lowercase commit message's first word to run in `...to XYZ` copy:
       commit.message = data.commit.message.charAt(0).toLowerCase() + data.commit.message.slice(1);
+      // Grab only the first line of a multiline message
+      commit.message = commit.message.split("\n\n")[0];
       commit.url = data.html_url;
       commit.stamp = data.commit.author.date;
       commit.date = new Date(commit.stamp);
