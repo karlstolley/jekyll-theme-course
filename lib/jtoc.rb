@@ -1,7 +1,9 @@
 module JTOpenCourse
 
-  require 'erb'
   require 'date'
+  require 'erb'
+  require 'fileutils'
+  require 'pathname'
 
   VERSION = "2.0.0-dev"
 
@@ -40,7 +42,9 @@ module JTOpenCourse
     def initialize(args, options)
       @counter = 0
       @name = args.first.chomp
-      @path = Pathname.new(File.expand_path(name, Dir.pwd))
+      puts "Trying with argument #{@name}"
+      puts "Pathname is a #{Pathname.class}"
+      @path = Pathname.new(File.expand_path(@name, Dir.pwd))
 
       @anchor_date = set_value(find_next_monday(options['monday']),find_next_monday)
       @week_count = set_value(options['weeks'], DEFAULT_VALUES[:weeks]).to_i
