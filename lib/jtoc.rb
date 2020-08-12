@@ -42,8 +42,6 @@ module JTOpenCourse
     def initialize(args, options)
       @counter = 0
       @name = args.first.chomp
-      puts "Trying with argument #{@name}"
-      puts "Pathname is a #{Pathname.class}"
       @path = Pathname.new(File.expand_path(@name, Dir.pwd))
 
       @anchor_date = set_value(find_next_monday(options['monday']),find_next_monday)
