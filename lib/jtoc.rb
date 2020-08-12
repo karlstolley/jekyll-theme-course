@@ -88,6 +88,7 @@ module JTOpenCourse
 
     def create!
       create_directories
+      create_gitignore
       create_gemfile
       create_config_yml
       create_utility_data
@@ -124,6 +125,10 @@ module JTOpenCourse
           process_file(f)
         end
       end
+    end
+
+    def create_gitignore
+      process_file(".gitignore")
     end
 
     def create_gemfile
