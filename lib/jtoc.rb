@@ -88,6 +88,7 @@ module JTOpenCourse
 
     def create!
       create_directories
+      create_gemfile
       create_config_yml
       create_utility_data
       create_calendar_data
@@ -123,6 +124,10 @@ module JTOpenCourse
           process_file(f)
         end
       end
+    end
+
+    def create_gemfile
+      process_file("Gemfile")
     end
 
     def create_config_yml
