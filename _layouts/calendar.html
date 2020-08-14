@@ -30,7 +30,7 @@ layout: default
       <header>
     {% endif %}
       <h2>
-        {{ week.theme | escape }}
+        {{ week.theme | escape | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
       </h2>
       <small>Week&nbsp;{{ util.spelled_nums[week_int] }}</small>
     </header>
