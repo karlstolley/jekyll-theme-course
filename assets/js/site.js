@@ -224,7 +224,9 @@ if ((document.querySelector('#calendar')) && (document.querySelector('#this-week
       e.preventDefault();
     }
   );
-  current_week.insertAdjacentElement('afterend', btn_show_calendar);
+  if (past_weeks.length > 0) {
+    current_week.insertAdjacentElement('afterend', btn_show_calendar);
+  }
 }
 
 if ('fetch' in window) {
