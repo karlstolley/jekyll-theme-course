@@ -1,5 +1,5 @@
 $base-size-px: 19;
-$base-line-px: 24;
+$base-line-px: 25;
 $base-size: ($base-size-px / 16) * 100%;
 $base-line: ($base-line-px / $base-size-px) * 1rem;
 $mod-scale: 1.25;
@@ -57,6 +57,7 @@ h2 {
   border-radius: $base-line / 4;
   display: block;
   padding: $base-line / 4;
+  padding: calc(#{$base-line / 5} - 1px) $base-line / 4 calc(#{$base-line / 4} - 1px) $base-line / 4;
   text-decoration: none;
 }
 
@@ -119,6 +120,7 @@ h2 {
 
 .agenda h3 a {
   padding: $base-line / 8 $base-line / 4;
+  padding: calc(#{$base-line / 10} - 1px) $base-line / 4 calc(#{$base-line / 8} - 1px) $base-line / 4;
   margin-top: -($base-line / 8);
 }
 .agenda h3 a::before {
@@ -341,7 +343,7 @@ header small {
 }
 
 .g body::after {
-  background: url('data:image/svg+xml;utf8,<svg height="24" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(255, 0, 0, 0.3)" /></svg>') repeat top left;
+  background: url('data:image/svg+xml;utf8,<svg height="25" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(255, 0, 0, 0.3)" /></svg>') repeat top left;
   content: "";
   display: block;
   pointer-events: none;
