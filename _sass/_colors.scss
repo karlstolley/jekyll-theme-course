@@ -5,7 +5,7 @@ $acnt-color: #CF5129;
 $gray-color: #9E7C71; /* #7F7F7F; */
 $gray-alter: darken($gray-color, 10%);
 $link-under: transparentize($spot-color, 0.65);
-$curr-color: lighten($gray-color, 40%);
+$curr-color: darken($back-color, 8%);
 
 // Dark mode
 $dk-text-color: #AFAFAF;
