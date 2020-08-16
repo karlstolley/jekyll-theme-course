@@ -212,11 +212,11 @@ if ((document.querySelector('#calendar')) && (document.querySelector('#this-week
   //  location.hash = '#this-week'; // point at the new hash position; viewport should show this one
   // }
   var btn_show_calendar = document.createElement('a');
+  var past_weeks = document.querySelectorAll('article.past');
   btn_show_calendar.id = "btn-show-calendar";
   btn_show_calendar.href = "#null";
   btn_show_calendar.text = "Show Previous Weeks"
   btn_show_calendar.addEventListener('click', function(e) {
-      var past_weeks = document.querySelectorAll('article.past');
       for (var week of past_weeks) {
         week.classList.remove('past');
       }
@@ -224,7 +224,7 @@ if ((document.querySelector('#calendar')) && (document.querySelector('#this-week
       e.preventDefault();
     }
   );
-  if (past_weeks.length > 0) {
+  if (past_weeks.length > 1) {
     current_week.insertAdjacentElement('afterend', btn_show_calendar);
   }
 }
