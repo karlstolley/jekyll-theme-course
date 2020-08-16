@@ -1,7 +1,8 @@
-$text-color: #222;
-$back-color: #F2F2F2;
-$spot-color: #900;
-$gray-color: #7F7F7F;
+$text-color: #321207;
+$back-color: #F6EACB;
+$spot-color: #CF5129;
+$acnt-color: #A31F50;
+$gray-color: #9E7C71; /* #7F7F7F; */
 $gray-alter: darken($gray-color, 10%);
 $link-under: transparentize($spot-color, 0.65);
 $curr-color: lighten($gray-color, 40%);
@@ -9,7 +10,8 @@ $curr-color: lighten($gray-color, 40%);
 // Dark mode
 $dk-text-color: #AFAFAF;
 $dk-back-color: #111;
-$dk-spot-color: #9C0000;
+$dk-spot-color: #FFB700;
+$dk-acnt-color: #FF602E;
 $dk-gray-color: #777;
 $dk-link-under: transparentize($dk-spot-color, 0.25);
 $dk-curr-color: darken($dk-gray-color, 45%);
@@ -21,6 +23,7 @@ html.light {
   --color-text: #{$text-color};
   --color-back: #{$back-color};
   --color-spot: #{$spot-color};
+  --color-acnt: #{$acnt-color};
   --color-gray: #{$gray-color};
   --color-curr: #{$curr-color};
   --color-altg: #{$gray-alter};
@@ -32,24 +35,26 @@ html.dark {
   --color-text: #{$dk-text-color};
   --color-back: #{$dk-back-color};
   --color-spot: #{$dk-spot-color};
+  --color-acnt: #{$dk-acnt-color};
   --color-gray: #{$dk-gray-color};
   --color-curr: #{$dk-curr-color};
   --color-altg: #{$dk-gray-color};
   --color-link: #{$dk-link-under};
   --color-navi: #{$dk-gray-color};
-  --color-nava: #{$dk-text-color};
+  --color-nava: #{$dk-back-color};
 }
 @media screen and (prefers-color-scheme: dark) {
   html {
     --color-text: #{$dk-text-color};
     --color-back: #{$dk-back-color};
     --color-spot: #{$dk-spot-color};
+    --color-acnt: #{$dk-acnt-color};
     --color-gray: #{$dk-gray-color};
     --color-curr: #{$dk-curr-color};
     --color-altg: #{$dk-gray-color};
     --color-link: #{$dk-link-under};
     --color-navi: #{$dk-gray-color};
-    --color-nava: #{$dk-text-color};
+    --color-nava: #{$dk-back-color};
   }
 }
 
@@ -62,8 +67,8 @@ html {
 }
 ol > li::before,
 ul li::before {
-  color: $spot-color;
-  color: var(--color-spot);
+  color: $acnt-color;
+  color: var(--color-acnt);
 }
 a {
   color: $spot-color;
@@ -72,8 +77,8 @@ a {
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
-    text-decoration-color: $link-under;
-    text-decoration-color: var(--color-link);
+    text-decoration-color: $spot-color;
+    text-decoration-color: var(--color-spot);
   }
 }
 #header h1 a {
@@ -81,8 +86,8 @@ a {
   color: var(--color-spot);
 }
 .nav a {
-  border: 1px solid $spot-color;
-  border: 1px solid var(--color-spot);
+  border: 1px solid $acnt-color;
+  border: 1px solid var(--color-acnt);
   color: $gray-color;
   color: var(--color-navi);
 }
@@ -92,8 +97,8 @@ a {
 #calendar #nav-cal a,
 #policies #nav-pol a,
 #projects #nav-pro a {
-  background-color: $spot-color;
-  background-color: var(--color-spot);
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
   color: $back-color;
   color: var(--color-nava);
 }
@@ -119,8 +124,8 @@ a {
 .agenda h3 a {
   color: $back-color;
   color: var(--color-back);
-  background-color: $spot-color;
-  background-color: var(--color-spot);
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
 }
 #btn-show-calendar {
   background-color: $back-color;
@@ -141,16 +146,16 @@ a {
 .agenda h3 a {
   background-color: $back-color;
   background-color: var(--color-back);
-  border: 1px solid $spot-color;
-  border: 1px solid var(--color-spot);
-  color: $spot-color;
-  color: var(--color-spot);
+  border: 1px solid $acnt-color;
+  border: 1px solid var(--color-acnt);
+  color: $acnt-color;
+  color: var(--color-acnt);
 }
 .agenda h3 a:active,
 .agenda h3 a:focus,
 .agenda h3 a:hover {
-  background-color: $spot-color;
-  background-color: var(--color-spot);
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
   color: $back-color;
   color: var(--color-back);
 }
