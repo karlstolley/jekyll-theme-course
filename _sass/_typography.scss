@@ -255,14 +255,6 @@ header small {
   }
 }
 
-/* ~ 770px */
-@media screen and (min-width: 48.125em) {
-  body::after {
-    content: 'navbar';
-    display: none;
-  }
-}
-
 /* ~ 855px */
 @media screen and (min-width: 53.4375em) {
   #header,
@@ -301,6 +293,14 @@ header small {
   }
   .project .preview {
     grid-column: 1 / 4;
+  }
+}
+
+/* ~ 890px */
+@media screen and (min-width: 55.625em) {
+  body::after {
+    content: 'navbar';
+    display: none;
   }
 }
 
