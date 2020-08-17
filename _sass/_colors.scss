@@ -8,11 +8,11 @@ $link-under: transparentize($spot-color, 0.65);
 $curr-color: darken($back-color, 8%);
 
 // Dark mode
-$dk-text-color: #AFAFAF;
+$dk-text-color: #DEDEDE;
 $dk-back-color: #111;
 $dk-spot-color: #FFB700;
-$dk-acnt-color: #FF602E;
-$dk-gray-color: #777;
+$dk-acnt-color: #FF764D;
+$dk-gray-color: #9E9E9E;
 $dk-link-under: transparentize($dk-spot-color, 0.25);
 $dk-curr-color: darken($dk-gray-color, 45%);
 
