@@ -20,8 +20,8 @@ html {
 h2 {
   font-family: $secondary-font-family;
   font-weight: 600;
-  font-size: $base-size * $mod-scale * $mod-scale * $mod-scale;
-  line-height: $base-line * 2;
+  font-size: $base-size * $mod-scale * $mod-scale;
+  line-height: $base-line * 1.5;
 }
 
 #content b,
@@ -86,6 +86,8 @@ h2 {
   h2 {
     font-family: $tertiary-font-family;
     font-weight: 700;
+    font-size: $base-size * $mod-scale * $mod-scale * $mod-scale;
+    line-height: $base-line * 2;
   }
 }
 
