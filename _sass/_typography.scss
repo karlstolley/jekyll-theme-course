@@ -302,6 +302,17 @@ header small {
     content: 'navbar';
     display: none;
   }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: $base-line;
+  }
+  .links header {
+    grid-column: 1 / 4;
+  }
+  .links .suggestions {
+    grid-column: 2 / span 2;
+  }
 }
 
 /* ~ 1100px */
