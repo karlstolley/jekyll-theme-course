@@ -29,6 +29,10 @@ h2 {
   font-weight: 500;
 }
 
+#nav-con {
+  position: absolute;
+  left: -10000px;
+}
 #full-nav.hidden {
   display: none;
 }

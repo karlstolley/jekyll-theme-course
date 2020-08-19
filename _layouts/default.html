@@ -17,7 +17,7 @@
 <body>
 <header id="header">
   <h1>
-    <a rel="home" href="{{ site.url }}{{ site.baseurl }}">{{ course.title}}</a>
+    <a rel="home" href="{{ site.url }}{{ site.baseurl }}">{{ course.title}}</a>{% if page.title %}: {{ page.title}}{% endif %}
   </h1>
   <p class="tagline">
     {% if course.tagline %}{{ course.tagline }}{% endif %}
