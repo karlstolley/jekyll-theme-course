@@ -274,6 +274,28 @@ if ('fetch' in window) {
   }
 }
 
+// This is 10,000 kinds of ugly and bad, but it gets the job done...for now.
+var course_levels = ['grad','ugrad','all'];
+var title = document.querySelector('title');
+var title_components = {};
+  title_components.original = title.innerText;
+  title_components.name = title_components.original.split(':')[1] // Web Real-Time Communications
+  title_components.full = title_components.original.split(':')[0]; // ITMD 469/545
+  title_components.code = title_components.full.split(' ')[0]; // ITMD
+  title_components.all = title_components.full.split(' ')[1]; // 469/545
+  title_components.ugrad = title_components.all.split('/')[0]; // 469
+  title_components.grad = title_components.all.split('/')[1]; // 545
+
+document.querySelector('#footer').addEventListener('dblclick', function(e) {
+  // Adjust the <title> contents
+  title.innerText = title_components.code + ' ' + title_components[course_levels[0]] + ': ' + title_components.name;
+  // Switch up the ancestor level class
+  html.classList.remove(course_levels[course_levels.length - 1]);
+  html.classList.add(course_levels[0]);
+  // Push the current level to the end of the array
+  course_levels.push(course_levels.shift());
+});
+
 window.addEventListener('keyup', function(e) {
   // console.log(e.keyCode);
   // Toggle the visibility of gridlines when `g` is pressed

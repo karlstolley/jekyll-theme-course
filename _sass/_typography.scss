@@ -345,7 +345,11 @@ header small {
 }
 
 /* States */
-.js .past {
+.js .past,
+.grad .ugrad,
+.ugrad .grad,
+.grad .grad h3,
+.ugrad .ugrad h3 {
   display: none;
 }
 
