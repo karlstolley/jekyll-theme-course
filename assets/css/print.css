@@ -1,3 +1,7 @@
+html {
+  font-size: 11pt;
+}
+
 #header,
 #footer {
   color: inherit;
@@ -19,14 +23,10 @@ p,li {
   -webkit-hyphens: none;
   hyphens: none;
 }
-h2 {
-  font-family: "moderno-fb-condensed";
-  font-weight: 700;
-}
-
 
 /* Hide Navigation Stuff */
 
+#quick-nav,
 #nav-nav,
 #full-nav {
   display: none;
