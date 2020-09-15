@@ -271,11 +271,11 @@ header small {
   #instructor {
     padding: ($base-line * 1.5) 10%;
   }
+  #instructor {
+    padding-bottom: $base-line * 2;
+  }
   #footer {
     padding-top: 0;
-  }
-  #instructor {
-    padding-bottom: 0;
   }
   h2 {
     font-size: $base-size * $mod-scale * $mod-scale * $mod-scale * $mod-scale;
@@ -333,9 +333,6 @@ header small {
   }
   #footer {
     padding-top: 0;
-  }
-  #instructor {
-    padding-bottom: 0;
   }
   .policy,
   .project,
