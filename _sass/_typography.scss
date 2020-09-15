@@ -172,6 +172,10 @@ header small {
   padding-right: $base-line * 1.5;
 }
 
+#instructor {
+  padding-bottom: $base-line * 2;
+}
+
 /* ~ 690px */
 @media screen and (min-width: 43.125em) {
   #header,
