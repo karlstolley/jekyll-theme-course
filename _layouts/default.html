@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" id="{{page.id}}" prefix="og: http://ogp.me/ns#" class="loading">
-<head>{% assign course = site.course %}{% assign instructor = site.course.instructor %}
+<head>{% assign course = site.course %}{% assign instructor = site.course.instructor %}{% assign ta = site.course.ta %}
   <meta charset="utf-8" />
   <title>{{ course.number }}: {% if page.title %}{{ page.title}}{% else %}{{ course.title }}{% endif %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
@@ -42,13 +42,28 @@
   <ul>
     <li>
       <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
-      {{ site.course.instructor.full_title | escape }}
+      {{ instructor.full_title | escape }}
     </li>
     <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
     <li id="office-hours">
       {{ instructor.office_hours }}
     </li>
   </ul>
+  {% if ta.name %}
+  <header>
+    <h3>Teaching Assistant</h3>
+  </header>
+  <ul>
+    <li>
+      {% if ta.url %}<a href="{{ ta.url }}">{% endif %}{{ ta.name }}{% if ta.url %}</a>{% endif %},
+      {{ ta.full_title | escape }}
+    </li>
+    <li><a href="mailto:{{ ta.email }}">{{ ta.email }}</a></li>
+    <li id="office-hours">
+      {{ ta.office_hours }}
+    </li>
+  </ul>
+  {% endif %}
 </aside>
 
 
