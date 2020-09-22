@@ -278,7 +278,7 @@ if ('fetch' in window) {
 var course_levels = ['grad','ugrad','all'];
 var title = document.querySelector('title');
 var title_components = {};
-  title_components.original = title.innerText;
+  title_components.original = title.innerText.trim();
   title_components.name = title_components.original.split(':')[1] // Web Real-Time Communications
   title_components.full = title_components.original.split(':')[0]; // ITMD 469/545
   title_components.code = title_components.full.split(' ')[0]; // ITMD
