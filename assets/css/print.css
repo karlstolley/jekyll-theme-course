@@ -3,6 +3,10 @@ html {
   color: black;
 }
 
+* {
+  color: black;
+}
+
 #header,
 #footer {
   color: inherit;
