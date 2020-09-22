@@ -8,7 +8,7 @@ layout: default
 {% for project in site.projects %}
 {% assign dd = project.due_date | date: "%s" %}
 
-<article class="project" id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
+<article class="project {{project.level}}" id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
   {% if today < dd and current == true %}
     <header id="current">
     {% assign current = false %}
