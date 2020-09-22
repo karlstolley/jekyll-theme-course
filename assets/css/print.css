@@ -1,5 +1,6 @@
 html {
   font-size: 11pt;
+  color: black;
 }
 
 #header,
@@ -11,7 +12,12 @@ a,
   text-decoration: none;
   color: inherit;
 }
-#content a[href^="http"]::after {
+.agenda h3 a {
+  display: none;
+}
+
+#content a[href^="http"]::after,
+#footer a[href^="http"]::after {
   display: inline;
   content: "(" attr(href) ")";
   font-family: Menlo, Monaco, "Droid Sans Mono", Courier, "Courier New", monospace;
