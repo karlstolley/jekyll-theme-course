@@ -5,7 +5,7 @@ module JTOpenCourse
   require 'fileutils'
   require 'pathname'
 
-  VERSION = "2.1.0"
+  VERSION = "2.2.0"
 
   SPELLED_NUMS = %w(
     Zero One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fifteen
