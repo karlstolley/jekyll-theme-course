@@ -97,6 +97,7 @@ module JTOpenCourse
       create_weeks
       create_policies
       create_page_stubs
+      create_license_file if @cc
     end
 
     def starter_path
@@ -152,6 +153,10 @@ module JTOpenCourse
         @counter = c
         process_file(stub,"index.md")
       end
+    end
+
+    def create_license_file
+      process_file("LICENSE-CC-BY")
     end
 
     def mkdir_p(directories)
