@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   }
 
   all_files = Dir.glob("**/*")
-  spec.files = all_files.grep(%r{^(Gemfile|_config|_data|_layouts|_projects|assets|exe|index|lib|projects)}i)
+  spec.files = all_files.grep(%r{^(Gemfile|_config|_data|_layouts|_projects|_sass|assets|exe|index|lib|projects)}i)
   spec.bindir = "exe"
   spec.executables = ["jtoc"]
 
