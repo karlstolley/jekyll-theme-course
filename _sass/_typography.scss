@@ -129,8 +129,12 @@ h2 {
   padding: calc(#{$base-line / 10} - 1px) $base-line / 4 calc(#{$base-line / 8} - 1px) $base-line / 4;
   margin-top: -($base-line / 8);
 }
-.agenda h3 a::before {
-  content: "▸ ";
+.youtube {
+  float: left;
+  padding-right: 5px;
+  padding-top: 1px;
+  height: 25px;
+  width: 25px;
 }
 #content header {
   padding-bottom: $base-line;
