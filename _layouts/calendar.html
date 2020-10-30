@@ -44,7 +44,7 @@ layout: default
       {% else %}
         {% capture dateline %}Agenda for the Week of {{ entry.begins | date: "%B %-e" }}{% endcapture %}
       {% endif %}
-      <h3>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}"><svg class="youtube"><use href="#youtube"></use></svg>Video</a>{% endif %}</h3>
+      <h3>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}"><svg class="youtube" aria-label="YouTube"><use href="#youtube"></use></svg>Video</a>{% endif %}</h3>
       <ol>
         {% for item in meeting.agenda %}
           <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
