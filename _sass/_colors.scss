@@ -120,13 +120,6 @@ a {
   color: $gray-alter;
   color: var(--color-altg);
 }
-#btn-show-calendar,
-.agenda h3 a {
-  color: $back-color;
-  color: var(--color-back);
-  background-color: $acnt-color;
-  background-color: var(--color-acnt);
-}
 #btn-show-calendar {
   background-color: $back-color;
   background-color: var(--color-back);
@@ -144,12 +137,16 @@ a {
   color: var(--color-back);
 }
 .agenda h3 a {
-  background-color: $back-color;
-  background-color: var(--color-back);
+  background-color: inherit;
   border: 1px solid $acnt-color;
   border: 1px solid var(--color-acnt);
   color: $acnt-color;
   color: var(--color-acnt);
+}
+.youtube {
+  color: pink;
+  fill: $acnt-color;
+  fill: var(--color-acnt);
 }
 .agenda h3 a:active,
 .agenda h3 a:focus,
@@ -159,9 +156,11 @@ a {
   color: $back-color;
   color: var(--color-back);
 }
-.agenda h3 a::before {
-  color: $gray-color;
-  color: var(--color-gray);
+a:active .youtube,
+a:focus .youtube,
+a:hover .youtube {
+  fill: $back-color;
+  fill: var(--color-back);
 }
 header small {
   color: $spot-color;
