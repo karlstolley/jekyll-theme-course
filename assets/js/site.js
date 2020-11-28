@@ -237,7 +237,13 @@ if ('fetch' in window) {
     var url = document.querySelector('#github').getAttribute('href'); // grab the href value of the repo link
     if (typeof(url) !== 'undefined') {
       var fragment = url.substring(url.indexOf('.com/') + 5); // find the tail end (5 = .com/)
-      return 'https://api.github.com/repos/' + fragment + '/commits?per_page=1'; // return the API url
+      var branch_regex = /tree/gi;
+      var branch_fragment = fragment.replace(branch_regex,'branches'); // replace 'tree' with 'branches'
+      // If not dealing with an archival branch (no replacement), append the `main` branch
+      if (fragment === branch_fragment) {
+        branch_fragment = fragment + '/branches/main';
+      }
+      return 'https://api.github.com/repos/' + branch_fragment; // return the branch API url
     }
   })();
 
@@ -253,14 +259,14 @@ if ('fetch' in window) {
       return response.json();
     })
     .then(function(data) {
+      var c = data.commit; // Work only with the commit property of the branch API response
       var commit = {};
-      data = data[0]; // only need most recent commit
       // Lowercase commit message's first word to run in `...to XYZ` copy:
-      commit.message = data.commit.message.charAt(0).toLowerCase() + data.commit.message.slice(1);
+      commit.message = c.commit.message.charAt(0).toLowerCase() + c.commit.message.slice(1);
       // Grab only the first line of a multiline message
       commit.message = commit.message.split("\n\n")[0];
-      commit.url = data.html_url;
-      commit.stamp = data.commit.author.date;
+      commit.url = c.html_url;
+      commit.stamp = c.commit.author.date;
       commit.date = new Date(commit.stamp);
       // Put the date in Day, Month 31 at <Local Time String> format
       commit.time_string = namedDays[commit.date.getDay()] + ', ' +
