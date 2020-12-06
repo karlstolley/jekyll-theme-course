@@ -1,0 +1,193 @@
+$text-color: #470E49;
+$back-color: #ECE9D8;
+$spot-color: #9A4B74;
+$acnt-color: #596B6B;
+$gray-color: #6D626F; /* #7F7F7F; */
+$gray-alter: darken($gray-color, 10%);
+$link-under: $acnt-color;
+$curr-color: #D4CCBE;
+
+// Dark mode
+$dk-text-color: $back-color;
+$dk-back-color: darken($text-color, 10%);
+$dk-spot-color: lighten($spot-color, 5%);
+$dk-acnt-color: #A2BBBC;
+$dk-spot-color: #E5DDB6;
+$dk-gray-color: lighten($gray-color, 30%);
+$dk-link-under: $dk-acnt-color;
+$dk-curr-color: darken($text-color, 12%);
+
+
+// CSS Variables
+html,
+html.light {
+  --color-text: #{$text-color};
+  --color-back: #{$back-color};
+  --color-spot: #{$spot-color};
+  --color-acnt: #{$acnt-color};
+  --color-gray: #{$gray-color};
+  --color-curr: #{$curr-color};
+  --color-altg: #{$gray-alter};
+  --color-link: #{$link-under};
+  --color-navi: #{$gray-color};
+  --color-nava: #{$back-color};
+}
+html.dark {
+  --color-text: #{$dk-text-color};
+  --color-back: #{$dk-back-color};
+  --color-spot: #{$dk-spot-color};
+  --color-acnt: #{$dk-acnt-color};
+  --color-gray: #{$dk-gray-color};
+  --color-curr: #{$dk-curr-color};
+  --color-altg: #{$dk-gray-color};
+  --color-link: #{$dk-link-under};
+  --color-navi: #{$dk-gray-color};
+  --color-nava: #{$dk-back-color};
+}
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    --color-text: #{$dk-text-color};
+    --color-back: #{$dk-back-color};
+    --color-spot: #{$dk-spot-color};
+    --color-acnt: #{$dk-acnt-color};
+    --color-gray: #{$dk-gray-color};
+    --color-curr: #{$dk-curr-color};
+    --color-altg: #{$dk-gray-color};
+    --color-link: #{$dk-link-under};
+    --color-navi: #{$dk-gray-color};
+    --color-nava: #{$dk-back-color};
+  }
+}
+
+html {
+  transition: color 0.5s, background-color 0.5s;
+  color: $text-color;
+  color: var(--color-text);
+  background-color: $back-color;
+  background-color: var(--color-back);
+}
+ol > li::before,
+ul li::before {
+  color: $acnt-color;
+  color: var(--color-acnt);
+}
+a {
+  color: $spot-color;
+  color: var(--color-spot);
+}
+@supports (text-decoration-color: red) {
+  a {
+    color: inherit;
+    text-decoration-color: $link-under;
+    text-decoration-color: var(--color-link);
+  }
+}
+#header h1 a {
+  color: $spot-color;
+  color: var(--color-spot);
+}
+.nav a {
+  border: 1px solid $acnt-color;
+  border: 1px solid var(--color-acnt);
+  color: $gray-color;
+  color: var(--color-navi);
+}
+.nav a:hover,
+.nav a:focus,
+.nav a:active,
+#calendar #nav-cal a,
+#policies #nav-pol a,
+#projects #nav-pro a {
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
+  color: $back-color;
+  color: var(--color-nava);
+}
+
+.recommended,
+.project .description,
+.project .goals,
+.week .agenda,
+.fine-print {
+  color: $gray-color;
+  color: var(--color-gray);
+}
+.current {
+  transition: background-color 0.5s;
+  background-color: $curr-color;
+  background-color: var(--color-curr);
+}
+.week.current .agenda {
+  color: $gray-alter;
+  color: var(--color-altg);
+}
+#btn-show-calendar {
+  background-color: $back-color;
+  background-color: var(--color-back);
+  color: $gray-color;
+  color: var(--color-gray);
+  border: 1px solid $gray-color;
+  border: 1px solid var(--color-gray);
+}
+#btn-show-calendar:active,
+#btn-show-calendar:focus,
+#btn-show-calendar:hover {
+  background-color: $gray-color;
+  background-color: var(--color-gray);
+  color: $back-color;
+  color: var(--color-back);
+}
+.agenda h3 a {
+  background-color: inherit;
+  color: $acnt-color;
+  color: var(--color-acnt);
+}
+.youtube {
+  color: pink;
+  fill: $acnt-color;
+  fill: var(--color-acnt);
+}
+.agenda h3 a:active,
+.agenda h3 a:focus,
+.agenda h3 a:hover {
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
+  color: $back-color;
+  color: var(--color-back);
+}
+a:active .youtube,
+a:focus .youtube,
+a:hover .youtube {
+  fill: $back-color;
+  fill: var(--color-back);
+}
+header small {
+  color: $spot-color;
+  color: var(--color-spot);
+}
+.week > header small {
+  color: $gray-color;
+  color: var(--color-gray);
+}
+#header,
+#footer,
+#instructor {
+  color: $gray-color;
+  color: var(--color-gray);
+}
+#header .nav {
+  color: $text-color;
+  color: var(--color-text);
+}
+#header #theme-button {
+  background-color: $text-color;
+  background-color: var(--color-text);
+  border-color: $text-color;
+  border-color: var(--color-text);
+  color: $back-color;
+  color: var(--color-back);
+}
+#header #theme-button svg {
+  fill: $back-color;
+  fill: var(--color-back);
+}
