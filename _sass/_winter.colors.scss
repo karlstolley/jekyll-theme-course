@@ -183,6 +183,10 @@ header small {
   background-color: var(--color-text);
   border-color: $text-color;
   border-color: var(--color-text);
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
+  border-color: $acnt-color;
+  border-color: var(--color-acnt);
   color: $back-color;
   color: var(--color-back);
 }
