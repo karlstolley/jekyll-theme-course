@@ -1,6 +1,6 @@
 $text-color: #470E49;
 $back-color: #ECE9D8;
-$spot-color: #9A4B74;
+$spot-color: #18384D;
 $acnt-color: #596B6B;
 $gray-color: #6D626F; /* #7F7F7F; */
 $gray-alter: darken($gray-color, 10%);
@@ -10,9 +10,8 @@ $curr-color: #D4CCBE;
 // Dark mode
 $dk-text-color: $back-color;
 $dk-back-color: darken($text-color, 10%);
-$dk-spot-color: lighten($spot-color, 5%);
-$dk-acnt-color: #A2BBBC;
 $dk-spot-color: #E5DDB6;
+$dk-acnt-color: lighten(#627482, 10%);
 $dk-gray-color: lighten($gray-color, 30%);
 $dk-link-under: $dk-acnt-color;
 $dk-curr-color: darken($text-color, 12%);
