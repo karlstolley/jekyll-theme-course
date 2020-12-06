@@ -77,8 +77,8 @@ a {
 @supports (text-decoration-color: red) {
   a {
     color: inherit;
-    text-decoration-color: $spot-color;
-    text-decoration-color: var(--color-spot);
+    text-decoration-color: $link-under;
+    text-decoration-color: var(--color-link);
   }
 }
 #header h1 a {
