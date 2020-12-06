@@ -17,6 +17,10 @@ html.loading * {
 }
 
 @import "fonts";
+{% if site.course.css.theme %}
+@import "{{site.course.css.theme}}.colors";
+{% else %}
 @import "colors";
+{% endif %}
 @import "typography";
 @import "base";
