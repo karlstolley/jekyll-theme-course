@@ -1,20 +1,21 @@
-$text-color: #321207;
-$back-color: #F6EACB;
-$spot-color: #6C1F55;
-$acnt-color: #B34523;
-$gray-color: #73664E; /* #7F7F7F; */
+$text-color: #470E49;
+$back-color: #ECE9D8;
+$spot-color: #9A4B74;
+$acnt-color: #596B6B;
+$gray-color: #6D626F; /* #7F7F7F; */
 $gray-alter: darken($gray-color, 10%);
-$link-under: transparentize($spot-color, 0.65);
-$curr-color: darken($back-color, 8%);
+$link-under: $acnt-color;
+$curr-color: #D4CCBE;
 
 // Dark mode
-$dk-text-color: #DEDEDE;
-$dk-back-color: #111;
-$dk-spot-color: #FFB700;
-$dk-acnt-color: #FF764D;
-$dk-gray-color: #9E9E9E;
-$dk-link-under: transparentize($dk-spot-color, 0.25);
-$dk-curr-color: darken($dk-gray-color, 45%);
+$dk-text-color: $back-color;
+$dk-back-color: darken($text-color, 10%);
+$dk-spot-color: lighten($spot-color, 5%);
+$dk-acnt-color: #A2BBBC;
+$dk-spot-color: #E5DDB6;
+$dk-gray-color: lighten($gray-color, 30%);
+$dk-link-under: $dk-acnt-color;
+$dk-curr-color: darken($text-color, 12%);
 
 
 // CSS Variables
