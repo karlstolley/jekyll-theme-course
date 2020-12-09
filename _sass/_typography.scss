@@ -184,6 +184,7 @@ header small {
 /* ~ 690px */
 @media screen and (min-width: 43.125em) {
   #header,
+  .error,
   .policy,
   .project,
   .week,
@@ -197,6 +198,7 @@ header small {
     grid-template-rows: auto ($base-line * 3.25);
     align-content: stretch;
   }
+  .error header,
   .policy header,
   .project header,
   .week header {
@@ -212,6 +214,7 @@ header small {
     grid-row: 2 / 4;
   }
 
+  .error > *,
   .policy > * {
     grid-column: 1 / 5;
   }
@@ -339,6 +342,7 @@ header small {
   #footer {
     padding-top: 0;
   }
+  .error,
   .policy,
   .project,
   .week {
