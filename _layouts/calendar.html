@@ -42,7 +42,7 @@ layout: default
         {% assign day_offset = site.data.utility.day_offsets[day_key] | times: 1 %}
         {% capture dateline %}{{ entry.begins | date: "%s" | plus: day_offset | date: "%A, %B %-e" }}{% endcapture %}
       {% else %}
-        {% capture dateline %}Agenda for the Week of {{ entry.begins | date: "%B %-e" }}{% endcapture %}
+        {% capture dateline %}Agenda for the Week of {{ entry.begins | date: "%B&nbsp;%-e" }}{% endcapture %}
       {% endif %}
       <h3>{{ dateline }}{% if meeting.video %} <a href="{{ meeting.video }}"><svg class="youtube" aria-label="YouTube"><use href="#youtube"></use></svg>Video</a>{% endif %}</h3>
       <ol>
