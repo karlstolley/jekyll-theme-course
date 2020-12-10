@@ -88,11 +88,12 @@ ol > li::before {
   text-align: right;
   width: 1em;
 }
-
+/* TODO: Square this with selector in _typography partial */
+/*
 b, strong {
   font-weight: bold;
 }
-
+*/
 cite, em, i {
   font-style: italic;
 }
