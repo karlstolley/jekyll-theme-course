@@ -63,6 +63,7 @@ layout: default
     {% assign be = entry.begins | date: "%s" %}
     {% assign ex = entry.expires | date: "%s" %}
     {% assign deliverables_li = "" %}
+    {% assign deliverables_sm = "" %}
 
     {%- capture deliverables_li -%}
     {%- for project in projects -%}
@@ -71,14 +72,30 @@ layout: default
       {%- for deliverable in project.deliverables -%}
         {%- assign dl = deliverable.deadline | date: "%s" -%}
         {%- if dl >= be and dl <= ex -%}
-          <li class="deadline">Project {{ util.spelled_nums[proj_int] }}: {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }} <b>Due by {{ deliverable.deadline | date: "%A, %B&nbsp;%-e" }}</b>.</li>
+          {%- assign deliverables_sm = deliverable.deadline | date: "%A, %B&nbsp;%-e" -%}
+          <li class="deadline">
+            <small>{{ deliverables_sm }}</small>
+            <a href="{{ site.baseurl }}projects/#project-{{ util.spelled_nums[proj_int] | downcase }}">Project {{ util.spelled_nums[proj_int] }}</a>: {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
         {%- endif -%}
       {%- endfor -%}
     {%- endfor -%}
     {%- endcapture -%}
 
+    {% if deliverables_li.size > 1 %}
+    <aside class="deadlines">
+      <header>
+        <h3>Project Deadlines</h3>
+      </header>
+      <ol>
+        {{ deliverables_li }}
+      </ol>
+    </aside>
+    {% endif %}
+
     {% if week.readings or week.tasks or deliverables_li.size > 1%}
     <aside class="assigned">
+
+
       <header>
         <h3>Assigned Work</h3>
         {% if entry.due_date %}
@@ -88,6 +105,7 @@ layout: default
         {% endif %}
         <small>Due {{ due_date | date: "%A, %B %-e" }}</small>
       </header>
+
       {% if week.readings %}
       <section class="readings">
         <h4>To Read</h4>
@@ -98,6 +116,7 @@ layout: default
         </ol>
       </section>
       {% endif %}
+
       {% if week.tasks %}
       <section class="tasks">
         <h4>To Do</h4>
@@ -105,16 +124,6 @@ layout: default
           {% for task in week.tasks %}
             <li>{{ task | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
           {% endfor %}
-        </ol>
-      </section>
-      {% endif %}
-
-      {% if deliverables_li.size > 1 %}
-      <!-- {{ deliverables_li.size }} -->
-      <section class="deadlines">
-        <h4>Project Deadlines</h4>
-        <ol>
-          {{ deliverables_li }}
         </ol>
       </section>
       {% endif %}

@@ -15,9 +15,8 @@ layout: default
   {% else %}
   <header>
   {% endif %}
-    <small>Project {{ site.data.utility.spelled_nums[forloop.index] }}</small>
+    <small>Project {{ site.data.utility.spelled_nums[forloop.index] }}: <b>Due {{ project.due_date | date: "%A, %B %-e, %Y"}}</b></small>
     <h2>{{ project.title }}</h2>
-    <small>Due by {{ project.due_date | date: "%A, %B %-e, %Y"}}</small>
   </header>
 
   <section class="description {% if project.preview %}preview{% endif %}">
