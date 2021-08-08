@@ -382,3 +382,27 @@ header small {
 .g body:active::after {
   display: none;
 }
+
+
+// Social Preview
+// Set browser viewport to 600 * 315 for a perfect 1200 * 630 image
+#social {
+  margin: 0;
+  padding: 0;
+}
+#social body > * {
+  display: none;
+}
+#social body > #content {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+#social body article.social {
+  box-sizing: border-box;
+  height: 315px;
+  width: 600px;
+  background: #333;
+  margin: 0;
+  padding: 0;
+}
