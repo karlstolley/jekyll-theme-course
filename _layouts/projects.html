@@ -9,13 +9,14 @@ layout: default
 {% assign dd = project.due_date | date: "%s" %}
 
 <article class="project {{project.level}}" id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
-  {% if today < dd and current == true %}
-    <header id="current">
-    {% assign current = false %}
+  {% if today <= dd and current == true %}
+  <header id="current">
+  {% assign current = false %}
   {% else %}
-    <header>
+  <header>
   {% endif %}
-    <h2>Project {{ site.data.utility.spelled_nums[forloop.index] }}: {{ project.title }}</h2>
+    <small>Project {{ site.data.utility.spelled_nums[forloop.index] }}</small>
+    <h2>{{ project.title }}</h2>
     <small>Due by {{ project.due_date | date: "%A, %B %-e, %Y"}}</small>
   </header>
 
@@ -31,7 +32,7 @@ layout: default
     <ol>
     {% for deliverable in project.deliverables %}
       <li>
-        {% if deliverable.deadline %}Due by <b>{{ deliverable.deadline | date: "%A, %B %-e"}}</b>: {% endif %}
+        {% if deliverable.deadline %}<b>Due by {{ deliverable.deadline | date: "%A, %B %-e"}}</b>: {% endif %}
         {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
         {{ deliverable.description | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}
         {% if deliverable.details %}

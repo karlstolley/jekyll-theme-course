@@ -11,7 +11,14 @@ layout: default
     <header>
       <h2>{{ policy.title }}</h2>
     </header>
-    {{ policy.content }}
+    <div class="policy-content">
+      {{ policy.content }}
+    </div>
+    {% if policy.comment %}
+    <aside class="comment">
+      {{ policy.comment | markdownify }}
+    </aside>
+    {% endif %}
   </article>
 {% endif %}
 {% endfor %}
