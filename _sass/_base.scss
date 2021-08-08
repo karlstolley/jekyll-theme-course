@@ -1,116 +1,18 @@
-body {
-  line-height: $base-line;
+html.loading,
+html.loading * {
+  transition: none !important;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-weight: bold;
-}
-h1 {
-  padding-top: $base-line / 2;
-}
-h1 small,
-h1 b {
-  display: block;
-  font-weight: normal;
-}
-h3,
-h4 {
-  text-transform: uppercase;
-  padding-bottom: $base-line / 4;
-}
-h4 {
-  text-transform: none;
-}
-
-p,li {
-  padding-bottom: $base-line;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-
-li {
-  padding-bottom: $base-line / 2;
-}
-ol, ul {
-  padding-bottom: $base-line / 2;
-}
-
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-  padding-top: $base-line / 2;
-  padding-bottom: 0;
-  padding-left: $base-line;
-}
-
-ol ul > li,
-ul ul > li,
-.with::before {
-  margin-left: -($base-line * 1.25);
-}
-ul {
-  list-style-type: square;
-}
-ol {
-  list-style-type: decimal;
-}
-ul, .with::before {
-  list-style-type: none;
-}
-ul li, .with::before {
-  position: relative;
-  padding-left: $base-line;
-  margin-left: -($base-line);
-}
-ul li::before {
-  content: "■";
-  position: absolute;
-  left: $base-line * 0.3;
-  top: -($base-line * 0.065);
-}
-
-ol, .with::before {
-  list-style-type: none;
-  counter-reset: enumerated;
-}
-ol > li, .with::before {
-  position: relative;
-  padding-left: $base-line;
-  margin-left: -($base-line);
-  counter-increment: enumerated;
-}
-ol > li::before {
-  font-weight: bold;
-  content: counter(enumerated) "";
-  position: absolute;
-  left: -($base-line * 0.0375);
-  text-align: right;
-  width: 1em;
-}
-/* TODO: Square this with selector in _typography partial */
-/*
-b, strong {
-  font-weight: bold;
-}
-*/
-a[href^="mailto"] {
-  hyphens: none;
-}
-cite, em, i {
-  font-style: italic;
-}
-code {
-  font-family: Menlo, Monaco, "Droid Sans Mono", Courier, "Courier New", monospace;
-  font-size: 0.85em;
-  hyphens: none;
-}
-
-.access {
+// Accessibility
+#nav-con {
   position: absolute;
   left: -10000px;
 }
-
-.unused {
+.unused,
+#full-nav.hidden {
   display: none;
+}
+.access {
+  position: absolute;
+  left: -10000px;
 }
