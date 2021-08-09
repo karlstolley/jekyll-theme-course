@@ -1,0 +1,59 @@
+// Navigation
+#quick-nav {
+  margin-top: $base-line / 2;
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+#theme-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  line-height: 0;
+  padding: 0;
+  width: $base-line * 1.75;
+}
+#quick-nav .nav {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+#quick-nav li {
+  padding: 0;
+  margin-left: $base-line / 2;
+}
+.navbar #quick-nav li::before {
+  content: "";
+}
+#nav-con a {
+  text-decoration: none;
+}
+.nav a {
+  border: 1px solid black;
+  border-radius: $base-line / 4;
+  line-height: 1;
+  height: $base-line * 1.75;
+  padding: $base-line * 0.375;
+  display: block;
+  text-decoration: none;
+}
+.nav li::before {
+  content: "";
+}
+
+body::after {
+  content: "";
+}
+
+@media screen and (min-width: 420px) {
+
+}
+
+@media screen and (min-width: 840px) {
+  body::after {
+    content: "navbar";
+  }
+}
