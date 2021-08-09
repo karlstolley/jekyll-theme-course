@@ -7,7 +7,7 @@ $tertiary-font-family: $secondary-font-family;
 $accent-font-family: "clone-rounded-latin", sans-serif;
 
 $base-size-px: 17;
-$base-line-px: 21;
+$base-line-px: 22;
 $base-size: ($base-size-px / 16) * 1em;
 $base-lexia-size: $base-size * 0.87;
 $base-line: ($base-line-px / $base-size-px) * 1rem;
@@ -124,7 +124,7 @@ code {
 }
 
 .g body::after {
-  background: url('data:image/svg+xml;utf8,<svg height="21" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(255, 0, 0, 0.3)" /></svg>') repeat top left;
+  background: url('data:image/svg+xml;utf8,<svg height="11" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(255, 0, 0, 0.3)" /></svg>') repeat top left;
   content: "";
   display: block;
   pointer-events: none;
