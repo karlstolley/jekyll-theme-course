@@ -1,6 +1,11 @@
 // Navigation
+#full-nav li {
+  margin-bottom: $base-line / 2;
+}
+#full-nav .nav {
+  // margin-top: $base-line / 4;
+}
 #quick-nav {
-  margin-top: $base-line / 2;
   align-items: baseline;
   display: flex;
   justify-content: space-between;
@@ -12,7 +17,7 @@
   opacity: 0.55;
   line-height: 0;
   padding: 0;
-  width: $base-line * 1.75;
+  width: $base-line * 2;
 }
 #quick-nav .nav {
   display: flex;
@@ -23,7 +28,10 @@
 }
 #quick-nav li {
   padding: 0;
-  margin-left: $base-line / 2;
+  margin-left: $base-line / 4;
+}
+#quick-nav li:first-child {
+  margin-left: 0;
 }
 .navbar #quick-nav li::before {
   content: "";
@@ -33,12 +41,14 @@
 }
 .nav a {
   border: 1px solid black;
+  // background: #DDD;
   border-radius: $base-line / 4;
-  line-height: 1;
-  height: $base-line * 1.75;
-  padding: $base-line * 0.375;
-  display: block;
+  // line-height: 1;
+  height: $base-line * 2;
+  padding: $base-line * 0.375 $base-line * 0.5;
+  margin: -1px 0 -1px 0;
   text-decoration: none;
+  display: block;
 }
 .nav li::before {
   content: "";
@@ -48,12 +58,73 @@ body::after {
   content: "";
 }
 
-@media screen and (min-width: 420px) {
 
+
+#header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: top;
+}
+#header h1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: $base-line / 4;
+  padding-right: $base-line / 2;
+  min-height: $base-line * 2;
+  flex: 1 1 50%;
+}
+#header h1 a {
+  margin-top: -($base-line * 0.25);
+}
+#header p {
+  flex: 0 0 100%;
+}
+#header #quick-nav {
+  margin-left: auto;
 }
 
-@media screen and (min-width: 840px) {
+/*
+@media screen and (min-width: 420px) {
+  #header {
+    display: grid;
+    grid-template-columns: [heading-start tagline-start] 1fr 1fr 1fr [heading-end nav-start tagline-end] 1fr 1fr [nav-end];
+    grid-gap: 0 $base-line / 2;
+    align-items: center;
+  }
+  #header h1 {
+    grid-column: heading;
+  }
+  #header p {
+    grid-column: tagline;
+  }
+  #header nav {
+    grid-column: nav;
+  }
+  #quick-nav {
+    margin-top: 0;
+  }
+}
+*/
+@media screen and (min-width: 820px) {
+  html {
+    font-size: $base-size * 1.1176470588; /* 19px */
+  }
+  #header {
+    font-size: $base-size * 1.1176470588 / $mod-scale / $mod-scale;
+  }
+}
+
+@media screen and (min-width: 910px) {
   body::after {
     content: "navbar";
   }
+  #header h1 {
+    flex: 1 1 15%;
+  }
+  /*
+  #header {
+    grid-template-columns: [heading-start tagline-start] 1fr [heading-end nav-start] 1fr [tagline-end] 1fr 1fr 1fr [nav-end];
+    grid-gap: $base-line;
+  }
+  */
 }

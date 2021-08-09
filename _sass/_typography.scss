@@ -88,6 +88,12 @@ ul ul {
   padding-bottom: 0;
 }
 
+nav ul,
+nav li {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 #header,
 #instructor,
 #footer {
@@ -95,12 +101,12 @@ ul ul {
   font-size: $base-size / $mod-scale;
   font-weight: 300;
 }
+#header h1,
 #quick-nav,
 #full-nav {
   font-size: $base-size;
   font-weight: 400;
 }
-
 b {
   font-weight: 600;
 }

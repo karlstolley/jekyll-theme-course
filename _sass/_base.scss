@@ -21,6 +21,11 @@ html.loading * {
   left: -10000px;
 }
 
+// Links
+h1 a {
+  text-decoration: none;
+}
+
 // Video Icons
 .youtube {
   display: block;
