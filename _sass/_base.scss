@@ -26,6 +26,68 @@ h1 a {
   text-decoration: none;
 }
 
+// Lists
+
+ol ul > li,
+ul ul > li,
+.with::before {
+  margin-left: -($base-line);
+}
+ul {
+  list-style-type: square;
+}
+ol {
+  list-style-type: decimal;
+}
+ul, .with::before {
+  list-style-type: none;
+}
+ul li, .with::before {
+  position: relative;
+  padding-left: $base-line;
+  margin-left: -($base-line);
+}
+ul > li::before {
+  // content: "■";
+  content: "◆";
+  position: absolute;
+  left: $base-line * 0.2;
+  top: -($base-line * 0.0325);
+}
+
+#projects ol ul li::before {
+  // content: "■";
+  content: "✔︎";
+}
+#links ul li,
+#links ul li::before,
+#grading-policy ul li,
+#grading-policy ul li::before,
+#instructor ul li,
+#instructor ul li::before {
+  list-style-type: none;
+  content: "";
+}
+
+ol, .with::before {
+  list-style-type: none;
+  counter-reset: enumerated;
+}
+ol > li, .with::before {
+  position: relative;
+  padding-left: $base-line;
+  margin-left: -($base-line);
+  counter-increment: enumerated;
+}
+ol > li::before {
+  font-weight: bold;
+  content: counter(enumerated) "";
+  position: absolute;
+  left: -($base-line * 0.0325);
+  text-align: right;
+  width: 1em;
+}
+
 // Video Icons
 .youtube {
   display: block;
