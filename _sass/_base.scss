@@ -108,3 +108,21 @@ ol > li::before {
   align-items: center;
   gap: 0 $base-line * 0.125;
 }
+
+// Deadlines
+.deadlines {
+  background: #DDD;
+  padding: $base-line / 2;
+  padding-bottom: 0;
+  margin: (-($base-line / 2));
+  margin-bottom: $base-line / 2;
+}
+.deadlines li {
+  list-style-type: none;
+}
+.deadlines li::before {
+  content: "";
+}
+.agendas {
+  margin-bottom: $base-line / 2;
+}

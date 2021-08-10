@@ -1,11 +1,15 @@
 // Page Offsets
 #header,
-#content,
 #instructor,
 #full-nav,
 #footer {
   padding: 0 $base-line;
 }
+
+#content > * {
+  padding: ($base-line / 2) $base-line;
+}
+
 #header,
 #footer {
   padding: $base-line;
@@ -15,6 +19,22 @@
   padding-top: $base-line;
 }
 
+// Weeks
+.week > header {
+  margin-bottom: $base-line / 2;
+}
+.week + .week {
+  margin-top: $base-line * 2;
+}
+.current,
+.week {
+  background: yellow;
+}
+.agendas h4,
+.assigned header,
+.assigned h4 {
+  margin-bottom: $base-line * 0.25;
+}
 // Navigation
 #full-nav li {
   margin-bottom: $base-line / 2;
@@ -75,8 +95,6 @@ body::after {
   content: "";
 }
 
-
-
 #header {
   display: flex;
   flex-flow: row wrap;
@@ -110,6 +128,39 @@ body::after {
   #full-nav {
     grid-area: nav;
     grid-row: 1;
+  }
+}
+
+@media screen and (min-width: 670px) {
+  .week {
+    display: grid;
+    grid-template-columns: [header-start agendas-start] 1fr 1fr [agendas-end deadlines-start assigned-start] 1fr 1fr 1fr [deadlines-end assigned-end header-end];
+    grid-gap: 0 ($base-line * 2);
+    align-items: start;
+  }
+  .week > header {
+    grid-column: header;
+    margin-bottom: $base-line;
+  }
+  .agendas {
+    grid-column: agendas;
+    grid-row: span 3;
+  }
+  .deadlines {
+    grid-column: deadlines;
+    grid-row: 2;
+  }
+  .assigned {
+    grid-column: assigned;
+  }
+  .agendas header {
+    margin-bottom: $base-line * 1.25;
+  }
+  .deadlines li small {
+    margin-bottom: $base-line * 0.25;
+  }
+  .deadlines li + li small {
+    margin-top: $base-line * 0.25;
   }
 }
 
