@@ -56,18 +56,21 @@ ul > li::before {
 }
 
 #projects ol ul li::before {
-  // content: "■";
   content: "✔︎";
 }
-#links ul li,
-#links ul li::before,
-#grading-policy ul li,
-#grading-policy ul li::before,
-#instructor ul li,
-#instructor ul li::before {
+
+#links ul,
+#grading-policy ul,
+#instructor ul {
   list-style-type: none;
+}
+
+#links ul li::before,
+#grading-policy ul li::before,
+#instructor ul li::before {
   content: "";
 }
+
 
 ol, .with::before {
   list-style-type: none;
