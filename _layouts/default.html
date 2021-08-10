@@ -36,39 +36,39 @@
   {{ content }}
 </main>
 
-<aside id="instructor">
-  <header>
-    <h3>Instructor</h3>
-  </header>
-  <ul>
-    <li>
-      <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
-      {{ instructor.full_title | escape }}
-    </li>
-    <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
-    <li id="office-hours">
-      {{ instructor.office_hours }}
-    </li>
-  </ul>
-  {% if ta.name %}
-  <header>
-    <h3>Teaching Assistant</h3>
-  </header>
-  <ul>
-    <li>
-      {% if ta.url %}<a href="{{ ta.url }}">{% endif %}{{ ta.name }}{% if ta.url %}</a>{% endif %},
-      {{ ta.full_title | escape }}
-    </li>
-    <li><a href="mailto:{{ ta.email }}">{{ ta.email }}</a></li>
-    <li id="ta-office-hours">
-      {{ ta.office_hours }}
-    </li>
-  </ul>
-  {% endif %}
-</aside>
+<article id="information">
+  <h2 class="access">Course Information</h2>
+  <section id="instructor">
+    <header>
+      <h3>Instructor</h3>
+    </header>
+    <ul>
+      <li>
+        <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
+        {{ instructor.full_title | escape }}
+      </li>
+      <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
+      <li id="office-hours">
+        {{ instructor.office_hours }}
+      </li>
+    </ul>
+    {% if ta.name %}
+    <header>
+      <h3>Teaching Assistant</h3>
+    </header>
+    <ul>
+      <li>
+        {% if ta.url %}<a href="{{ ta.url }}">{% endif %}{{ ta.name }}{% if ta.url %}</a>{% endif %},
+        {{ ta.full_title | escape }}
+      </li>
+      <li><a href="mailto:{{ ta.email }}">{{ ta.email }}</a></li>
+      <li id="ta-office-hours">
+        {{ ta.office_hours }}
+      </li>
+    </ul>
+    {% endif %}
+  </section>
 
-
-<footer id="footer">
   <nav id="full-nav">
     <h3>Navigation</h3>
     <ul class="nav">
@@ -83,6 +83,9 @@
       {% endfor %}
     </ul>
   </nav>
+</article>
+
+<footer id="footer">
   <section id="colophon">
     <h3>Colophon</h3>
     <p class="fineprint">
