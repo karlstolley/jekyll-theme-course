@@ -1,3 +1,18 @@
+// Page Offsets
+#header,
+#content,
+#instructor,
+#footer {
+  padding: 0 $base-line;
+}
+#header,
+#footer {
+  padding: $base-line;
+}
+#instructor {
+  padding-top: $base-line;
+}
+
 // Navigation
 #full-nav li {
   margin-bottom: $base-line / 2;
