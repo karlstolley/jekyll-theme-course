@@ -2,6 +2,7 @@
 #header,
 #content,
 #instructor,
+#full-nav,
 #footer {
   padding: 0 $base-line;
 }
@@ -9,6 +10,7 @@
 #footer {
   padding: $base-line;
 }
+#full-nav,
 #instructor {
   padding-top: $base-line;
 }
@@ -93,6 +95,22 @@ body::after {
 }
 #header #quick-nav {
   margin-left: auto;
+}
+
+@media screen and (min-width: 480px) {
+  #information {
+    display: grid;
+    grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr [nav-end];
+    grid-gap: $base-line / 2;
+  }
+  #instructor {
+    grid-area: instructor;
+    grid-row: 1;
+  }
+  #full-nav {
+    grid-area: nav;
+    grid-row: 1;
+  }
 }
 
 @media screen and (min-width: 820px) {
