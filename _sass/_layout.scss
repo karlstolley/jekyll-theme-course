@@ -233,12 +233,20 @@ body::after {
     content: "navbar";
     display: none;
   }
-  #header,
-  #footer {
+  #information {
+    display: block;
+  }
+  #header {
     display: grid;
     grid-template-columns: [heading-start tagline-start] 1fr [nav-start] 1fr [heading-end] 1fr [tagline-end] 1fr 1fr 1fr 1fr [nav-end];
     grid-gap: $base-line / 2 $base-line;
     align-items: baseline;
+  }
+  #footer,
+  #instructor {
+    display: grid;
+    grid-template-columns: [heading-start] 1fr [heading-end primary-start] 1fr 1fr 1fr 1fr [primary-end] 1fr 1fr;
+    grid-gap: $base-line / 2 $base-line;
   }
   #header h1 {
     grid-column: heading;
@@ -251,6 +259,16 @@ body::after {
   }
   #header nav {
     grid-column: nav;
+    grid-row: 1;
+  }
+  #instructor header,
+  #footer h3 {
+    grid-column: heading;
+    grid-row: 1;
+  }
+  #instructor ul,
+  #footer p {
+    grid-column: primary;
     grid-row: 1;
   }
   .project{
