@@ -86,20 +86,18 @@
 </article>
 
 <footer id="footer">
-  <section id="colophon">
-    <h3>Colophon</h3>
-    <p class="fineprint">
-      Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
-      Licensed under
-      <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
-      {% if course.archive %}
-        {% assign github_url = course.archive %}
-      {% else %}
-        {% capture github_url %}{{ instructor.github }}{{ course.uid }}{% endcapture %}
-      {% endif %}
-      <a id="github" href="{{ github_url }}">Source hosted on GitHub</a>.
-    </p>
-  </section>
+  <h3>Colophon</h3>
+  <p class="fineprint">
+    Course syllabus by <a href="{{ instructor.url }}">{{ instructor.name }}</a>.
+    Licensed under
+    <a href="{{ course.license.url }}" rel="license">{{ course.license.name }}</a>.
+    {% if course.archive %}
+      {% assign github_url = course.archive %}
+    {% else %}
+      {% capture github_url %}{{ instructor.github }}{{ course.uid }}{% endcapture %}
+    {% endif %}
+    <a id="github" href="{{ github_url }}">Source hosted on GitHub</a>.
+  </p>
 </footer>
 <script src="{{ site.baseurl }}assets/js/site.js"></script>
 </body>
