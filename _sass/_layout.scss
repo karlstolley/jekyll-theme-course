@@ -116,6 +116,9 @@ body::after {
 }
 
 @media screen and (min-width: 480px) {
+  #header p {
+    flex: 0 0 50%;
+  }
   #information {
     display: grid;
     grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr [nav-end];
@@ -132,11 +135,63 @@ body::after {
 }
 
 @media screen and (min-width: 670px) {
+  #header p {
+    flex: 0 0 40%;
+  }
+  #information {
+    grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr 1fr [nav-end];
+    grid-gap: 0 ($base-line * 2);
+  }
+
+  .project,
+  .policy {
+    display: grid;
+    grid-template-columns: [header-start aside-start] 1fr 1fr [aside-end primary-start] 1fr 1fr 1fr [primary-end header-end];
+    grid-gap: 0 ($base-line * 2);
+    grid-auto-flow: dense;
+  }
+  .policy {
+    grid-template-columns: [header-start primary-start aside-start] 1fr 1fr [aside-end primary-alternate-start] 1fr 1fr [primary-end] 1fr [primary-alternate-end header-end];
+    grid-auto-flow: row;
+  }
+  .project > header,
+  .policy > header {
+    grid-column: header;
+    // border-bottom: 1px solid black;
+    margin-bottom: $base-line / 2;
+  }
+  /*
+  .policy > header {
+    display: grid;
+    grid-template-columns: 1fr [heading-start] 1fr 1fr 1fr 1fr [heading-end];
+    grid-gap: 0 ($base-line * 2);
+    border-bottom: 1px solid black;
+  }
+  */
+  .policy > header h2 {
+    grid-column: heading;
+  }
+  .project .description,
+  .project .goals,
+  .policy .comment {
+    grid-column: aside;
+  }
+  .policy .comment {
+    grid-row: 2;
+  }
+  .project .deliverables,
+  .project .requirements,
+  .policy .content {
+    grid-column: primary;
+  }
+  .policy.has-comment .content {
+    grid-column: primary-alternate;
+  }
+
   .week {
     display: grid;
     grid-template-columns: [header-start agendas-start] 1fr 1fr [agendas-end deadlines-start assigned-start] 1fr 1fr 1fr [deadlines-end assigned-end header-end];
     grid-gap: 0 ($base-line * 2);
-    align-items: start;
   }
   .week > header {
     grid-column: header;
@@ -176,11 +231,13 @@ body::after {
 @media screen and (min-width: 945px) {
   body::after {
     content: "navbar";
+    display: none;
   }
-  #header {
+  #header,
+  #footer {
     display: grid;
-    grid-template-columns: [heading-start tagline-start] 1fr [nav-start] 1fr [heading-end tagline-end] 1fr 1fr 1fr [nav-end];
-    grid-gap: $base-line / 2;
+    grid-template-columns: [heading-start tagline-start] 1fr [nav-start] 1fr [heading-end] 1fr [tagline-end] 1fr 1fr 1fr 1fr [nav-end];
+    grid-gap: $base-line / 2 $base-line;
     align-items: baseline;
   }
   #header h1 {
@@ -195,5 +252,18 @@ body::after {
   #header nav {
     grid-column: nav;
     grid-row: 1;
+  }
+  .project{
+    grid-template-columns: 1fr [header-start aside-start] 1fr 1fr [aside-end primary-start] 1fr 1fr 1fr [primary-end header-end] 1fr;
+  }
+  .policy {
+    grid-template-columns: 1fr [header-start primary-start aside-start] 1fr 1fr [aside-end primary-alternate-start] 1fr 1fr [primary-end] 1fr [primary-alternate-end header-end] 1fr;
+  }
+  .week {
+    display: grid;
+    grid-template-columns: 1fr [header-start agendas-start] 1fr 1fr [agendas-end deadlines-start assigned-start] 1fr 1fr 1fr [deadlines-end assigned-end header-end] 1fr;
+  }
+  #information {
+    grid-template-columns: 1fr [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr 1fr [nav-end] 1fr;
   }
 }

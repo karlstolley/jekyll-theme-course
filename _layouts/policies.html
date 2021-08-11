@@ -7,11 +7,11 @@ layout: default
 {% if policy.content.size > 1 %}
   {% assign filename = policy.path | split: "/" %}
   {% assign slug = filename[1] | remove: ".md" %}
-  <article class="policy" id="{{ slug }}">
+  <article class="policy{% if policy.comment %} has-comment{% endif %}" id="{{ slug }}">
     <header>
       <h2>{{ policy.title }}</h2>
     </header>
-    <div class="policy-content">
+    <div class="content">
       {{ policy.content }}
     </div>
     {% if policy.comment %}
