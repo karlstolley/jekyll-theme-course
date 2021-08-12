@@ -26,10 +26,6 @@
 .week + .week {
   margin-top: $base-line * 2;
 }
-.current,
-.week {
-  background: yellow;
-}
 .agendas h4,
 .assigned header,
 .assigned h4 {
@@ -141,7 +137,8 @@ body::after {
   }
 
   .project,
-  .policy {
+  .policy,
+  .links {
     display: grid;
     grid-template-columns: [header-start aside-start] 1fr 1fr [aside-end primary-start] 1fr 1fr 1fr [primary-end header-end];
     grid-gap: 0 ($base-line * 2);
@@ -149,10 +146,13 @@ body::after {
   }
   .policy {
     grid-template-columns: [header-start primary-start aside-start] 1fr 1fr [aside-end primary-alternate-start] 1fr 1fr [primary-end] 1fr [primary-alternate-end header-end];
-    grid-auto-flow: row;
+  }
+  .links {
+    grid-template-columns: [header-start] 2fr 3fr [header-end];
   }
   .project > header,
-  .policy > header {
+  .policy > header,
+  .links > header {
     grid-column: header;
     // border-bottom: 1px solid black;
     margin-bottom: $base-line / 2;
@@ -213,6 +213,17 @@ body::after {
   }
   .deadlines li + li small {
     margin-top: $base-line * 0.25;
+  }
+  /*
+  .links section:nth-child(odd) {
+    grid-column: 2;
+  }
+  .links section:nth-child(even) {
+    grid-column: 1;
+  }
+  */
+  .links section.suggestions {
+    grid-column: 2;
   }
 }
 
@@ -277,7 +288,19 @@ body::after {
     display: grid;
     grid-template-columns: 1fr [header-start agendas-start] 1fr 1fr [agendas-end deadlines-start assigned-start] 1fr 1fr 1fr [deadlines-end assigned-end header-end] 1fr;
   }
+  .links {
+    grid-template-columns: 1fr [header-start] 2fr 3fr [header-end] 1fr;
+  }
   #information {
     grid-template-columns: 1fr [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr 1fr [nav-end] 1fr;
+  }
+  .links section:nth-child(odd) {
+    grid-column: 3;
+  }
+  .links section:nth-child(even) {
+    grid-column: 2;
+  }
+  .links section.suggestions {
+    grid-column: 3;
   }
 }
