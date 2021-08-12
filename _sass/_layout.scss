@@ -108,7 +108,7 @@ body::after {
   margin-top: -($base-line * 0.25);
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: (480 / 16 * 1em)) {
   #header p {
     flex: 0 0 50%;
   }
@@ -127,7 +127,7 @@ body::after {
   }
 }
 
-@media screen and (min-width: 670px) {
+@media screen and (min-width: (670 / 16 * 1em)) {
   #header p {
     flex: 0 0 40%;
   }
@@ -227,7 +227,7 @@ body::after {
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: (820 / 16 * 1em)) {
   html {
     font-size: $base-size * 1.1176470588; /* 19px */
   }
@@ -236,7 +236,7 @@ body::after {
   }
 }
 
-@media screen and (min-width: 945px) {
+@media screen and (min-width: (945 / 16 * 1em)) {
   body::after {
     content: "navbar";
     display: none;
