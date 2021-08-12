@@ -1,22 +1,22 @@
 // Page Offsets
-#header,
-#instructor,
-#full-nav,
-#footer {
-  padding: 0 $base-line;
+
+
+#header {
+  padding-bottom: $base-line;
 }
 
 #content > * {
   padding: ($base-line / 2) $base-line;
 }
 
-#header,
+#instructor,
+#full-nav {
+  padding: $base-line;
+  padding-top: 0;
+}
+
 #footer {
   padding: $base-line;
-}
-#full-nav,
-#instructor {
-  padding-top: $base-line;
 }
 
 // Weeks
@@ -43,9 +43,9 @@
   margin-top: $base-line / 4;
 }
 #quick-nav {
-  align-items: baseline;
-  display: flex;
-  justify-content: space-between;
+  order: -1;
+  flex: 1 0 auto;
+  padding: 0 $base-line;
 }
 #theme-button {
   display: flex;
@@ -58,7 +58,6 @@
 }
 #quick-nav .nav {
   display: flex;
-  flex: 1 0 auto;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
@@ -76,16 +75,20 @@
 #nav-con a {
   text-decoration: none;
 }
+#quick-nav a {
+  text-align: center;
+}
 .nav a {
-  border: 1px solid black;
   // background: #DDD;
-  border-radius: $base-line / 4;
   line-height: 1;
   height: $base-line * 2;
-  padding: $base-line * 0.5;
-  margin: -1px 0 0 0;
+  padding: $base-line * 0.60 $base-line * 0.5 $base-line * 0.40 $base-line * 0.5;
+  margin: 0;
   text-decoration: none;
   display: block;
+}
+#theme-button a {
+  margin-top: -($base-line / 4);
 }
 .nav li::before {
   content: "";
@@ -100,19 +103,13 @@ body::after {
   flex-flow: row wrap;
   align-items: baseline;
 }
-#header h1 {
-  padding-right: $base-line / 2;
-  margin-bottom: $base-line / 4;
-  flex: 1 1 50%;
+#header h1,
+#header p {
+  padding: 0 $base-line;
+  flex: 0 0 100%;
 }
 #header h1 a {
   margin-top: -($base-line * 0.25);
-}
-#header p {
-  flex: 0 0 100%;
-}
-#header #quick-nav {
-  margin-left: auto;
 }
 
 @media screen and (min-width: 480px) {
@@ -238,7 +235,7 @@ body::after {
   }
   #header {
     display: grid;
-    grid-template-columns: [heading-start tagline-start] 1fr [nav-start] 1fr [heading-end] 1fr [tagline-end] 1fr 1fr 1fr 1fr [nav-end];
+    grid-template-columns: [nav-start heading-start tagline-start] 1fr 1fr 1fr [tagline-end heading-end] 1fr 1fr 1fr 1fr [nav-end];
     grid-gap: $base-line / 2 $base-line;
     align-items: baseline;
   }
@@ -250,7 +247,6 @@ body::after {
   }
   #header h1 {
     grid-column: heading;
-    grid-row: 1;
     margin-bottom: 0;
     max-width: 70%; // Brittle! Tied to length of course title :-/
   }
