@@ -247,7 +247,7 @@ body::after {
   #header {
     display: grid;
     grid-template-columns: [nav-start heading-start tagline-start] 1fr 1fr 1fr [tagline-end heading-end] 1fr 1fr 1fr 1fr [nav-end];
-    grid-gap: $base-line / 2 $base-line;
+    grid-gap: 0 $base-line;
     align-items: baseline;
   }
   #footer,
@@ -259,7 +259,6 @@ body::after {
   #header h1 {
     grid-column: heading;
     margin-bottom: 0;
-    max-width: 70%; // Brittle! Tied to length of course title :-/
   }
   #header p {
     grid-column: tagline;
@@ -267,6 +266,7 @@ body::after {
   #header nav {
     grid-column: nav;
     grid-row: 1;
+    margin-bottom: $base-line / 2;
   }
   #instructor header,
   #footer h3 {
