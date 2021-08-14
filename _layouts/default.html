@@ -98,6 +98,16 @@
     {% endif %}
     <a id="github" href="{{ github_url }}">Source hosted on GitHub</a>.
   </p>
+  {%- unless course.archives.length == empty -%}
+  {%- capture course_versions -%}
+    {%- for archive in course.archives -%}
+      <a href="{{ archive.url }}">{{ archive.label }}</a>;
+    {%- endfor -%}
+  {%- endcapture -%}
+  <p class="archives">
+    Previous versions of this course: {{ course_versions | split: ";" | join: ", " }}.
+  </p>
+  {%- endunless -%}
 </footer>
 <script src="{{ site.baseurl }}assets/js/site.js"></script>
 </body>

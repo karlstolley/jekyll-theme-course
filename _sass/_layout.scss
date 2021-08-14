@@ -304,9 +304,13 @@ body::after {
     grid-row: 1;
   }
   #instructor ul,
-  #footer p {
+  #footer .fineprint,
+  #footer .archives {
     grid-column: primary;
     grid-row: 1;
+  }
+  #footer .archives {
+    grid-row: 2;
   }
   .project{
     grid-template-columns: 1fr [header-start aside-start] 1fr 1fr [aside-end primary-start] 1fr 1fr 1fr [primary-end header-end] 1fr;
