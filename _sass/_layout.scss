@@ -109,9 +109,32 @@ body::after {
 }
 
 @media screen and (min-width: (480 / 16 * 1em)) {
+  #header {
+    padding-bottom: $base-line;
+  }
+  #header h1,
+  #header p {
+    padding: 0 (($base-line-px / 480) * 100%);
+  }
   #header p {
     flex: 0 0 50%;
   }
+  #content > * {
+    padding: ($base-line / 2) (($base-line-px / 480) * 100%);
+  }
+  #information,
+  #footer {
+    padding: $base-line (($base-line-px / 480) * 100%);
+  }
+  #information {
+    padding-right: 0; // TODO: pad with nav a to maximize clickable area
+  }
+  #instructor,
+  #full-nav {
+    padding: $base-line 0;
+    padding-top: 0;
+  }
+
   #information {
     display: grid;
     grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr [nav-end];
@@ -249,6 +272,13 @@ body::after {
     grid-template-columns: [nav-start heading-start tagline-start] 1fr 1fr 1fr [tagline-end heading-end] 1fr 1fr 1fr 1fr [nav-end];
     grid-gap: 0 $base-line;
     align-items: baseline;
+  }
+  #header {
+    padding-left: (($base-line-px / 480) * 100%);
+  }
+  #header h1,
+  #header p {
+    padding: 0;
   }
   #footer,
   #instructor {
