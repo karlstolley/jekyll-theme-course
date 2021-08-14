@@ -11,9 +11,7 @@ layout: default
     <header>
       <h2>{{ policy.title }}</h2>
     </header>
-    <div class="content">
-      {{ policy.content }}
-    </div>
+    {{ policy.content }}
     {% if policy.comment %}
     <aside class="comment">
       {{ policy.comment | markdownify }}

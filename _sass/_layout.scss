@@ -178,10 +178,10 @@ body::after {
   }
   .project .deliverables,
   .project .requirements,
-  .policy .content {
+  .policy > * {
     grid-column: primary;
   }
-  .policy.has-comment .content {
+  .has-comment > * {
     grid-column: primary-alternate;
   }
 
