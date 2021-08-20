@@ -120,6 +120,10 @@ a {
   color: $gray-alter;
   color: var(--color-altg);
 }
+.deadlines {
+  border: 1px solid $spot-color;
+  border: 1px solid var(--color-spot);
+}
 #btn-show-calendar {
   background-color: $back-color;
   background-color: var(--color-back);
