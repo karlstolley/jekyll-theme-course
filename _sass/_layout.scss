@@ -150,6 +150,46 @@ body::after {
   }
 }
 
+// Social Preview
+#social .social {
+  height: 315px;
+  width: 600px;
+  font-size: $base-size * $mod-scale * $mod-scale;
+  // line-height: $base-line * 2;
+}
+#social .social {
+  margin: 0;
+  padding: $base-line;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#social small {
+  margin-bottom: $base-line / 2;
+}
+#social .social > * {
+  flex: 0 0 auto;
+}
+#social .info li::before {
+  display: none;
+}
+#social .tagline {
+  line-height: $base-line * 1.25;
+}
+#social .info {
+  display: flex;
+  font-family: $accent-font-family;
+  font-size: 1em / $mod-scale;
+}
+#social .info li {
+  flex: 1 0 auto;
+}
+// Video Card
+#video body {
+  height: 540px;
+  width: 960px;
+}
+
 @media screen and (min-width: (670 / 16 * 1em)) {
   #header p {
     flex: 0 0 40%;

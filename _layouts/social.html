@@ -1,9 +1,28 @@
 ---
-layout: default
+layout: spare
 ---
 
+{%- assign course = site.course -%}
 <article class="social">
   <header>
-    <h2>{{ page.title }}</h2>
+    <h2><small>{{ course.number }}</small>{{ course.title }}</h2>
   </header>
+  <p class="tagline">
+    {{ course.tagline }}
+  </p>
+  <ul class="info">
+    <li>{{ course.instructor.honorific }} {{ course.instructor.name }}</li>
+    <li>{{ site.live_url }}{{ site.baseurl }}</li>
+    <li>{{ course.term }}</li>
+  </ul>
 </article>
+
+<!--
+
+  TO CAPTURE:
+
+  Size browser viewport to 600 x 315px.
+
+  On a retina screen, that works out to a retina image of 1200 x 630px.
+
+-->

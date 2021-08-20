@@ -180,3 +180,17 @@ ol small {
   fill: $back-color;
   fill: var(--color-back);
 }
+
+// Social preview
+#social small {
+  color: $acnt-color;
+  color: var(--color-acnt);
+}
+#social .tagline {
+  color: $gray-alter;
+  color: var(--color-altg);
+}
+#social .info {
+  color: $spot-color;
+  color: var(--color-spot);
+}
