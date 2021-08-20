@@ -149,30 +149,6 @@ a {
   color: $back-color;
   color: var(--color-back);
 }
-.agenda h3 a {
-  background-color: inherit;
-  color: $acnt-color;
-  color: var(--color-acnt);
-}
-.youtube {
-  color: pink;
-  fill: $acnt-color;
-  fill: var(--color-acnt);
-}
-.agenda h3 a:active,
-.agenda h3 a:focus,
-.agenda h3 a:hover {
-  background-color: $acnt-color;
-  background-color: var(--color-acnt);
-  color: $back-color;
-  color: var(--color-back);
-}
-a:active .youtube,
-a:focus .youtube,
-a:hover .youtube {
-  fill: $back-color;
-  fill: var(--color-back);
-}
 header small,
 ol small {
   color: $spot-color;
