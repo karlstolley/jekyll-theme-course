@@ -304,6 +304,7 @@ body::after {
 @media screen and (min-width: (820 / 16 * 1em)) {
   html {
     font-size: $base-size * 1.1176470588; /* 19px */
+    line-height: ($base-line * 1.1176470588);
   }
   #header {
     font-size: $base-size * 1.1176470588 / $mod-scale / $mod-scale;
