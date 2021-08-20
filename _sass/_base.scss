@@ -12,6 +12,10 @@ html.loading * {
   position: absolute;
   left: -10000px;
 }
+.grad .ugrad,
+.ugrad .grad,
+.grad .grad h3,
+.ugrad .ugrad h3,
 .unused,
 #full-nav.hidden {
   display: none;
