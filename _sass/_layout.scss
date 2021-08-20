@@ -157,6 +157,12 @@ body::after {
   font-size: $base-size * $mod-scale * $mod-scale;
   // line-height: $base-line * 2;
 }
+#social .github.card {
+  height: 400px;
+  width: 400px;
+  margin-top: 100px;
+  font-size: $base-size * $mod-scale;
+}
 #video .card {
   height: 540px;
   width: 960px;
@@ -164,7 +170,6 @@ body::after {
 }
 #social .card,
 #video .card {
-  margin: 0;
   padding: $base-line;
   display: flex;
   justify-content: space-between;
@@ -196,6 +201,9 @@ body::after {
   justify-content: space-between;
   font-family: $accent-font-family;
   font-size: 1em / $mod-scale;
+}
+.github.card .info {
+  font-size: 1em * $mod-scale;
 }
 .card .info li {
   flex: 0 0 auto;
