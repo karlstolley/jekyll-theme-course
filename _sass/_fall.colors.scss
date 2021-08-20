@@ -182,15 +182,16 @@ ol small {
 }
 
 // Social preview
-#social small {
+.card small {
   color: $acnt-color;
   color: var(--color-acnt);
 }
-#social .tagline {
+.card .tagline,
+#video header {
   color: $gray-alter;
   color: var(--color-altg);
 }
-#social .info {
+.card .info {
   color: $spot-color;
   color: var(--color-spot);
 }
