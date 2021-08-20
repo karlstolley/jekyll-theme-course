@@ -173,7 +173,8 @@ a:hover .youtube {
   fill: $back-color;
   fill: var(--color-back);
 }
-header small {
+header small,
+ol small {
   color: $spot-color;
   color: var(--color-spot);
 }
