@@ -108,7 +108,10 @@ nav li {
   font-size: $base-size;
   font-weight: 400;
 }
-b {
+#header h1 {
+  font-weight: 700;
+}
+b, strong {
   font-weight: 600;
 }
 cite, em, i {
