@@ -276,6 +276,16 @@ body::after {
     grid-column: header;
     margin-bottom: $base-line;
   }
+  #btn-show-calendar {
+    grid-column: agendas;
+    /*
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: $base-line / 2;
+    margin: ($base-line / 2) 0;
+    */
+  }
   .agendas {
     grid-column: agendas;
     grid-row: span 3;

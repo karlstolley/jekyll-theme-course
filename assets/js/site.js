@@ -225,7 +225,7 @@ if ((document.querySelector('#calendar')) && (document.querySelector('#this-week
     }
   );
   if (past_weeks.length > 1) {
-    current_week.insertAdjacentElement('afterend', btn_show_calendar);
+    current_week.appendChild(btn_show_calendar);
   }
 }
 

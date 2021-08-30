@@ -12,6 +12,7 @@ html.loading * {
   position: absolute;
   left: -10000px;
 }
+.week.past,
 .grad .ugrad,
 .ugrad .grad,
 .grad .grad h3,
@@ -28,6 +29,14 @@ html.loading * {
 // Links
 h1 a {
   text-decoration: none;
+}
+
+#btn-show-calendar {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: $base-line / 2;
+  margin: ($base-line / 2) 0;
 }
 
 // Lists
