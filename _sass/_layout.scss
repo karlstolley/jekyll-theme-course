@@ -10,6 +10,7 @@
 }
 
 #instructor,
+#ta,
 #full-nav {
   padding: $base-line;
   padding-top: 0;
@@ -130,6 +131,7 @@ body::after {
     padding-right: 0; // TODO: pad with nav a to maximize clickable area
   }
   #instructor,
+  #ta,
   #full-nav {
     padding: $base-line 0;
     padding-top: 0;
@@ -140,9 +142,13 @@ body::after {
     grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr [nav-end];
     grid-gap: $base-line / 2;
   }
-  #instructor {
+  #instructor,
+  #ta {
     grid-area: instructor;
     grid-row: 1;
+  }
+  #ta {
+    grid-row: 2;
   }
   #full-nav {
     grid-area: nav;
@@ -353,7 +359,8 @@ body::after {
     padding: 0;
   }
   #footer,
-  #instructor {
+  #instructor,
+  #ta {
     display: grid;
     grid-template-columns: [heading-start] 1fr [heading-end primary-start] 1fr 1fr 1fr 1fr [primary-end] 1fr 1fr;
     grid-gap: $base-line / 2 $base-line;
@@ -371,11 +378,13 @@ body::after {
     margin-bottom: $base-line / 2;
   }
   #instructor header,
+  #ta header,
   #footer h3 {
     grid-column: heading;
     grid-row: 1;
   }
   #instructor ul,
+  #ta ul,
   #footer .fineprint,
   #footer .archives {
     grid-column: primary;

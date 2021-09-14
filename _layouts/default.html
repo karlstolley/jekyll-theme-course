@@ -44,7 +44,7 @@
     </header>
     <ul>
       <li>
-        <a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a>,
+        <b><a href="{{ instructor.url }}">{{ instructor.honorific }} {{ instructor.name }}</a></b>,
         {{ instructor.full_title | escape }}
       </li>
       <li><a href="mailto:{{ instructor.email }}">{{ instructor.email }}</a></li>
@@ -52,13 +52,15 @@
         {{ instructor.office_hours }}
       </li>
     </ul>
-    {% if ta.name %}
+  </section>
+  {% if ta.name %}
+  <section id="ta">
     <header>
       <h3>Teaching Assistant</h3>
     </header>
     <ul>
       <li>
-        {% if ta.url %}<a href="{{ ta.url }}">{% endif %}{{ ta.name }}{% if ta.url %}</a>{% endif %},
+        <b>{% if ta.url %}<a href="{{ ta.url }}">{% endif %}{{ ta.name }}{% if ta.url %}</a>{% endif %}</b>,
         {{ ta.full_title | escape }}
       </li>
       <li><a href="mailto:{{ ta.email }}">{{ ta.email }}</a></li>
@@ -66,8 +68,8 @@
         {{ ta.office_hours }}
       </li>
     </ul>
-    {% endif %}
   </section>
+  {% endif %}
 
   <nav id="full-nav">
     <h3>Navigation</h3>
