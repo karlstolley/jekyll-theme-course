@@ -57,8 +57,11 @@ html.dark {
     --color-nava: #{$dk-back-color};
   }
 }
-
 html {
+  background-color: $acnt-color;
+  background-color: var(--color-acnt);
+}
+body {
   transition: color 0.5s, background-color 0.5s;
   color: $text-color;
   color: var(--color-text);
@@ -120,6 +123,10 @@ a {
   color: $gray-alter;
   color: var(--color-altg);
 }
+.deadlines {
+  border: 1px solid $spot-color;
+  border: 1px solid var(--color-spot);
+}
 #btn-show-calendar {
   background-color: $back-color;
   background-color: var(--color-back);
@@ -136,31 +143,8 @@ a {
   color: $back-color;
   color: var(--color-back);
 }
-.agenda h3 a {
-  background-color: inherit;
-  color: $acnt-color;
-  color: var(--color-acnt);
-}
-.youtube {
-  color: pink;
-  fill: $acnt-color;
-  fill: var(--color-acnt);
-}
-.agenda h3 a:active,
-.agenda h3 a:focus,
-.agenda h3 a:hover {
-  background-color: $acnt-color;
-  background-color: var(--color-acnt);
-  color: $back-color;
-  color: var(--color-back);
-}
-a:active .youtube,
-a:focus .youtube,
-a:hover .youtube {
-  fill: $back-color;
-  fill: var(--color-back);
-}
-header small {
+header small,
+ol small {
   color: $spot-color;
   color: var(--color-spot);
 }
@@ -170,7 +154,8 @@ header small {
 }
 #header,
 #footer,
-#instructor {
+#instructor,
+#ta {
   color: $gray-color;
   color: var(--color-gray);
 }
@@ -189,4 +174,19 @@ header small {
 #header #theme-button svg {
   fill: $back-color;
   fill: var(--color-back);
+}
+
+// Social preview
+.card small {
+  color: $acnt-color;
+  color: var(--color-acnt);
+}
+.card .tagline,
+#video header {
+  color: $gray-alter;
+  color: var(--color-altg);
+}
+.card .info {
+  color: $spot-color;
+  color: var(--color-spot);
 }
