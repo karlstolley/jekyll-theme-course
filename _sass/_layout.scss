@@ -16,6 +16,10 @@
   padding-top: 0;
 }
 
+#information {
+  padding-top: $base-line * 2;
+}
+
 #footer {
   padding: $base-line;
 }
@@ -132,7 +136,8 @@ body::after {
     padding: $base-line (($base-line-px / 480) * 100%);
   }
   #information {
-    padding-right: 0; // TODO: pad with nav a to maximize clickable area
+    padding-top: $base-line * 2;
+    padding-right: 0;
   }
   #instructor,
   #ta,
