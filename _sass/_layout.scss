@@ -74,6 +74,7 @@
 }
 #quick-nav a {
   text-align: center;
+  border-top: 0;
 }
 .nav a {
   // background: #DDD;
@@ -135,6 +136,9 @@ body::after {
   #full-nav {
     padding: $base-line 0;
     padding-top: 0;
+  }
+  #full-nav a {
+    border-right: 0;
   }
 
   #information {

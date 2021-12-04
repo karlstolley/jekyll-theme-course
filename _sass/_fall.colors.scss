@@ -94,12 +94,6 @@ a {
   color: $gray-color;
   color: var(--color-navi);
 }
-#quick-nav a {
-  border-top: 0;
-}
-#full-nav a {
-  border-right: 0;
-}
 .nav a:hover,
 .nav a:focus,
 .nav a:active,
