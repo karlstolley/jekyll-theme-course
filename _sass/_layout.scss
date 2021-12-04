@@ -80,10 +80,13 @@
   // background: #DDD;
   line-height: 1;
   height: $base-line * 2;
-  padding: $base-line * 0.60 $base-line * 0.5 $base-line * 0.40 $base-line * 0.5;
+  padding: $base-line * 0.50;
   margin: 0;
   text-decoration: none;
   display: block;
+}
+#quick-nav .nav a {
+  padding: $base-line * 0.55 $base-line * 0.5 $base-line * 0.45 $base-line * 0.5;
 }
 #theme-button a {
   margin-top: -($base-line / 4);
