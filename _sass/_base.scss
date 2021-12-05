@@ -61,8 +61,8 @@ ul li, .with::before {
   margin-left: -($base-line);
 }
 ul > li::before {
-  // content: "■";
-  content: "◆";
+  // content: "■❏➥";
+  content: "■";
   position: absolute;
   left: $base-line * 0.2;
   top: -($base-line * 0.0325);
