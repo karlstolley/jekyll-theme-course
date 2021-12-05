@@ -205,6 +205,12 @@ body::after {
 #social .tagline {
   line-height: $base-line * 1.25;
 }
+#social h2 {
+  line-height: $base-line * 1.75;
+}
+#video h2 {
+  line-height: $base-line * 2;
+}
 #video h3 {
   margin: 0;
   padding: 0;
