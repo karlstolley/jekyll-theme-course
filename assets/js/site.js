@@ -112,9 +112,12 @@ if ('supports' in CSS && CSS.supports("(--foo: bar)")) {
 
   var ts = new ThemeSwitch();
   var ts_li = document.createElement('li');
-  ts_li.id = 'nav-thm';
-  ts_li.appendChild(ts.switcherButton());
-  document.querySelector('#quick-nav .nav').appendChild(ts_li);
+  var quick_nav = document.querySelector('#quick-nav .nav');
+  if (quick_nav) {
+    ts_li.id = 'nav-thm';
+    ts_li.appendChild(ts.switcherButton());
+    quick_nav.appendChild(ts_li);
+  }
 }
 
 
@@ -153,7 +156,7 @@ function ToggledNav() {
   var nav_nav;
   var nav_items = [];
   this.toggle = function() {
-    if (responsiveFeature('navbar') && !html.classList.contains('navbar')) {
+    if (responsiveFeature('navbar') && !html.classList.contains('navbar') && quick_nav) {
       if (thm_btn) {
         nav_thm = quick_nav.removeChild(document.getElementById('nav-thm'));
       }
