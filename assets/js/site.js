@@ -236,6 +236,14 @@ if ('fetch' in window) {
   var namedDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var namedMonths = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
 
+  var videoDate = document.querySelector('#video .dateline');
+
+  if (videoDate) {
+    var today = new Date();
+    var dateline = namedMonths[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+    videoDate.innerText = dateline;
+  }
+
   var github_url = (function() {
     var url = document.querySelector('#github').getAttribute('href'); // grab the href value of the repo link
     if (typeof(url) !== 'undefined') {
