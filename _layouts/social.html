@@ -5,7 +5,14 @@ layout: spare
 {%- assign course = site.course -%}
 <article class="card">
   <header>
-    <h2><small>{{ course.number }}</small>{{ course.title }}</h2>
+    <h2>
+      <small>{{ course.number }}</small>
+      {%- if page.custom_title -%}
+        {{ page.custom_title }}
+      {%- else -%}
+        {{ course.title }}
+      {%- endif -%}
+    </h2>
   </header>
   <p class="tagline">
     {{ course.tagline }}
@@ -29,7 +36,14 @@ layout: spare
 
 <article class="github card">
   <header>
-    <h2><small>{{ course.number }}</small>{{ course.title }}</h2>
+    <h2>
+      <small>{{ course.number }}</small>
+      {%- if page.custom_title -%}
+        {{ page.custom_title }}
+      {%- else -%}
+        {{ course.title }}
+      {%- endif -%}
+    </h2>
   </header>
   <ul class="info">
     <li>{{ course.instructor.honorific }} {{ course.instructor.name }}</li>

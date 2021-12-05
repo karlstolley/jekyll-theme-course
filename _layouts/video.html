@@ -5,7 +5,14 @@ layout: spare
 {%- assign course = site.course -%}
 <article class="card">
   <header>
-    <h2><small>{{ course.number }}</small>{{ course.title }}</h2>
+    <h2>
+      <small>{{ course.number }}</small>
+      {%- if page.custom_title -%}
+        {{ page.custom_title }}
+      {%- else -%}
+        {{ course.title }}
+      {%- endif -%}
+    </h2>
   </header>
   <h3 class="dateline" contenteditable="true">December 31, 2021</h3>
   <ul class="info">
