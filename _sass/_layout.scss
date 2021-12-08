@@ -24,6 +24,12 @@
   padding: $base-line;
 }
 
+// Error pages should be full height
+#offline body,
+#notfound body {
+  min-height: 100vh;
+}
+
 // Weeks
 .week > header {
   margin-bottom: $base-line / 2;
