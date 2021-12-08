@@ -242,6 +242,7 @@ body::after {
     grid-gap: 0 ($base-line * 2);
   }
 
+  .error,
   .project,
   .policy,
   .links {
@@ -250,12 +251,14 @@ body::after {
     grid-gap: 0 ($base-line * 2);
     grid-auto-flow: dense;
   }
+  .error,
   .policy {
     grid-template-columns: [header-start primary-start aside-start] 1fr 1fr [aside-end primary-alternate-start] 1fr 1fr [primary-end] 1fr [primary-alternate-end header-end];
   }
   .links {
     grid-template-columns: [header-start] 2fr 3fr [header-end];
   }
+  .error > header,
   .project > header,
   .policy > header,
   .links > header {
@@ -271,6 +274,7 @@ body::after {
     border-bottom: 1px solid black;
   }
   */
+  .error > header h2,
   .policy > header h2 {
     grid-column: heading;
   }
@@ -284,6 +288,7 @@ body::after {
   }
   .project .deliverables,
   .project .requirements,
+  .error > *,
   .policy > * {
     grid-column: primary;
   }
@@ -414,6 +419,7 @@ body::after {
   .project{
     grid-template-columns: 1fr [header-start aside-start] 1fr 1fr [aside-end primary-start] 1fr 1fr 1fr [primary-end header-end] 1fr;
   }
+  .error,
   .policy {
     grid-template-columns: 1fr [header-start primary-start aside-start] 1fr 1fr [aside-end primary-alternate-start] 1fr 1fr [primary-end] 1fr [primary-alternate-end header-end] 1fr;
   }
