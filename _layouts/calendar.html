@@ -75,6 +75,7 @@ layout: default
     {%- for project in projects -%}
       {%- assign proj_int = forloop.index | times: 1 -%}
       {%- capture proj_num -%}{%- if proj_int < 10 -%}0{%- endif -%}{{ proj_int }}{%- endcapture -%}
+      {%- capture proj_level -%}{%- if project.level -%}({{ site.course.id.code }} {{ site.course.id.gr }} Only)&#32;{%- endif -%}{%- endcapture -%}
       {%- for deliverable in project.deliverables -%}
         {%- unless project.preview -%}
         {%- assign dl = deliverable.deadline | date: "%s" -%}
@@ -82,7 +83,7 @@ layout: default
           {%- assign deliverables_sm = deliverable.deadline | date: "%A, %B&nbsp;%-e" -%}
           <li class="deadline">
             <small>{{ deliverables_sm }}</small>
-            <a href="{{ site.baseurl }}projects/#project-{{ util.spelled_nums[proj_int] | downcase }}">Project {{ util.spelled_nums[proj_int] }}</a>: {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+            {{ proj_level }}<a href="{{ site.baseurl }}projects/#project-{{ util.spelled_nums[proj_int] | downcase }}">Project {{ util.spelled_nums[proj_int] }}</a>: {{ deliverable.action | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
         {%- endif -%}
         {%- endunless -%}
       {%- endfor -%}

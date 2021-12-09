@@ -8,6 +8,8 @@ layout: default
 {% for project in site.projects %}
 {% assign dd = project.due_date | date: "%s" %}
 
+{%- capture proj_level -%}{%- if project.level -%}{{ site.course.id.code }} {{ site.course.id.gr }} Only:&#32;{%- endif -%}{%- endcapture -%}
+
 <article class="project {{project.level}}" id="project-{{ site.data.utility.spelled_nums[forloop.index] | downcase }}">
   {% if today <= dd and current == true %}
   <header id="current">
@@ -16,7 +18,7 @@ layout: default
   <header>
   {% endif %}
     <small>Project {{ site.data.utility.spelled_nums[forloop.index] }}: <b>Due {{ project.due_date | date: "%A, %B %-e, %Y"}}</b></small>
-    <h2>{{ project.title }}</h2>
+    <h2>{{ proj_level }}{{ project.title }}</h2>
   </header>
 
   <section class="description {% if project.preview %}preview{% endif %}">
