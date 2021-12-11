@@ -290,7 +290,7 @@ body::after {
     grid-column: aside;
   }
   .policy .comment {
-    grid-row: 2;
+    grid-row: 2 / 5; /* Yuck. Necessary to span extra rows, but brittle and yuck. */
   }
   .project .deliverables,
   .project .requirements,
