@@ -59,6 +59,13 @@ h4 {
   font-weight: 600;
 }
 
+.requirements h4 {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 small {
   display: block;
   font-size: $base-size / $mod-scale / $mod-scale;

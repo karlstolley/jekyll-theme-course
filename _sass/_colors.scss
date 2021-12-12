@@ -118,6 +118,10 @@ a {
   background-color: $curr-color;
   background-color: var(--color-curr);
 }
+.requirements h4 {
+  color: $acnt-color;
+  color: var(--color-acnt);
+}
 .week.current .agenda {
   color: $gray-alter;
   color: var(--color-altg);

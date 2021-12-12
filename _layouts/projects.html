@@ -51,11 +51,21 @@ layout: default
   {% if project.requirements %}
   <section class="requirements">
     <h3>Project Requirements</h3>
-    <ol>
+    <ul>
       {% for requirement in project.requirements %}
-      <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+        {% if requirement.heading %}
+        <li><h4>{{ requirement.heading }}:</h4>
+          <ol>
+            {% for requirement in requirement.requirements %}
+            <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+            {% endfor %}
+          </ol>
+        </li>
+        {% else %}
+        <li>{{ requirement | markdownify | remove: "<p>" | remove: "</p>" | strip_newlines }}</li>
+        {% endif %}
       {% endfor %}
-    </ol>
+    </ul>
   </section>
   {% endif %}
   {% if project.goals %}
