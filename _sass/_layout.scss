@@ -293,6 +293,9 @@ body::after {
   .policy .comment {
     grid-column: aside;
   }
+  .project .description.preview {
+    grid-column: header;
+  }
   .policy .comment {
     grid-row: 2 / 10; /* Yuck. Necessary to span extra rows, but brittle and yuck. */
   }
