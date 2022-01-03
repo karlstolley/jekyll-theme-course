@@ -63,15 +63,23 @@ ul li, .with::before {
 ul > li::before {
   // content: "■❏➥";
   content: "■";
+  display: block;
+  font-family: $system-font-family;
+  font-size: 12px;
+  line-height: 1;
   position: absolute;
   left: $base-line * 0.2;
-  top: -($base-line * 0.0975);
+  top: ($base-line * 0.25);
+}
+
+@media screen and (min-width: (820 / 16 * 1em)) {
+  ul > li::before {
+    font-size: 14px;
+  }
 }
 
 #projects ol ul li::before {
   content: "✔︎";
-  left: $base-line * 0.05;
-  top: 0;
 }
 
 #links ul,
