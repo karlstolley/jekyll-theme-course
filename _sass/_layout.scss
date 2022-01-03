@@ -120,7 +120,8 @@ body::after {
   flex: 0 0 100%;
 }
 #header h1 a {
-  margin-top: -($base-line * 0.25);
+  display: block;
+  margin-top: $base-line * 0.75;
 }
 
 @media screen and (min-width: (480 / 16 * 1em)) {
@@ -242,6 +243,9 @@ body::after {
 @media screen and (min-width: (670 / 16 * 1em)) {
   #header p {
     flex: 0 0 40%;
+  }
+  #header h1 a {
+    margin-top: -($base-line * 0.25);
   }
   #information {
     grid-template-columns: [instructor-start] 1fr 1fr 1fr [instructor-end nav-start] 1fr 1fr [nav-end];
