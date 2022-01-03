@@ -65,11 +65,13 @@ ul > li::before {
   content: "■";
   position: absolute;
   left: $base-line * 0.2;
-  top: -($base-line * 0.0325);
+  top: -($base-line * 0.0975);
 }
 
 #projects ol ul li::before {
   content: "✔︎";
+  left: $base-line * 0.05;
+  top: 0;
 }
 
 #links ul,
