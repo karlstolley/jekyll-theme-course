@@ -22,7 +22,7 @@ layout: default
   </header>
 
   <section class="description {% if project.preview %}preview{% endif %}">
-    <h3>Project Description</h3>
+    <h3>Project {% if project.preview  %}Summary{% else %}Description{% endif %}</h3>
     {{ project.content }}
   </section>
 
